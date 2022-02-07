@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A9AF536-E1A4-45B4-83EB-DE7AB7AC9D3A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>jogoN2v2._0</RootNamespace>
+    <AssemblyName>jogoN2v2.0</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsConfig.cs" />
+    <Compile Include="frmCalculoInvaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCalculoInvaders.Designer.cs">
+      <DependentUpon>frmCalculoInvaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCutScene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCutScene.Designer.cs">
+      <DependentUpon>frmCutScene.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGameOver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGameOver.Designer.cs">
+      <DependentUpon>frmGameOver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmJogoDinossauro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJogoDinossauro.Designer.cs">
+      <DependentUpon>frmJogoDinossauro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmJogoPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJogoPrincipal.Designer.cs">
+      <DependentUpon>frmJogoPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoadingGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoadingGame.Designer.cs">
+      <DependentUpon>frmLoadingGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpcoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOpcoes.Designer.cs">
+      <DependentUpon>frmOpcoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPong.Designer.cs">
+      <DependentUpon>frmPong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRanking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRanking.Designer.cs">
+      <DependentUpon>frmRanking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSobre.Designer.cs">
+      <DependentUpon>frmSobre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTutorialDino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTutorialDino.Designer.cs">
+      <DependentUpon>frmTutorialDino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTutorialInvaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTutorialInvaders.Designer.cs">
+      <DependentUpon>frmTutorialInvaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTutorialPong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTutorialPong.Designer.cs">
+      <DependentUpon>frmTutorialPong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCalculoInvaders.resx">
+      <DependentUpon>frmCalculoInvaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCutScene.resx">
+      <DependentUpon>frmCutScene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGameOver.resx">
+      <DependentUpon>frmGameOver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJogoDinossauro.resx">
+      <DependentUpon>frmJogoDinossauro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJogoPrincipal.resx">
+      <DependentUpon>frmJogoPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoadingGame.resx">
+      <DependentUpon>frmLoadingGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpcoes.resx">
+      <DependentUpon>frmOpcoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPong.resx">
+      <DependentUpon>frmPong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRanking.resx">
+      <DependentUpon>frmRanking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSobre.resx">
+      <DependentUpon>frmSobre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTutorialDino.resx">
+      <DependentUpon>frmTutorialDino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTutorialInvaders.resx">
+      <DependentUpon>frmTutorialInvaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTutorialPong.resx">
+      <DependentUpon>frmTutorialPong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\menu\config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\menu\interrogacao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\menu\intro.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\menu\menu_image.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\menu\mute_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\menu\sound_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\menu\switch_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\menu\switch_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\menu\trofeu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\bg-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\chave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\coin.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\coracao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\imagem wuo-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\imagem wuo-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\imagem wuo-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\integral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\key.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\laser2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\limite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\pixel-art-brick-wall-seamless-260nw-1798372108.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\plataforma-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\plataforma-2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\plataforma-3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\png-transparent-police-car-pixel-art-car-police-officer-car-vehicle %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\porta-aberta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\porta-fechada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\unnamed %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\unnamed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\wuo-atirando.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\wuo-pulando.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\wuo-tras1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\wuo-tras2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\wuo-tras-atirando.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\jogoPrincipal\wuo-tras-pulando.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\invaders\derivada-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\invaders\laser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\invaders\Wuo-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="imagens\menu\intro.jpeg" />
+    <None Include="Resources\jogowuogif.gif" />
+    <None Include="Resources\1.png" />
+    <None Include="Resources\gif wuo.gif" />
+    <None Include="Resources\bolona.png" />
+    <None Include="Resources\wuoputador.png" />
+    <None Include="Resources\awdaw.png" />
+    <None Include="Resources\wuopongcabeca.png" />
+    <None Include="Resources\ponglogo.jpg" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\dinogamelogo.jpg" />
+    <None Include="Resources\dino2.png" />
+    <None Include="Resources\dino1.png" />
+    <None Include="Resources\dino.png" />
+    <None Include="Resources\iconfinder_Infinity-Loop_169918.png" />
+    <None Include="Resources\laser3.png" />
+    <None Include="Resources\enter-key.png" />
+    <None Include="Resources\spacebar.png" />
+    <None Include="Resources\right.jpg" />
+    <None Include="Resources\left.png" />
+    <None Include="Resources\invaderslogo.png" />
+    <None Include="Resources\intro.jpeg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

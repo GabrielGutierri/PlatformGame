@@ -1,0 +1,7 @@
+a;Normal;10
+b;Hard;8
+c;Easy;12
+aaaaabbbbb;Normal;26
+Vinicius;Normal;32
+Vinicius;Normal;26
+Vinicius;Normal;24
