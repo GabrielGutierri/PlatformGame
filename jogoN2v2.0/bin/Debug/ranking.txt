@@ -20,3 +20,4 @@ Vinicius;Normal;12
 Vinicius;Normal;5
 Vinicius;Normal;2
 v;Normal;8
+batatinha;Normal;19

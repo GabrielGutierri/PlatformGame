@@ -146,7 +146,7 @@ namespace jogoN2v2._0
 
         void VerificaVitoria()
         {
-            if (score == 15 && clsConfig.dificuldade == "Normal" || clsConfig.dificuldade == "Easy")
+            if (score == 15 && (clsConfig.dificuldade == "Normal" || clsConfig.dificuldade == "Easy"))
             {
                 timer.Stop();
                 wuo.Image = Properties.Resources.imagem_wuo_2;

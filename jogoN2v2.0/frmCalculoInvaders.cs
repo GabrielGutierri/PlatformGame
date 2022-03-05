@@ -249,7 +249,7 @@ namespace jogoN2v2._0
             pontos = 0;
             isGameOver = false;
             laserInimigoTimer = 300;
-            MudaVelocidadeInimigo();
+            MudaVelocidade();
 
             atira = false;
 
