@@ -10,23 +10,23 @@ using System.Windows.Forms;
 
 namespace jogoN2v2._0
 {
-    public partial class frmSobre : Form
+    public partial class frmHelp : Form
     {
-        public frmSobre()
+        public frmHelp()
         {
             InitializeComponent();
         }
 
         private void btnFechar_MouseMove(object sender, MouseEventArgs e)
         {
-            btnFechar.BackColor = Color.White;
-            btnFechar.ForeColor = Color.DarkRed;
+            btnClose.BackColor = Color.White;
+            btnClose.ForeColor = Color.DarkRed;
         }
 
         private void btnFechar_MouseLeave(object sender, EventArgs e)
         {
-            btnFechar.BackColor = Color.DarkRed;
-            btnFechar.ForeColor = Color.White;
+            btnClose.BackColor = Color.DarkRed;
+            btnClose.ForeColor = Color.White;
         }
 
         private void btnFechar_Click(object sender, EventArgs e)

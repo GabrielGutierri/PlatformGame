@@ -29,57 +29,57 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRanking));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Posição = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dificuldade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pontos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvRanking = new System.Windows.Forms.DataGridView();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Player = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Difficulty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRanking)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvRanking
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(30)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Posição,
-            this.Nome,
-            this.Dificuldade,
-            this.Pontos});
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 30;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(443, 237);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvRanking.AllowUserToAddRows = false;
+            this.dgvRanking.AllowUserToDeleteRows = false;
+            this.dgvRanking.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(30)))));
+            this.dgvRanking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRanking.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Position,
+            this.Player,
+            this.Difficulty,
+            this.Points});
+            this.dgvRanking.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvRanking.Location = new System.Drawing.Point(32, 3);
+            this.dgvRanking.Name = "dgvRanking";
+            this.dgvRanking.ReadOnly = true;
+            this.dgvRanking.RowHeadersWidth = 30;
+            this.dgvRanking.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvRanking.Size = new System.Drawing.Size(443, 237);
+            this.dgvRanking.TabIndex = 0;
             // 
-            // Posição
+            // Position
             // 
-            this.Posição.HeaderText = "Posição";
-            this.Posição.Name = "Posição";
-            this.Posição.ReadOnly = true;
+            this.Position.HeaderText = "Position";
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
             // 
-            // Nome
+            // Player
             // 
-            this.Nome.HeaderText = "Nick";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
+            this.Player.HeaderText = "Player";
+            this.Player.Name = "Player";
+            this.Player.ReadOnly = true;
             // 
-            // Dificuldade
+            // Difficulty
             // 
-            this.Dificuldade.HeaderText = "Dificuldade";
-            this.Dificuldade.Name = "Dificuldade";
-            this.Dificuldade.ReadOnly = true;
+            this.Difficulty.HeaderText = "Difficulty";
+            this.Difficulty.Name = "Difficulty";
+            this.Difficulty.ReadOnly = true;
             // 
-            // Pontos
+            // Points
             // 
-            this.Pontos.HeaderText = "Pontos";
-            this.Pontos.Name = "Pontos";
-            this.Pontos.ReadOnly = true;
+            this.Points.HeaderText = "Points";
+            this.Points.Name = "Points";
+            this.Points.ReadOnly = true;
             // 
             // frmRanking
             // 
@@ -87,23 +87,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(516, 261);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvRanking);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRanking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ranking";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRanking)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Posição;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dificuldade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pontos;
+        private System.Windows.Forms.DataGridView dgvRanking;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Player;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Difficulty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Points;
     }
 }

@@ -87,11 +87,11 @@ namespace jogoN2v2._0
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblPontosJogador.Text = "Wuo: " + pontos;
-            lblPontosPC.Text = "Limites: " + pontosPC;
+            lblPointsPlayer.Text = "Wuo: " + pontos;
+            lblPointsPC.Text = "Limites: " + pontosPC;
 
-            pcbBola.Top -= yBola;
-            pcbBola.Left -= xBola;
+            pcbBall.Top -= yBola;
+            pcbBall.Left -= xBola;
             pcbPc.Top += velocidade;
 
             if (pcbPc.Top < 0 || pcbPc.Top > 500)
@@ -117,9 +117,9 @@ namespace jogoN2v2._0
 
         void ChecaColisaoBorda()
         {
-            if (pcbBola.Left < 0)
+            if (pcbBall.Left < 0)
             {
-                pcbBola.Left = 400;
+                pcbBall.Left = 400;
                 xBola = -xBola;
                 xBola -= 2;
                 pontosPC++;
@@ -127,9 +127,9 @@ namespace jogoN2v2._0
                 MarcaPonto();
             }
 
-            if (pcbBola.Left + pcbBola.Width > 800)
+            if (pcbBall.Left + pcbBall.Width > 800)
             {
-                pcbBola.Left = 400;
+                pcbBall.Left = 400;
                 xBola = -xBola;
                 xBola += 2;
                 pontos++;
@@ -174,10 +174,10 @@ namespace jogoN2v2._0
         
         void ChecaColisaoBola()
         {
-            if (pcbBola.Top < 0 || pcbBola.Top + pcbBola.Height > 600)
+            if (pcbBall.Top < 0 || pcbBall.Top + pcbBall.Height > 600)
                 yBola *= -1;
 
-            if (pcbBola.Bounds.IntersectsWith(pcbPlayer.Bounds) || pcbBola.Bounds.IntersectsWith(pcbPc.Bounds))
+            if (pcbBall.Bounds.IntersectsWith(pcbPlayer.Bounds) || pcbBall.Bounds.IntersectsWith(pcbPc.Bounds))
             {
                 xBola *= -1;
                 if (clsConfig.sons == "on")

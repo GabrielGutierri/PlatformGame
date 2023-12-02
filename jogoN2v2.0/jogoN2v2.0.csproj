@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConfig.cs" />
-    <Compile Include="frmCalculoInvaders.cs">
+    <Compile Include="frmCalculusInvaders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCalculoInvaders.Designer.cs">
-      <DependentUpon>frmCalculoInvaders.cs</DependentUpon>
+    <Compile Include="frmCalculusInvaders.Designer.cs">
+      <DependentUpon>frmCalculusInvaders.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCutScene.cs">
       <SubType>Form</SubType>
@@ -65,17 +65,17 @@
     <Compile Include="frmGameOver.Designer.cs">
       <DependentUpon>frmGameOver.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmJogoDinossauro.cs">
+    <Compile Include="frmDinoGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmJogoDinossauro.Designer.cs">
-      <DependentUpon>frmJogoDinossauro.cs</DependentUpon>
+    <Compile Include="frmDinoGame.Designer.cs">
+      <DependentUpon>frmDinoGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmJogoPrincipal.cs">
+    <Compile Include="frmMainGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmJogoPrincipal.Designer.cs">
-      <DependentUpon>frmJogoPrincipal.cs</DependentUpon>
+    <Compile Include="frmMainGame.Designer.cs">
+      <DependentUpon>frmMainGame.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoadingGame.cs">
       <SubType>Form</SubType>
@@ -83,11 +83,11 @@
     <Compile Include="frmLoadingGame.Designer.cs">
       <DependentUpon>frmLoadingGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOpcoes.cs">
+    <Compile Include="frmOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOpcoes.Designer.cs">
-      <DependentUpon>frmOpcoes.cs</DependentUpon>
+    <Compile Include="frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPong.cs">
       <SubType>Form</SubType>
@@ -107,11 +107,11 @@
     <Compile Include="frmRanking.Designer.cs">
       <DependentUpon>frmRanking.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSobre.cs">
+    <Compile Include="frmHelp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSobre.Designer.cs">
-      <DependentUpon>frmSobre.cs</DependentUpon>
+    <Compile Include="frmHelp.Designer.cs">
+      <DependentUpon>frmHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTutorialDino.cs">
       <SubType>Form</SubType>
@@ -133,8 +133,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCalculoInvaders.resx">
-      <DependentUpon>frmCalculoInvaders.cs</DependentUpon>
+    <EmbeddedResource Include="frmCalculusInvaders.resx">
+      <DependentUpon>frmCalculusInvaders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCutScene.resx">
       <DependentUpon>frmCutScene.cs</DependentUpon>
@@ -142,17 +142,17 @@
     <EmbeddedResource Include="frmGameOver.resx">
       <DependentUpon>frmGameOver.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmJogoDinossauro.resx">
-      <DependentUpon>frmJogoDinossauro.cs</DependentUpon>
+    <EmbeddedResource Include="frmDinoGame.resx">
+      <DependentUpon>frmDinoGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmJogoPrincipal.resx">
-      <DependentUpon>frmJogoPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="frmMainGame.resx">
+      <DependentUpon>frmMainGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoadingGame.resx">
       <DependentUpon>frmLoadingGame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOpcoes.resx">
-      <DependentUpon>frmOpcoes.cs</DependentUpon>
+    <EmbeddedResource Include="frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPong.resx">
       <DependentUpon>frmPong.cs</DependentUpon>
@@ -163,8 +163,8 @@
     <EmbeddedResource Include="frmRanking.resx">
       <DependentUpon>frmRanking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSobre.resx">
-      <DependentUpon>frmSobre.cs</DependentUpon>
+    <EmbeddedResource Include="frmHelp.resx">
+      <DependentUpon>frmHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTutorialDino.resx">
       <DependentUpon>frmTutorialDino.cs</DependentUpon>

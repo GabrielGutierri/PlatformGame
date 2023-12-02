@@ -16,7 +16,7 @@ namespace jogoN2v2._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+            Application.Run(new frmHomeScreen());
         }
     }
 }

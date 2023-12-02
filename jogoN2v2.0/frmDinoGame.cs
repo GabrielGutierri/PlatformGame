@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace jogoN2v2._0
 {
-    public partial class frmJogoDinossauro : Form
+    public partial class frmDinoGame : Form
     {
         WMPLib.WindowsMediaPlayer jump = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer backgroundSound = new WMPLib.WindowsMediaPlayer();
@@ -29,7 +29,7 @@ namespace jogoN2v2._0
         int vidas = 3;
         int recorde = 0;
 
-        public frmJogoDinossauro()
+        public frmDinoGame()
         {
             frmTutorialDino f = new frmTutorialDino();
             f.ShowDialog();
@@ -50,12 +50,12 @@ namespace jogoN2v2._0
 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
-            wuo.Top += jumpSpeed;
+            pcbWuo.Top += jumpSpeed;
 
             // mostra pontos
             txtScore.Text = "Pontos: " + score;
-            txtVidas.Text = "Vidas: " + vidas;
-            txtRecorde.Text = "Melhor Rodada: " + recorde;
+            txtLifes.Text = "Vidas: " + vidas;
+            txtRecord.Text = "Melhor Rodada: " + recorde;
 
             Pulo();
 
@@ -77,10 +77,10 @@ namespace jogoN2v2._0
             }
 
             // if wuo top é maior do que o limite do pulo e AND pulando == true
-            if (wuo.Top >= 240 && !jumping)
+            if (pcbWuo.Top >= 240 && !jumping)
             {
                 force = 12;
-                wuo.Top = chao.Top - wuo.Height;
+                pcbWuo.Top = chao.Top - pcbWuo.Height;
                 jumpSpeed = 0;
             }
 
@@ -111,7 +111,7 @@ namespace jogoN2v2._0
 
         void VerificaColisao(Control z)
         {
-            if (wuo.Bounds.IntersectsWith(z.Bounds))
+            if (pcbWuo.Bounds.IntersectsWith(z.Bounds))
             {
                 timer.Stop();
                 if(clsConfig.sons == "on")
@@ -119,7 +119,7 @@ namespace jogoN2v2._0
                     hit.URL = "MarioHit.mp3";
                     hit.controls.play();
                 }
-                wuo.Image = Properties.Resources.imagem_wuo_2;
+                pcbWuo.Image = Properties.Resources.imagem_wuo_2;
                 txtScore.Text += "  Aperte R para reiniciar";
                 backgroundSound.controls.stop();
                 vidas--;
@@ -149,7 +149,7 @@ namespace jogoN2v2._0
             if (score == 15 && clsConfig.dificuldade == "Normal" || clsConfig.dificuldade == "Easy")
             {
                 timer.Stop();
-                wuo.Image = Properties.Resources.imagem_wuo_2;
+                pcbWuo.Image = Properties.Resources.imagem_wuo_2;
                 TocaTemaWin();
                 MessageBox.Show("Parabéns você venceu");
                 backgroundSound.controls.stop();
@@ -160,7 +160,7 @@ namespace jogoN2v2._0
             else if (score == 20 && clsConfig.dificuldade == "Hard")
             {
                 timer.Stop();
-                wuo.Image = Properties.Resources.imagem_wuo_2;
+                pcbWuo.Image = Properties.Resources.imagem_wuo_2;
                 TocaTemaWin();
                 MessageBox.Show("Parabéns você venceu");
                 backgroundSound.controls.stop();
@@ -236,7 +236,7 @@ namespace jogoN2v2._0
             obstacleSpeed = Dificuldade();
 
             txtScore.Text = "Pontos:" + score;
-            wuo.Image = Properties.Resources.jogowuogif;
+            pcbWuo.Image = Properties.Resources.jogowuogif;
             isGameOver = false;
             //wuo.Top = 260;
             foreach (Control x in this.Controls)

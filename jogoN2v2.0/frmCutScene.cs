@@ -16,7 +16,7 @@ namespace jogoN2v2._0
         public frmCutScene()
         {
             InitializeComponent();
-            timer1.Start();
+            timerCutScene.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,14 +33,14 @@ namespace jogoN2v2._0
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
         {
-            button1.BackColor = Color.White;
-            button1.ForeColor = Color.Black;
+            btnSkip.BackColor = Color.White;
+            btnSkip.ForeColor = Color.Black;
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            button1.BackColor = Color.Black;
-            button1.ForeColor = Color.White;
+            btnSkip.BackColor = Color.Black;
+            btnSkip.ForeColor = Color.White;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

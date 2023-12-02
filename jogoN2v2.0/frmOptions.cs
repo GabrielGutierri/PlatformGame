@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace jogoN2v2._0
 {
-    public partial class frmOpcoes : Form
+    public partial class frmOptions : Form
     {
         bool somMutado = false;
         bool musicaMutado = false;
         WMPLib.WindowsMediaPlayer menuSound = new WMPLib.WindowsMediaPlayer();
 
-        public frmOpcoes()
+        public frmOptions()
         {
             InitializeComponent();
-            panel1.BackColor = Color.Transparent;
+            panelSoundsOptions.BackColor = Color.Transparent;
 
-            btnMusica.Parent = panel1;
-            btnMusica.BackColor = Color.Transparent;
+            btnMusic.Parent = panelSoundsOptions;
+            btnMusic.BackColor = Color.Transparent;
 
-            btnSons.Parent = panel1;
-            btnSons.BackColor = Color.Transparent;
+            btnSounds.Parent = panelSoundsOptions;
+            btnSounds.BackColor = Color.Transparent;
 
             lblDificuldade.Text = clsConfig.dificuldade;
 
@@ -43,12 +43,12 @@ namespace jogoN2v2._0
         {
             if (clsConfig.sons == "on")
             {
-                btnSons.BackgroundImage = Properties.Resources.switch_on;
+                btnSounds.BackgroundImage = Properties.Resources.switch_on;
                 somMutado = false;
             }
             else if (clsConfig.sons == "off")
             {
-                btnSons.BackgroundImage = Properties.Resources.switch_off;
+                btnSounds.BackgroundImage = Properties.Resources.switch_off;
                 somMutado = true;
             }
         }
@@ -57,12 +57,12 @@ namespace jogoN2v2._0
         {
             if (clsConfig.musicas == "on")
             {
-                btnMusica.BackgroundImage = Properties.Resources.switch_on;
+                btnMusic.BackgroundImage = Properties.Resources.switch_on;
                 musicaMutado = false;
             }
             else if (clsConfig.musicas == "off")
             {
-                btnMusica.BackgroundImage = Properties.Resources.switch_off;
+                btnMusic.BackgroundImage = Properties.Resources.switch_off;
                 musicaMutado = true;
             }
         }
@@ -91,12 +91,12 @@ namespace jogoN2v2._0
         {
             if (somMutado == false)
             {
-                btnSons.BackgroundImage = Properties.Resources.switch_off;
+                btnSounds.BackgroundImage = Properties.Resources.switch_off;
                 somMutado = true;
             }
             else if (somMutado == true)
             {
-                btnSons.BackgroundImage = Properties.Resources.switch_on;
+                btnSounds.BackgroundImage = Properties.Resources.switch_on;
                 somMutado = false;
             }
         }
@@ -105,12 +105,12 @@ namespace jogoN2v2._0
         {
             if (musicaMutado == false)
             {
-                btnMusica.BackgroundImage = Properties.Resources.switch_off;
+                btnMusic.BackgroundImage = Properties.Resources.switch_off;
                 musicaMutado = true;
             }
             else if (musicaMutado == true)
             {
-                btnMusica.BackgroundImage = Properties.Resources.switch_on;
+                btnMusic.BackgroundImage = Properties.Resources.switch_on;
                 musicaMutado = false;
             }
         }
@@ -179,12 +179,12 @@ namespace jogoN2v2._0
 
         private void button3_MouseMove(object sender, MouseEventArgs e)
         {
-            Move(btnRedefinir);
+            Move(btnSave);
         }
 
         private void button3_MouseLeave(object sender, EventArgs e)
         {
-            Leave(btnRedefinir);
+            Leave(btnSave);
         }
     }
 }

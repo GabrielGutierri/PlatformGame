@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace jogoN2v2._0
 {
-    public partial class frmCalculoInvaders : Form
+    public partial class frmCalculusInvaders : Form
     {
         WMPLib.WindowsMediaPlayer laserSom = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer enemyDestroyed = new WMPLib.WindowsMediaPlayer();
@@ -30,7 +30,7 @@ namespace jogoN2v2._0
         int vidas = 3;
 
 
-        public frmCalculoInvaders()
+        public frmCalculusInvaders()
         {
             frmTutorialInvaders t = new frmTutorialInvaders();
             t.ShowDialog();
@@ -45,17 +45,17 @@ namespace jogoN2v2._0
         }
         private void InvadersTimerEvent(object sender, EventArgs e)
         {
-            lblPontos.Text = "Pontos: " + pontos;
-            lblVidas.Text = "Vidas: " + vidas;
-            lblRecorde.Text = "Melhor rodada: " + recorde;
-            if (vaiParaEsquerda && pcbJogador.Left > 0)
+            lblPoints.Text = "Pontos: " + pontos;
+            lblLifes.Text = "Vidas: " + vidas;
+            lblRecord.Text = "Melhor rodada: " + recorde;
+            if (vaiParaEsquerda && pcbPlayer.Left > 0)
             {
-                pcbJogador.Left -= velocidade;
+                pcbPlayer.Left -= velocidade;
             }
 
-            if (vaiParaDireita && pcbJogador.Left < 620)
+            if (vaiParaDireita && pcbPlayer.Left < 620)
             {
-                pcbJogador.Left += velocidade;
+                pcbPlayer.Left += velocidade;
             }
 
             laserInimigoTimer -= 10;
@@ -103,7 +103,7 @@ namespace jogoN2v2._0
             {
                 MoveInvader(x);
 
-                if (x.Bounds.IntersectsWith(pcbJogador.Bounds))
+                if (x.Bounds.IntersectsWith(pcbPlayer.Bounds))
                 {
                     gameOver("Você foi pego pelos invaders... F");
                     vidas--;
@@ -144,7 +144,7 @@ namespace jogoN2v2._0
             {
                 MoveRemoveLaser(x);
 
-                if (x.Bounds.IntersectsWith(pcbJogador.Bounds))
+                if (x.Bounds.IntersectsWith(pcbPlayer.Bounds))
                 {
                     this.Controls.Remove(x);
                     gameOver("Você foi pego pelo laser dos invaders... F");
@@ -245,7 +245,7 @@ namespace jogoN2v2._0
 
         void gameSetup()
         {
-            lblPontos.Text = "Pontos: 0";
+            lblPoints.Text = "Pontos: 0";
             pontos = 0;
             isGameOver = false;
             laserInimigoTimer = 300;
@@ -343,7 +343,7 @@ namespace jogoN2v2._0
                 clsConfig.pontosInvaders = invadersVetor.Length;
                 this.Close();
             }
-            lblPontos.Text = "Pontos: " + pontos;
+            lblPoints.Text = "Pontos: " + pontos;
         }
 
         void criaLaser(string laserTag)
@@ -352,11 +352,11 @@ namespace jogoN2v2._0
             laser.Image = Properties.Resources.laser;
             laser.Size = new Size(5, 20);
             laser.Tag = laserTag;
-            laser.Left = pcbJogador.Left + pcbJogador.Width / 2;
+            laser.Left = pcbPlayer.Left + pcbPlayer.Width / 2;
 
             if ((string)laser.Tag == "laser")
             {
-                laser.Top = pcbJogador.Top - 20;
+                laser.Top = pcbPlayer.Top - 20;
             }
             if ((string)laser.Tag == "invaderLaser")
             {

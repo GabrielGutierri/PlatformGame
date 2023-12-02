@@ -118,9 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>As Dungeons de Wuo é um jogo de plataforma em que o nosso grande mestre Wuo, capaz de poderes 
-e habilidades inimagináveis, tem por objetivo limpar uma infestação de limites, integrais e derivadas do mal.
-Para vencer os inimigos, ele tem que pegar as chaves e limpar o que está dentro de cada porta, passando 
-por obstáculos e inimigos no meio do caminho.</value>
+    <value>The Dungeons of Wuo is a platform game in which our great master Wuo, capable of unimaginable powers 
+and abilities, aims to clear an infestation of evil limits, integrals, and derivatives. To defeat the enemies, 
+he must collect keys and clear what is inside each door, overcoming obstacles and enemies along the way.</value>
   </data>
 </root>

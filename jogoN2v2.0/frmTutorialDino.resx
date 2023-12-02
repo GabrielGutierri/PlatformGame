@@ -118,12 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>Quando nosso grande herói Wuo entra para a segunda porta, ele encontra uma surpresa...
-Ele acabou sendo transportado para outra dimensão em que ele está em um loop infinito
-de pulos sobre derivadas!!!! Para escapar disso, PULE AS INTEGRAIS!
-</value>
+    <value>When our great hero Wuo goes into the second door, he encounters a surprise...
+He ended up being teleported to another dimension where he is in an infinite loop 
+of jumps over integrals!!! To scape this, JUMP OVER THE INTEGRALS!</value>
   </data>
-  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="timerTutorialDino.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
 </root>

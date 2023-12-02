@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace jogoN2v2._0
 {
-    public partial class frmPrincipal : Form
+    public partial class frmHomeScreen : Form
     {
         WMPLib.WindowsMediaPlayer menuSound = new WMPLib.WindowsMediaPlayer();
         bool mudo = false;
 
-        public frmPrincipal()
+        public frmHomeScreen()
         {
             frmLoadingGame f = new frmLoadingGame();
             f.ShowDialog();
@@ -39,7 +39,7 @@ namespace jogoN2v2._0
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text.Trim() == "")
+            if (txtName.Text.Trim() == "")
                 MessageBox.Show("Erro!");
             else
             {
@@ -49,15 +49,15 @@ namespace jogoN2v2._0
                     menuSound.controls.stop();
                 }
 
-                clsConfig.nome = txtNome.Text;
-                frmJogoPrincipal f = new frmJogoPrincipal();
+                clsConfig.nome = txtName.Text;
+                frmMainGame f = new frmMainGame();
                 f.ShowDialog();
             }
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
-            frmOpcoes f = new frmOpcoes();
+            frmOptions f = new frmOptions();
             f.ShowDialog();
         }
 
@@ -101,19 +101,19 @@ namespace jogoN2v2._0
 
         private void btnJogar_MouseMove(object sender, MouseEventArgs e)
         {
-            btnJogar.BackColor = Color.White;
-            btnJogar.ForeColor = Color.DarkRed;
+            btnPlay.BackColor = Color.White;
+            btnPlay.ForeColor = Color.DarkRed;
         }
 
         private void btnJogar_MouseLeave(object sender, EventArgs e)
         {
-            btnJogar.BackColor = Color.DarkRed;
-            btnJogar.ForeColor = Color.White;
+            btnPlay.BackColor = Color.DarkRed;
+            btnPlay.ForeColor = Color.White;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmSobre t = new frmSobre();
+            frmHelp t = new frmHelp();
             t.Show();
         }
     }

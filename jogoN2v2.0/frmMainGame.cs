@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace jogoN2v2._0
 {
-    public partial class frmJogoPrincipal : Form
+    public partial class frmMainGame : Form
     {
         WMPLib.WindowsMediaPlayer SomInfinito = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer SomPulo = new WMPLib.WindowsMediaPlayer();
@@ -25,7 +25,7 @@ namespace jogoN2v2._0
             movimentaimagemdirecao, infinitoligado = false, soumavez = false;
         int velocidadePulo = 10, velocidadeJogador = 2, forca = 8, score = 0, FundoTela = 16, vidas, QuantosMini = 0, tempoimune = 0, movimentaimagem, laserInimigoTimer, tempo;
         PictureBox[] vida = new PictureBox[6];
-        public frmJogoPrincipal()
+        public frmMainGame()
         {
             frmCutScene f = new frmCutScene();
             f.ShowDialog();
@@ -479,7 +479,7 @@ namespace jogoN2v2._0
                 if(clsConfig.musicas == "on")
                     SomPrincipal.controls.pause();
                 JogoPrincipalTimer.Stop();
-                frmCalculoInvaders a = new frmCalculoInvaders();
+                frmCalculusInvaders a = new frmCalculusInvaders();
                 a.ShowDialog();
                 this.Controls.Remove(pcbPorta1);
                 JogoPrincipalTimer.Start();
@@ -496,7 +496,7 @@ namespace jogoN2v2._0
                 if(clsConfig.musicas == "on")
                     SomPrincipal.controls.pause();
                 JogoPrincipalTimer.Stop();
-                frmJogoDinossauro b = new frmJogoDinossauro();
+                frmDinoGame b = new frmDinoGame();
                 b.ShowDialog();
                 this.Controls.Remove(pcbPorta2);
                 JogoPrincipalTimer.Start();

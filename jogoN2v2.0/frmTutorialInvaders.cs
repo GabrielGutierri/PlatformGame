@@ -16,7 +16,7 @@ namespace jogoN2v2._0
         public frmTutorialInvaders()
         {
             InitializeComponent();
-            timer1.Start();
+            timerTutorialInvaders.Start();
             if(clsConfig.sons == "on")
             {
                 houstonSound.URL = "Houston.mp3";
@@ -30,7 +30,7 @@ namespace jogoN2v2._0
             panel1.Width += 7;
             if(panel1.Width > 563)
             {
-                timer1.Stop();
+                timerTutorialInvaders.Stop();
                 if (clsConfig.sons == "on")
                     houstonSound.controls.stop();
                 this.Close();

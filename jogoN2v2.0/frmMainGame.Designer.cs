@@ -1,6 +1,6 @@
 ﻿namespace jogoN2v2._0
 {
-    partial class frmJogoPrincipal
+    partial class frmMainGame
     {
         /// <summary>
         /// Required designer variable.

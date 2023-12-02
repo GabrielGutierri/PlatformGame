@@ -43,21 +43,21 @@ namespace jogoN2v2._0
                 pontos = Convert.ToInt32(dadosLinha[2]);
 
 
-                dataGridView1.Rows.Add();
+                dgvRanking.Rows.Add();
 
-                dataGridView1.Rows[i].Cells[1].Value = nick;
-                dataGridView1.Rows[i].Cells[2].Value = dificuldade;
-                dataGridView1.Rows[i].Cells[3].Value = pontos;
+                dgvRanking.Rows[i].Cells[1].Value = nick;
+                dgvRanking.Rows[i].Cells[2].Value = dificuldade;
+                dgvRanking.Rows[i].Cells[3].Value = pontos;
             }
         }
         void OrdenaGrid()
         {
-            dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Descending);
+            dgvRanking.Sort(dgvRanking.Columns[3], ListSortDirection.Descending);
 
             for (int j = 0; j < linhas.Length; j++)
             {
                 string posicao = $"{j + 1}°";
-                dataGridView1.Rows[j].Cells[0].Value = posicao;
+                dgvRanking.Rows[j].Cells[0].Value = posicao;
 
             }
         }

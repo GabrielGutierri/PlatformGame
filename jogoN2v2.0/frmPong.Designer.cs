@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblPontosJogador = new System.Windows.Forms.Label();
-            this.lblPontosPC = new System.Windows.Forms.Label();
-            this.pcbBola = new System.Windows.Forms.PictureBox();
+            this.lblPointsPlayer = new System.Windows.Forms.Label();
+            this.lblPointsPC = new System.Windows.Forms.Label();
+            this.pcbBall = new System.Windows.Forms.PictureBox();
             this.pcbPc = new System.Windows.Forms.PictureBox();
             this.pcbPlayer = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBola)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             this.SuspendLayout();
@@ -45,37 +45,37 @@
             this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lblPontosJogador
+            // lblPointsPlayer
             // 
-            this.lblPontosJogador.AutoSize = true;
-            this.lblPontosJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPontosJogador.ForeColor = System.Drawing.Color.White;
-            this.lblPontosJogador.Location = new System.Drawing.Point(12, 9);
-            this.lblPontosJogador.Name = "lblPontosJogador";
-            this.lblPontosJogador.Size = new System.Drawing.Size(65, 20);
-            this.lblPontosJogador.TabIndex = 3;
-            this.lblPontosJogador.Text = "Wuo: 0";
+            this.lblPointsPlayer.AutoSize = true;
+            this.lblPointsPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPointsPlayer.ForeColor = System.Drawing.Color.White;
+            this.lblPointsPlayer.Location = new System.Drawing.Point(12, 9);
+            this.lblPointsPlayer.Name = "lblPointsPlayer";
+            this.lblPointsPlayer.Size = new System.Drawing.Size(65, 20);
+            this.lblPointsPlayer.TabIndex = 3;
+            this.lblPointsPlayer.Text = "Wuo: 0";
             // 
-            // lblPontosPC
+            // lblPointsPC
             // 
-            this.lblPontosPC.AutoSize = true;
-            this.lblPontosPC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPontosPC.ForeColor = System.Drawing.Color.White;
-            this.lblPontosPC.Location = new System.Drawing.Point(686, 9);
-            this.lblPontosPC.Name = "lblPontosPC";
-            this.lblPontosPC.Size = new System.Drawing.Size(86, 20);
-            this.lblPontosPC.TabIndex = 4;
-            this.lblPontosPC.Text = "Limites: 0";
+            this.lblPointsPC.AutoSize = true;
+            this.lblPointsPC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPointsPC.ForeColor = System.Drawing.Color.White;
+            this.lblPointsPC.Location = new System.Drawing.Point(686, 9);
+            this.lblPointsPC.Name = "lblPointsPC";
+            this.lblPointsPC.Size = new System.Drawing.Size(76, 20);
+            this.lblPointsPC.TabIndex = 4;
+            this.lblPointsPC.Text = "Limits: 0";
             // 
-            // pcbBola
+            // pcbBall
             // 
-            this.pcbBola.BackColor = System.Drawing.Color.White;
-            this.pcbBola.Location = new System.Drawing.Point(400, 310);
-            this.pcbBola.Name = "pcbBola";
-            this.pcbBola.Size = new System.Drawing.Size(23, 23);
-            this.pcbBola.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbBola.TabIndex = 2;
-            this.pcbBola.TabStop = false;
+            this.pcbBall.BackColor = System.Drawing.Color.White;
+            this.pcbBall.Location = new System.Drawing.Point(400, 310);
+            this.pcbBall.Name = "pcbBall";
+            this.pcbBall.Size = new System.Drawing.Size(23, 23);
+            this.pcbBall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbBall.TabIndex = 2;
+            this.pcbBall.TabStop = false;
             // 
             // pcbPc
             // 
@@ -105,19 +105,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 581);
-            this.Controls.Add(this.lblPontosPC);
-            this.Controls.Add(this.lblPontosJogador);
-            this.Controls.Add(this.pcbBola);
+            this.Controls.Add(this.lblPointsPC);
+            this.Controls.Add(this.lblPointsPlayer);
+            this.Controls.Add(this.pcbBall);
             this.Controls.Add(this.pcbPc);
             this.Controls.Add(this.pcbPlayer);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmPong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PONG";
+            this.Text = "Pong";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyisdown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
-            ((System.ComponentModel.ISupportInitialize)(this.pcbBola)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).EndInit();
             this.ResumeLayout(false);
@@ -129,9 +129,9 @@
 
         private System.Windows.Forms.PictureBox pcbPlayer;
         private System.Windows.Forms.PictureBox pcbPc;
-        private System.Windows.Forms.PictureBox pcbBola;
+        private System.Windows.Forms.PictureBox pcbBall;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lblPontosJogador;
-        private System.Windows.Forms.Label lblPontosPC;
+        private System.Windows.Forms.Label lblPointsPlayer;
+        private System.Windows.Forms.Label lblPointsPC;
     }
 }

@@ -17,11 +17,11 @@ namespace jogoN2v2._0
         {
             InitializeComponent();
             
-            lblPontosPrincipal.Text = "Jogo principal: " + clsConfig.pontosPrincipal;
-            lblPontosInvaders.Text = "Jogo Invaders: " + clsConfig.pontosInvaders;
-            lblPontosDino.Text = "Jogo Dinossauro: " + clsConfig.pontosDino;
-            lblPontosPong.Text = "Jogo Pong: " + clsConfig.pontosPong;
-            lblTotal.Text = "Total: " + totalPontos();
+            lblPointsMainGame.Text = "Jogo principal: " + clsConfig.pontosPrincipal;
+            lblPointsInvaders.Text = "Jogo Invaders: " + clsConfig.pontosInvaders;
+            lblPointsDino.Text = "Jogo Dinossauro: " + clsConfig.pontosDino;
+            lblPointsPong.Text = "Jogo Pong: " + clsConfig.pontosPong;
+            lblTotalPoints.Text = "Total: " + totalPontos();
 
             if(clsConfig.nome == "pacote")
                 MessageBox.Show("Por seu nome ser pacote, você ganha 100 pontos!!!");
