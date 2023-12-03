@@ -109,7 +109,7 @@
             // 
             // timerTutorialPong
             // 
-            this.timerTutorialPong.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerTutorialPong.Tick += new System.EventHandler(this.timerTutorialPong_Tick);
             // 
             // frmTutorialPong
             // 

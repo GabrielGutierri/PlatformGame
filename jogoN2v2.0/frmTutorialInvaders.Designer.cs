@@ -135,7 +135,7 @@
             // 
             // timerTutorialInvaders
             // 
-            this.timerTutorialInvaders.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerTutorialInvaders.Tick += new System.EventHandler(this.timerTutorialInvaders_Tick);
             // 
             // frmTutorialInvaders
             // 

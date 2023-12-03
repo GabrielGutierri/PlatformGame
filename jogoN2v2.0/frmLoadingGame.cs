@@ -15,14 +15,14 @@ namespace jogoN2v2._0
         public frmLoadingGame()
         {
             InitializeComponent();
-            timer1.Start();
+            timerLoadingScreen.Start();
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerScreen_Tick(object sender, EventArgs e)
         {
-            panel2.Width += 15;
-            if (panel2.Width >= panel1.Width)
+            pnlLoadingScreen.Width += 15;
+            if (pnlLoadingScreen.Width >= pnlLoadingScreenContainer.Width)
             {
-                timer1.Stop();
+                timerLoadingScreen.Stop();
                 this.Close();
             }
         }

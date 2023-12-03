@@ -12,124 +12,126 @@ namespace jogoN2v2._0
 {
     public partial class frmMainGame : Form
     {
-        WMPLib.WindowsMediaPlayer SomInfinito = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer SomPulo = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer SomDano = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer infiniteSound = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer jumpSound = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer damageSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer gameOverSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer winSound = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer SomPrincipal = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer laserSom = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer mainGameSound = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer laserSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer enemyDestroyed = new WMPLib.WindowsMediaPlayer();
-        string somaLetras = "";
-        bool goRight, goLeft, jumping, hasKey1, hasKey2, hasKey3, parede, atira, sentidoDireita = true, imune = false, atirainimigo = true, 
-            movimentaimagemdirecao, infinitoligado = false, soumavez = false;
-        int velocidadePulo = 10, velocidadeJogador = 2, forca = 8, score = 0, FundoTela = 16, vidas, QuantosMini = 0, tempoimune = 0, movimentaimagem, laserInimigoTimer, tempo;
-        PictureBox[] vida = new PictureBox[6];
+        string addLetters = "";
+        bool goRight, goLeft, jumping, hasKey1, hasKey2, hasKey3, wall, shoot, rightDirection = true, immune = false, shootEnemy = true, 
+            moveImageDirection, infiniteOn = false, justOneTime = false;
+        int jumpSpeed = 10, playerSpeed = 2, force = 8, score = 0, ScreenBackground = 16, lifes, howMuchMiniGames = 0, immuneTime = 0, 
+            moveImage, enemyLaserTimer, time;
+
+        PictureBox[] life = new PictureBox[6];
         public frmMainGame()
         {
             frmCutScene f = new frmCutScene();
             f.ShowDialog();
             InitializeComponent();
-            if (clsConfig.musicas == "on")
+            if (clsConfig.music == "on")
             {
-                SomPrincipal.URL = "song-two.mp3";
-                SomPrincipal.controls.play();
-                SomPrincipal.settings.setMode("loop", true);
+                mainGameSound.URL = "song-two.mp3";
+                mainGameSound.controls.play();
+                mainGameSound.settings.setMode("loop", true);
             }
             
-            vida[1] = pcbCoracao1;
-            vida[2] = pcbCoracao2;
-            vida[3] = pcbCoracao3;
-            vida[4] = pcbCoracao4;
-            vida[5] = pcbCoracao5;
+            life[1] = pcbHeart1;
+            life[2] = pcbHeart2;
+            life[3] = pcbHeart3;
+            life[4] = pcbHeart4;
+            life[5] = pcbHeart5;
 
-            Dificuldade();
+            Difficulty();
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
         {
             txtScore.Text = "Score: " + score;
-            pcbPersonagem.Top += velocidadePulo;
+            pcbCharacter.Top += jumpSpeed;
 
-            MovimentaçãoPersonagem();
-            MovimentacaoJogo();
+            MoveCharacter();
+            MoveGame();
             MoveGameElements4();
-            VerificaColisao1();
-            VerificaColisao2();
-            VerificaColisao3();
-            VerificaColisao4();
-            VerificaColisao6();
-            VerificaColisao7();
+            VerifyCollision1();
+            VerifyCollision2();
+            VerifyCollision3();
+            VerifyCollision4();
+            VerifyCollision6();
+            VerifyCollision7();
 
             foreach (Control x in this.Controls)
             {
 
-                VerificaColisaoInimigo(x);
+                VerifyEnemyCollision(x);
                 if (x is PictureBox && (string)x.Tag == "laser")
                 {
-                    if (sentidoDireita == true)
+                    if (rightDirection == true)
                     {
                         x.Left += 20;
                         if (x.Left > 600)
                         {
                             this.Controls.Remove(x);
-                            atira = false;
+                            shoot = false;
                         }
 
-                        VerificaColisao5(x);
+                        VerifyCollision(x);
 
                     }
 
-                    if (sentidoDireita == false)
+                    if (rightDirection == false)
                     {
                         x.Left -= 20;
                         if (x.Left < 0)
                         {
                             this.Controls.Remove(x);
-                            atira = false;
+                            shoot = false;
                         }
 
-                        VerificaColisao5(x);
+                        VerifyCollision(x);
                     }
                 }
 
             }
 
-            laserInimigoTimer -= 10;
-            if (laserInimigoTimer < 10)
+            enemyLaserTimer -= 10;
+            if (enemyLaserTimer < 10)
             {
-                laserInimigoTimer = tempo;
-                CriaLaser("laserinimigo1");
+                enemyLaserTimer = time;
+                CreateLaser("laserinimigo1");
             }
 
-            InimigoAtira();
-            Morre();
-            Ganha();
-            ImuneDano();
+            EnemyShoots();
+            Die();
+            Win();
+            ImmuneDamage();
         }
 
-        void Dificuldade()
+        void Difficulty()
         {
-            if (clsConfig.dificuldade == "Easy")
+            if (clsConfig.difficulty == "Easy")
             {
-                vidas = 5;
-                tempo = 1200;
+                lifes = 5;
+                time = 1200;
             }
-            else if (clsConfig.dificuldade == "Normal")
+            else if (clsConfig.difficulty == "Normal")
             {
-                tempo = 1000;
-                vidas = 3;
-                this.Controls.Remove(pcbCoracao5);
-                this.Controls.Remove(pcbCoracao4);
+                time = 1000;
+                lifes = 3;
+                this.Controls.Remove(pcbHeart5);
+                this.Controls.Remove(pcbHeart4);
             }
-            else if (clsConfig.dificuldade == "Hard")
+            else if (clsConfig.difficulty == "Hard")
             {
-                tempo = 500;
-                vidas = 1;
-                this.Controls.Remove(pcbCoracao5);
-                this.Controls.Remove(pcbCoracao4);
-                this.Controls.Remove(pcbCoracao3);
-                this.Controls.Remove(pcbCoracao2);
+                time = 500;
+                lifes = 1;
+                this.Controls.Remove(pcbHeart5);
+                this.Controls.Remove(pcbHeart4);
+                this.Controls.Remove(pcbHeart3);
+                this.Controls.Remove(pcbHeart2);
             }
         }
 
@@ -137,72 +139,72 @@ namespace jogoN2v2._0
         {
             if (e.KeyCode == Keys.Left)
             {
-                sentidoDireita = false;
-                pcbPersonagem.Image = Properties.Resources.wuo_tras1;
+                rightDirection = false;
+                pcbCharacter.Image = Properties.Resources.wuo_tras1;
                 goLeft = true;
             }
             if (e.KeyCode == Keys.Right)
             {
-                sentidoDireita = true;
-                pcbPersonagem.Image = Properties.Resources.imagem_wuo_3;
+                rightDirection = true;
+                pcbCharacter.Image = Properties.Resources.imagem_wuo_3;
                 goRight = true;
 
             }
             if (e.KeyCode == Keys.Space && jumping == false)
             {
-                if (sentidoDireita == false)
+                if (rightDirection == false)
                 {
-                    pcbPersonagem.Image = Properties.Resources.wuo_tras_pulando;
+                    pcbCharacter.Image = Properties.Resources.wuo_tras_pulando;
                 }
                 else
                 {
-                    pcbPersonagem.Image = Properties.Resources.wuo_pulando;
+                    pcbCharacter.Image = Properties.Resources.wuo_pulando;
                 }
 
-                if (clsConfig.sons == "on")
+                if (clsConfig.sounds == "on")
                 {
-                    SomPulo.URL = "som_de_pulo_.mp3";
-                    SomPulo.controls.play();
+                    jumpSound.URL = "som_de_pulo_.mp3";
+                    jumpSound.controls.play();
                 }
                 jumping = true;
             }
-            if (e.KeyCode == Keys.Enter && atira == false)
+            if (e.KeyCode == Keys.Enter && shoot == false)
             {
-                if (sentidoDireita == false)
+                if (rightDirection == false)
                 {
-                    pcbPersonagem.Image = Properties.Resources.wuo_tras_atirando;
+                    pcbCharacter.Image = Properties.Resources.wuo_tras_atirando;
                 }
                 else
                 {
-                    pcbPersonagem.Image = Properties.Resources.wuo_atirando;
+                    pcbCharacter.Image = Properties.Resources.wuo_atirando;
                 }
-                if (clsConfig.sons == "on")
+                if (clsConfig.sounds == "on")
                 {
-                    laserSom.URL = "somLaser.mp3";
-                    laserSom.controls.play();
+                    laserSound.URL = "somLaser.mp3";
+                    laserSound.controls.play();
                 }
-                atira = true;
-                CriaLaser("laser");
+                shoot = true;
+                CreateLaser("laser");
             }
 
-            somaLetras += Convert.ToChar(e.KeyValue);
-            if (somaLetras.ToUpper().Contains("IDKIDNL") && soumavez == false)
+            addLetters += Convert.ToChar(e.KeyValue);
+            if (addLetters.ToUpper().Contains("IDKIDNL") && justOneTime == false)
             {
-                if (clsConfig.sons == "on")
+                if (clsConfig.sounds == "on")
                 {
-                    SomInfinito.URL = "som-upgrade.mp3";
-                    SomInfinito.controls.play();
+                    infiniteSound.URL = "som-upgrade.mp3";
+                    infiniteSound.controls.play();
                 }
-                pcbInfinito.Visible = true;
+                pcbInfinite.Visible = true;
 
-                this.Controls.Remove(pcbCoracao5);
-                this.Controls.Remove(pcbCoracao4);
-                this.Controls.Remove(pcbCoracao3);
-                this.Controls.Remove(pcbCoracao2);
-                this.Controls.Remove(pcbCoracao1);
+                this.Controls.Remove(pcbHeart5);
+                this.Controls.Remove(pcbHeart4);
+                this.Controls.Remove(pcbHeart3);
+                this.Controls.Remove(pcbHeart2);
+                this.Controls.Remove(pcbHeart1);
 
-                infinitoligado = true;
-                soumavez = true;
+                infiniteOn = true;
+                justOneTime = true;
 
             }
             
@@ -212,40 +214,40 @@ namespace jogoN2v2._0
         {
             if (e.KeyCode == Keys.Left)
             {
-                sentidoDireita = false;
-                pcbPersonagem.Image = Properties.Resources.wuo_tras2;
+                rightDirection = false;
+                pcbCharacter.Image = Properties.Resources.wuo_tras2;
                 goLeft = false;
 
             }
             if (e.KeyCode == Keys.Right)
             {
-                sentidoDireita = true;
-                pcbPersonagem.Image = Properties.Resources.imagem_wuo_2;
+                rightDirection = true;
+                pcbCharacter.Image = Properties.Resources.imagem_wuo_2;
                 goRight = false;
 
             }
             if (jumping == true)
             {
-                if (sentidoDireita == false)
+                if (rightDirection == false)
                 {
-                    pcbPersonagem.Image = Properties.Resources.wuo_tras2;
+                    pcbCharacter.Image = Properties.Resources.wuo_tras2;
                 }
                 else
                 {
-                    pcbPersonagem.Image = Properties.Resources.imagem_wuo_2;
+                    pcbCharacter.Image = Properties.Resources.imagem_wuo_2;
                 }
 
                 jumping = false;
             }
-            if (e.KeyCode == Keys.Enter && atira == true)
+            if (e.KeyCode == Keys.Enter && shoot == true)
             {
-                if (sentidoDireita == false)
+                if (rightDirection == false)
                 {
-                    pcbPersonagem.Image = Properties.Resources.wuo_tras2;
+                    pcbCharacter.Image = Properties.Resources.wuo_tras2;
                 }
                 else
                 {
-                    pcbPersonagem.Image = Properties.Resources.imagem_wuo_2;
+                    pcbCharacter.Image = Properties.Resources.imagem_wuo_2;
                 }
             }
         }
@@ -254,16 +256,16 @@ namespace jogoN2v2._0
         {
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "plataforma" || x is PictureBox && (string)x.Tag == "moeda" || x is PictureBox && (string)x.Tag == "chave")
+                if (x is PictureBox && (string)x.Tag == "platform" || x is PictureBox && (string)x.Tag == "coin" || x is PictureBox && (string)x.Tag == "key")
                 {
                     x.BackColor = Color.Transparent;
                     if (direction == "back")
                     {
-                        x.Left -= FundoTela;
+                        x.Left -= ScreenBackground;
                     }
                     if (direction == "forward")
                     {
-                        x.Left += FundoTela;
+                        x.Left += ScreenBackground;
                     }
                 }
             }
@@ -273,16 +275,16 @@ namespace jogoN2v2._0
         {
             foreach (Control x in this.Controls)
             { 
-                if (x is PictureBox && (string)x.Tag == "porta" || x is PictureBox && (string)x.Tag == "parede" || x is PictureBox && (string)x.Tag == "lava")
+                if (x is PictureBox && (string)x.Tag == "door" || x is PictureBox && (string)x.Tag == "wall" || x is PictureBox && (string)x.Tag == "lava")
                 {
                     x.BackColor = Color.Transparent;
                     if (direction == "back")
                     {
-                        x.Left -= FundoTela;
+                        x.Left -= ScreenBackground;
                     }
                     if (direction == "forward")
                     {
-                        x.Left += FundoTela;
+                        x.Left += ScreenBackground;
                     }
 
                 }
@@ -293,16 +295,16 @@ namespace jogoN2v2._0
         {
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "inimigo" )
+                if (x is PictureBox && (string)x.Tag == "enemy" )
                 {
 
                     if (direction == "back")
                     {
-                        x.Left -= FundoTela;
+                        x.Left -= ScreenBackground;
                     }
                     if (direction == "forward")
                     {
-                        x.Left += FundoTela;
+                        x.Left += ScreenBackground;
                     }
 
                 }
@@ -313,108 +315,108 @@ namespace jogoN2v2._0
         {
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "inimigo")
+                if (x is PictureBox && (string)x.Tag == "enemy")
                 {
                     int i = 4;
 
-                    if (movimentaimagem == 0)
+                    if (moveImage == 0)
                     {
-                        movimentaimagemdirecao = true;
+                        moveImageDirection = true;
                     }
-                    else if (movimentaimagem == 150)
+                    else if (moveImage == 150)
                     {
-                        movimentaimagemdirecao = false;
+                        moveImageDirection = false;
                     }
 
-                    if (movimentaimagemdirecao == true)
+                    if (moveImageDirection == true)
                     {
                         x.Left += i;
-                        movimentaimagem++;
+                        moveImage++;
                     }
                     else
                     {
                         x.Left -= i;
-                        movimentaimagem--;
+                        moveImage--;
                     }
                 }
             }
 
         }
 
-        private void MovimentaçãoPersonagem()
+        private void MoveCharacter()
         {
 
-            if (goLeft == true && pcbPersonagem.Left > 60)
+            if (goLeft == true && pcbCharacter.Left > 60)
             {
-                pcbPersonagem.Left -= velocidadeJogador;
+                pcbCharacter.Left -= playerSpeed;
             }
-            if (goRight == true && pcbPersonagem.Left + (pcbPersonagem.Width + 60) < this.ClientSize.Width)
+            if (goRight == true && pcbCharacter.Left + (pcbCharacter.Width + 60) < this.ClientSize.Width)
             {
-                pcbPersonagem.Left += velocidadeJogador;
+                pcbCharacter.Left += playerSpeed;
             }
             if (jumping == true)
             {
-                velocidadePulo = -10;
-                forca -= 1;
+                jumpSpeed = -10;
+                force -= 1;
             }
             else
             {
-                velocidadePulo = 10;
+                jumpSpeed = 10;
             }
 
-            if (jumping == true && forca < 0)
+            if (jumping == true && force < 0)
             {
                 jumping = false;
             }
 
         }
 
-        private void MovimentacaoJogo()
+        private void MoveGame()
         {
-            if (goLeft == true && pcbPlataforma.Left < 0 && parede == false)
+            if (goLeft == true && pcbPlatform.Left < 0 && wall == false)
             {
                 MoveGameElements1("forward");
                 MoveGameElements2("forward");
                 MoveGameElements3("forward");
             }
-            if (goRight == true && pcbPlataforma.Left > -2120 && parede == false)
+            if (goRight == true && pcbPlatform.Left > -2120 && wall == false)
             {
                 MoveGameElements1("back");
                 MoveGameElements2("back");
                 MoveGameElements3("back");
 
-                if (pcbPlataforma.Left < -2100)
+                if (pcbPlatform.Left < -2100)
                 {
-                    velocidadeJogador = 10;
+                    playerSpeed = 10;
                 }
                 else
                 {
-                    velocidadeJogador = 2;
+                    playerSpeed = 2;
                 }
             }
         }
 
-        private void VerificaColisao1()
+        private void VerifyCollision1()
         {
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "parede")
+                if (x is PictureBox && (string)x.Tag == "wall")
                 {
-                    if (pcbPersonagem.Bounds.IntersectsWith(x.Bounds))
+                    if (pcbCharacter.Bounds.IntersectsWith(x.Bounds))
                     {
-                        parede = true;
-                        forca = 8;
-                        pcbPersonagem.Left = x.Left - (pcbPersonagem.Height - 25);
+                        wall = true;
+                        force = 8;
+                        pcbCharacter.Left = x.Left - (pcbCharacter.Height - 25);
 
                     }
 
                     x.BringToFront();
-                    parede = false;
+                    wall = false;
                 }
 
-                if (x is PictureBox && (string)x.Tag == "moeda")
+                if (x is PictureBox && (string)x.Tag == "coin")
                 {
-                    if (pcbPersonagem.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
+                    if (pcbCharacter.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
                     {
                         x.Visible = false;
                         score += 1;
@@ -424,25 +426,25 @@ namespace jogoN2v2._0
             }
         }
 
-        private void VerificaColisao2()
+        private void VerifyCollision2()
         {
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "inimigo" || x is PictureBox && (string)x.Tag == "lava")
+                if (x is PictureBox && (string)x.Tag == "enemy" || x is PictureBox && (string)x.Tag == "lava")
                 {
-                    if (pcbPersonagem.Bounds.IntersectsWith(x.Bounds) && imune == false)
+                    if (pcbCharacter.Bounds.IntersectsWith(x.Bounds) && immune == false)
                     {
-                        if (clsConfig.sons == "on")
+                        if (clsConfig.sounds == "on")
                         {
-                            SomDano.URL = "barulho_de_soco_.mp3";
-                            SomDano.controls.play();
+                            damageSound.URL = "barulho_de_soco_.mp3";
+                            damageSound.controls.play();
                         }
-                        imune = true;
+                        immune = true;
 
-                        if (infinitoligado == false)
+                        if (infiniteOn == false)
                         {
-                            this.Controls.Remove(vida[vidas]);
-                            vidas--;
+                            this.Controls.Remove(life[lifes]);
+                            lifes--;
                         }
                     }
 
@@ -451,112 +453,112 @@ namespace jogoN2v2._0
             }
         }
 
-        private void VerificaColisao3()
+        private void VerifyCollision3()
         {
-            if (pcbPersonagem.Bounds.IntersectsWith(pcbChave1.Bounds))
+            if (pcbCharacter.Bounds.IntersectsWith(pcbKey1.Bounds))
             {
-                this.Controls.Remove(pcbChave1);
+                this.Controls.Remove(pcbKey1);
                 hasKey1 = true;
             }
-            if (pcbPersonagem.Bounds.IntersectsWith(pcbChave2.Bounds))
+            if (pcbCharacter.Bounds.IntersectsWith(pcbKey2.Bounds))
             {
-                this.Controls.Remove(pcbChave2);
+                this.Controls.Remove(pcbKey2);
                 hasKey2 = true;
             }
-            if (pcbPersonagem.Bounds.IntersectsWith(pcbChave3.Bounds))
+            if (pcbCharacter.Bounds.IntersectsWith(pcbKey3.Bounds))
             {
-                this.Controls.Remove(pcbChave3);
+                this.Controls.Remove(pcbKey3);
                 hasKey3 = true;
             }
 
         }
 
-        private void VerificaColisao4()
+        private void VerifyCollision4()
         {
-            if (pcbPersonagem.Bounds.IntersectsWith(pcbPorta1.Bounds) && hasKey1 == true)
+            if (pcbCharacter.Bounds.IntersectsWith(pcbDoor1.Bounds) && hasKey1 == true)
             {
-                pcbPorta1.Image = Properties.Resources.porta_aberta;
-                if(clsConfig.musicas == "on")
-                    SomPrincipal.controls.pause();
-                JogoPrincipalTimer.Stop();
+                pcbDoor1.Image = Properties.Resources.porta_aberta;
+                if(clsConfig.music == "on")
+                    mainGameSound.controls.pause();
+                MainGameTimer.Stop();
                 frmCalculusInvaders a = new frmCalculusInvaders();
                 a.ShowDialog();
-                this.Controls.Remove(pcbPorta1);
-                JogoPrincipalTimer.Start();
-                QuantosMini++;
-                if(clsConfig.musicas == "on")
-                    SomPrincipal.controls.play();
+                this.Controls.Remove(pcbDoor1);
+                MainGameTimer.Start();
+                howMuchMiniGames++;
+                if(clsConfig.music == "on")
+                    mainGameSound.controls.play();
                 hasKey1 = false;
-                pcbPersonagem.Left = pcbPersonagem.Left;
+                pcbCharacter.Left = pcbCharacter.Left;
 
             }
-            if (pcbPersonagem.Bounds.IntersectsWith(pcbPorta2.Bounds) && hasKey2 == true)
+            if (pcbCharacter.Bounds.IntersectsWith(pcbDoor2.Bounds) && hasKey2 == true)
             {
-                pcbPorta2.Image = Properties.Resources.porta_aberta;
-                if(clsConfig.musicas == "on")
-                    SomPrincipal.controls.pause();
-                JogoPrincipalTimer.Stop();
+                pcbDoor2.Image = Properties.Resources.porta_aberta;
+                if(clsConfig.music == "on")
+                    mainGameSound.controls.pause();
+                MainGameTimer.Stop();
                 frmDinoGame b = new frmDinoGame();
                 b.ShowDialog();
-                this.Controls.Remove(pcbPorta2);
-                JogoPrincipalTimer.Start();
-                QuantosMini++;
-                if(clsConfig.musicas == "on")
-                    SomPrincipal.controls.play();
+                this.Controls.Remove(pcbDoor2);
+                MainGameTimer.Start();
+                howMuchMiniGames++;
+                if(clsConfig.music == "on")
+                    mainGameSound.controls.play();
                 hasKey2 = false;
-                pcbPersonagem.Left = pcbPersonagem.Left;
+                pcbCharacter.Left = pcbCharacter.Left;
             }
         }
 
-        private void VerificaColisao7()
+        private void VerifyCollision7()
         {
-            if (pcbPersonagem.Bounds.IntersectsWith(pcbPorta3.Bounds) && hasKey3 == true)
+            if (pcbCharacter.Bounds.IntersectsWith(pcbDoor3.Bounds) && hasKey3 == true)
             {
-                pcbPorta3.Image = Properties.Resources.porta_aberta;
-                if (clsConfig.musicas == "on")
-                    SomPrincipal.controls.pause();
-                JogoPrincipalTimer.Stop();
+                pcbDoor3.Image = Properties.Resources.porta_aberta;
+                if (clsConfig.music == "on")
+                    mainGameSound.controls.pause();
+                MainGameTimer.Stop();
                 frmPong c = new frmPong();
                 c.ShowDialog();
-                this.Controls.Remove(pcbPorta3);
-                JogoPrincipalTimer.Start();
-                QuantosMini++;
-                if (clsConfig.musicas == "on")
-                    SomPrincipal.controls.play();
+                this.Controls.Remove(pcbDoor3);
+                MainGameTimer.Start();
+                howMuchMiniGames++;
+                if (clsConfig.music == "on")
+                    mainGameSound.controls.play();
                 hasKey3 = false;
-                pcbPersonagem.Left = pcbPersonagem.Left;
+                pcbCharacter.Left = pcbCharacter.Left;
             }
         }
 
-        void VerificaColisao5(Control x)
+        void VerifyCollision(Control x)
         {
             if (x is PictureBox && (string)x.Tag == "laser")
             {
                 foreach (Control y in this.Controls)
                 {
-                    if (y is PictureBox && ((string)y.Tag == "plataforma" || (string)y.Tag == "parede"))
+                    if (y is PictureBox && ((string)y.Tag == "platform" || (string)y.Tag == "wall"))
                     {
                         if (x.Bounds.IntersectsWith(y.Bounds))
                         {
                             this.Controls.Remove(x);
-                            atira = false;
+                            shoot = false;
                         }
                     }
                 }
             }
         }
 
-        private void VerificaColisao6()
+        private void VerifyCollision6()
         {
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "plataforma" || x is PictureBox && (string)x.Tag == "lava")
+                if (x is PictureBox && (string)x.Tag == "platform" || x is PictureBox && (string)x.Tag == "lava")
                 {
-                    if (pcbPersonagem.Bounds.IntersectsWith(x.Bounds) && jumping == false)
+                    if (pcbCharacter.Bounds.IntersectsWith(x.Bounds) && jumping == false)
                     {
-                        forca = 8;
-                        pcbPersonagem.Top = x.Top - pcbPersonagem.Height;
-                        velocidadePulo = 0;
+                        force = 8;
+                        pcbCharacter.Top = x.Top - pcbCharacter.Height;
+                        jumpSpeed = 0;
                     }
 
                     x.BringToFront();
@@ -564,9 +566,9 @@ namespace jogoN2v2._0
             }
         }
 
-        void VerificaColisaoInimigo(Control x)
+        void VerifyEnemyCollision(Control x)
         {
-            if (x is PictureBox && (string)x.Tag == "inimigo" )
+            if (x is PictureBox && (string)x.Tag == "enemy" )
             {
                 foreach (Control y in this.Controls)
                 {
@@ -574,7 +576,7 @@ namespace jogoN2v2._0
                     {
                         if (y.Bounds.IntersectsWith(x.Bounds))
                         {
-                            if (clsConfig.sons == "on")
+                            if (clsConfig.sounds == "on")
                             {
                                 enemyDestroyed.URL = "enemyDestroyed2.mp3";
                                 enemyDestroyed.controls.play();
@@ -582,70 +584,70 @@ namespace jogoN2v2._0
                             x.Visible = false;
                             this.Controls.Remove(x);
                             this.Controls.Remove(y);
-                            atira = false;
+                            shoot = false;
                         }
                     }
                 }
             }
         }
 
-        private void CriaLaser(string laserTag)
+        private void CreateLaser(string laserTag)
         {
             
 
-            if (laserTag == "laser" && sentidoDireita == true)
+            if (laserTag == "laser" && rightDirection == true)
             {
                 PictureBox laser = new PictureBox();
                 laser.Image = Properties.Resources.laser2;
                 laser.Size = new Size(50, 16);
                 laser.Tag = laserTag;
-                laser.Top = pcbPersonagem.Top + 40;
-                laser.Left = pcbPersonagem.Left + pcbPersonagem.Width;
+                laser.Top = pcbCharacter.Top + 40;
+                laser.Left = pcbCharacter.Left + pcbCharacter.Width;
                 laser.BackColor = Color.Transparent;
 
                 this.Controls.Add(laser);
                 laser.BringToFront();
             }
-            else if(laserTag == "laser" && sentidoDireita == false)
+            else if(laserTag == "laser" && rightDirection == false)
             {
                 PictureBox laser = new PictureBox();
                 laser.Image = Properties.Resources.laser2;
                 laser.Size = new Size(50, 16);
                 laser.Tag = laserTag;
-                laser.Top = pcbPersonagem.Top + 40;
-                laser.Left = pcbPersonagem.Left - 40;
+                laser.Top = pcbCharacter.Top + 40;
+                laser.Left = pcbCharacter.Left - 40;
                 laser.BackColor = Color.Transparent;
 
                 this.Controls.Add(laser);
                 laser.BringToFront();
             }
-            else if(laserTag == "laserinimigo1" && atirainimigo == true)
+            else if(laserTag == "laserinimigo1" && shootEnemy == true)
             {
-                if (pcbLimite2.Visible == true)
+                if (pcbLimit2.Visible == true)
                 {
                     PictureBox laser = new PictureBox();
                     laser.Size = new Size(50, 16);
                     laser.Tag = laserTag;
                     laser.Image = Properties.Resources.laser3;
-                    laser.Left = pcbLimite2.Left - 10;
-                    laser.Top = pcbLimite2.Top + 20;
+                    laser.Left = pcbLimit2.Left - 10;
+                    laser.Top = pcbLimit2.Top + 20;
                     laser.BackColor = Color.Transparent;
-                    atirainimigo = false;
+                    shootEnemy = false;
 
                     this.Controls.Add(laser);
                     laser.BringToFront();
                 }
 
-                if (pcbLimite3.Visible == true)
+                if (pcbLimit3.Visible == true)
                 {
                     PictureBox laser2 = new PictureBox();
                     laser2.Image = Properties.Resources.laser3;
                     laser2.Size = new Size(50, 16);
                     laser2.Tag = laserTag;
                     laser2.BackColor = Color.Transparent;
-                    laser2.Left = pcbLimite3.Left - 10;
-                    laser2.Top = pcbLimite3.Top + 20;
-                    atirainimigo = false;
+                    laser2.Left = pcbLimit3.Left - 10;
+                    laser2.Top = pcbLimit3.Top + 20;
+                    shootEnemy = false;
 
                     this.Controls.Add(laser2);
                     laser2.BringToFront();
@@ -654,38 +656,38 @@ namespace jogoN2v2._0
           
         }
 
-        private void ImuneDano()
+        private void ImmuneDamage()
         {
-            tempoimune++;
+            immuneTime++;
 
-            if (imune == true && tempoimune < 60)
+            if (immune == true && immuneTime < 60)
             {
-                pcbPersonagem.BackColor = Color.Red;
-                pcbPersonagem.Visible = true;
+                pcbCharacter.BackColor = Color.Red;
+                pcbCharacter.Visible = true;
 
-                if (tempoimune % 2 == 0)
+                if (immuneTime % 2 == 0)
                 {
-                    pcbPersonagem.Visible = false;
+                    pcbCharacter.Visible = false;
                 }
             }
             else
             {
-                pcbPersonagem.Visible = true;
-                pcbPersonagem.BackColor = Color.Transparent;
-                imune = false;
-                tempoimune = 0;
+                pcbCharacter.Visible = true;
+                pcbCharacter.BackColor = Color.Transparent;
+                immune = false;
+                immuneTime = 0;
             }
         }
 
-        private void Morre()
+        private void Die()
         {
-            clsConfig.pontosPrincipal = score;
-            if (vidas <= 0 && infinitoligado == false)
+            clsConfig.pointsMainGame = score;
+            if (lifes <= 0 && infiniteOn == false)
             {
-                if (clsConfig.musicas == "on")
-                    SomPrincipal.controls.stop();
-                JogoPrincipalTimer.Stop();
-                if (clsConfig.sons == "on")
+                if (clsConfig.music == "on")
+                    mainGameSound.controls.stop();
+                MainGameTimer.Stop();
+                if (clsConfig.sounds == "on")
                 {
                     gameOverSound.URL = "gameOver.mp3";
                     gameOverSound.controls.play();
@@ -699,14 +701,14 @@ namespace jogoN2v2._0
             }
         }
 
-        private void Ganha()
+        private void Win()
         {
-            if (QuantosMini == 3)
+            if (howMuchMiniGames == 3)
             {
-                if (clsConfig.musicas == "on")
-                    SomPrincipal.controls.stop();
-                JogoPrincipalTimer.Stop();
-                if (clsConfig.sons == "on")
+                if (clsConfig.music == "on")
+                    mainGameSound.controls.stop();
+                MainGameTimer.Stop();
+                if (clsConfig.sounds == "on")
                 {
                     winSound.URL = "winSound.mp3";
                     winSound.controls.play();
@@ -720,7 +722,7 @@ namespace jogoN2v2._0
             }
         }
 
-        private void InimigoAtira()
+        private void EnemyShoots()
         {
             foreach (Control x in this.Controls)
             {
@@ -730,47 +732,47 @@ namespace jogoN2v2._0
                     if (x.Left < -100)
                     {
                         this.Controls.Remove(x);
-                        atirainimigo = true;
+                        shootEnemy = true;
                     }
 
                     foreach (Control y in this.Controls)
                     {
-                        if (y is PictureBox && ((string)y.Tag == "plataforma" || (string)y.Tag == "parede"))
+                        if (y is PictureBox && ((string)y.Tag == "platform" || (string)y.Tag == "wall"))
                         {
                             if (x.Bounds.IntersectsWith(y.Bounds))
                             {
                                 this.Controls.Remove(x);
-                                atirainimigo = true;
+                                shootEnemy = true;
                             }
                         }
                     }
                 }
             }
 
-            InimgoDano();
+            EnemyDamage();
         }
 
-        private void InimgoDano()
+        private void EnemyDamage()
         {
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && (string)x.Tag == "laserinimigo1")
                 {
-                    if (pcbPersonagem.Bounds.IntersectsWith(x.Bounds) && imune == false)
+                    if (pcbCharacter.Bounds.IntersectsWith(x.Bounds) && immune == false)
                     {
-                        if (clsConfig.sons == "on")
+                        if (clsConfig.sounds == "on")
                         {
-                            SomDano.URL = "barulho_de_soco_.mp3";
-                            SomDano.controls.play();
+                            damageSound.URL = "barulho_de_soco_.mp3";
+                            damageSound.controls.play();
                         }
-                        imune = true;
+                        immune = true;
 
-                        if (infinitoligado == false)
+                        if (infiniteOn == false)
                         {
-                            this.Controls.Remove(vida[vidas]);
-                            vidas--;
+                            this.Controls.Remove(life[lifes]);
+                            lifes--;
                         }
-                        atirainimigo = true;
+                        shootEnemy = true;
                     }
 
                     x.BringToFront();

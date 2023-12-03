@@ -17,20 +17,20 @@ namespace jogoN2v2._0
         {
             InitializeComponent();
             timerTutorialPong.Start();
-            if (clsConfig.sons == "on")
+            if (clsConfig.sounds == "on")
             {
                 houstonSound.URL = "Houston.mp3";
                 houstonSound.controls.play();
                 houstonSound.settings.setMode("loop", true);
             }
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerTutorialPong_Tick(object sender, EventArgs e)
         {
             panel1.Width += 7;
             if (panel1.Width > 563)
             {
                 timerTutorialPong.Stop();
-                if (clsConfig.sons == "on")
+                if (clsConfig.sounds == "on")
                     houstonSound.controls.stop();
                 this.Close();
             }

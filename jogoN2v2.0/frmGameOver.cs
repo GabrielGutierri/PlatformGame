@@ -17,32 +17,33 @@ namespace jogoN2v2._0
         {
             InitializeComponent();
             
-            lblPointsMainGame.Text = "Jogo principal: " + clsConfig.pontosPrincipal;
-            lblPointsInvaders.Text = "Jogo Invaders: " + clsConfig.pontosInvaders;
-            lblPointsDino.Text = "Jogo Dinossauro: " + clsConfig.pontosDino;
-            lblPointsPong.Text = "Jogo Pong: " + clsConfig.pontosPong;
-            lblTotalPoints.Text = "Total: " + totalPontos();
+            lblPointsMainGame.Text = "Main Game: " + clsConfig.pointsMainGame;
+            lblPointsInvaders.Text = "Calculus Invaders: " + clsConfig.pointsInvaders;
+            lblPointsDino.Text = "Dinossaur Game: " + clsConfig.pointsDino;
+            lblPointsPong.Text = "Pong Game: " + clsConfig.pointsPong;
+            lblTotalPoints.Text = "Total: " + TotalPoints();
 
-            if(clsConfig.nome == "pacote")
-                MessageBox.Show("Por seu nome ser pacote, você ganha 100 pontos!!!");
-            enviaParaArquivo();
+            //a brazilian easter egg xD
+            if(clsConfig.name == "pacote")
+                MessageBox.Show("Because your name is pacote, you get more 100 points!!!");
+            SendToFile();
         }
 
-        void enviaParaArquivo()
+        void SendToFile()
         {
             if (File.Exists("ranking.txt"))
             {
-                string conteudo = $"{clsConfig.nome};{clsConfig.dificuldade};{totalPontos()}\n";
-                File.AppendAllText("ranking.txt", conteudo);
+                string content = $"{clsConfig.name};{clsConfig.difficulty};{TotalPoints()}\n";
+                File.AppendAllText("ranking.txt", content);
             }
         }
-        int totalPontos()
+        int TotalPoints()
         {
-            int hackNome = 0;
-            if (clsConfig.nome == "pacote")
-                hackNome = 100;
+            int nameGlitch = 0;
+            if (clsConfig.name == "pacote")
+                nameGlitch = 100;
                 
-            return Convert.ToInt32(clsConfig.pontosPrincipal + clsConfig.pontosInvaders + clsConfig.pontosDino + clsConfig.pontosPong + hackNome);
+            return Convert.ToInt32(clsConfig.pointsMainGame + clsConfig.pointsInvaders + clsConfig.pointsDino + clsConfig.pointsPong + nameGlitch);
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

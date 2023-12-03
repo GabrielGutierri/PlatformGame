@@ -13,27 +13,27 @@ namespace jogoN2v2._0
     public partial class frmPong : Form
     {
 
-        WMPLib.WindowsMediaPlayer raquetada = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer trilha = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer pontosSom = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer racket = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer track = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer pointsSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer gameOverSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer winSound = new WMPLib.WindowsMediaPlayer();
 
-        bool vaiCima;
-        bool vaiBaixo;
-        int velocidade = MudaVelocidade();
+        bool goUp;
+        bool goDown;
+        int speed = ChangeSpeed();
 
-        static int MudaVelocidade()
+        static int ChangeSpeed()
         {
-            if (clsConfig.dificuldade == "Easy")
+            if (clsConfig.difficulty == "Easy")
             {
                 return 20;
             }
-            else if (clsConfig.dificuldade == "Normal")
+            else if (clsConfig.difficulty == "Normal")
             {
                 return 30;
             }
-            else if (clsConfig.dificuldade == "Hard")
+            else if (clsConfig.difficulty == "Hard")
             {
                 return 40;
             }
@@ -41,10 +41,10 @@ namespace jogoN2v2._0
                 return 0;
         }
 
-        int xBola = 7;
-        int yBola = 7;
-        int pontos = 0;
-        int pontosPC = 0;
+        int xBall = 7;
+        int yBall = 7;
+        int points = 0;
+        int pointsPC = 0;
 
         public frmPong()
         {
@@ -52,24 +52,24 @@ namespace jogoN2v2._0
             t.ShowDialog();
             InitializeComponent();
 
-            if(clsConfig.musicas == "on")
+            if(clsConfig.music == "on")
             {
-                trilha.URL = "trilha.mp3";
-                trilha.controls.play();
-                trilha.settings.setMode("loop", true);
+                track.URL = "trilha.mp3";
+                track.controls.play();
+                track.settings.setMode("loop", true);
             }
-            timer1.Start();
+            timerPong.Start();
         }
         private void keyisdown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
             {
-                vaiCima = true;
+                goUp = true;
             }
 
             if (e.KeyCode == Keys.Down)
             {
-                vaiBaixo = true;
+                goDown = true;
             }
         }
 
@@ -77,125 +77,125 @@ namespace jogoN2v2._0
         {
             if (e.KeyCode == Keys.Up)
             {
-                vaiCima = false;
+                goUp = false;
             }
             if (e.KeyCode == Keys.Down)
             {
-                vaiBaixo = false;
+                goDown = false;
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerPong_Click(object sender, EventArgs e)
         {
-            lblPointsPlayer.Text = "Wuo: " + pontos;
-            lblPointsPC.Text = "Limites: " + pontosPC;
+            lblPointsPlayer.Text = "Wuo: " + points;
+            lblPointsPC.Text = "Limits: " + pointsPC;
 
-            pcbBall.Top -= yBola;
-            pcbBall.Left -= xBola;
-            pcbPc.Top += velocidade;
+            pcbBall.Top -= yBall;
+            pcbBall.Left -= xBall;
+            pcbPc.Top += speed;
 
             if (pcbPc.Top < 0 || pcbPc.Top > 500)
             {
-                velocidade *= -1;
+                speed *= -1;
             }
 
-            ChecaColisaoBorda();
-            ChecaColisaoBola();
-            ChecaMovimentoPlayer();
+            CheckBorderCollision();
+            CheckBallCollision();
+            CheckPlayerMovement();
             
 
-            if (pontos == 5)
+            if (points == 5)
             {
-                GameOver("O WUO VENCEU OS LIMITES!!!", "venceu");  
+                GameOver("WUO HAVE WON THE LIMITS!!!", "win");  
             }
 
-            if (pontosPC == 5)
+            if (pointsPC == 5)
             {
-                GameOver("O WUO NÃO SE SAFOU E PERDEU... F!", "perdeu");
+                GameOver("WUO HAVE LOST...", "loss");
             }
         }
 
-        void ChecaColisaoBorda()
+        void CheckBorderCollision()
         {
             if (pcbBall.Left < 0)
             {
                 pcbBall.Left = 400;
-                xBola = -xBola;
-                xBola -= 2;
-                pontosPC++;
+                xBall = -xBall;
+                xBall -= 2;
+                pointsPC++;
 
-                MarcaPonto();
+                Score();
             }
 
             if (pcbBall.Left + pcbBall.Width > 800)
             {
                 pcbBall.Left = 400;
-                xBola = -xBola;
-                xBola += 2;
-                pontos++;
+                xBall = -xBall;
+                xBall += 2;
+                points++;
 
-                MarcaPonto();
+                Score();
             }
         }
 
-        void MarcaPonto()
+        void Score()
         {
-            if (clsConfig.sons == "on")
+            if (clsConfig.sounds == "on")
             {
-                pontosSom.URL = "ponto.mp3";
-                pontosSom.controls.play();
+                pointsSound.URL = "ponto.mp3";
+                pointsSound.controls.play();
             }
         }
 
-        void GameOver(string mensagem, string condicao)
+        void GameOver(string message, string condition)
         {
-            timer1.Stop();
-            if (clsConfig.sons == "on")
+            timerPong.Stop();
+            if (clsConfig.sounds == "on")
             {
-                trilha.controls.stop();
-                if (condicao == "perdeu")
+                track.controls.stop();
+                if (condition == "loss")
                 {
                     gameOverSound.URL = "gameOver.mp3";
                     gameOverSound.controls.play();
                 }
 
-                if(condicao == "venceu")
+                if(condition == "win")
                 {
-                    trilha.controls.stop();
+                    track.controls.stop();
                     winSound.URL = "winSound.mp3";
                     winSound.controls.play();
                 }
             }
-            clsConfig.pontosPong = pontos;
-            MessageBox.Show(mensagem);
+            clsConfig.pointsPong = points;
+            MessageBox.Show(message);
             this.Close();
 
         }
         
-        void ChecaColisaoBola()
+        void CheckBallCollision()
         {
             if (pcbBall.Top < 0 || pcbBall.Top + pcbBall.Height > 600)
-                yBola *= -1;
+                yBall *= -1;
 
             if (pcbBall.Bounds.IntersectsWith(pcbPlayer.Bounds) || pcbBall.Bounds.IntersectsWith(pcbPc.Bounds))
             {
-                xBola *= -1;
-                if (clsConfig.sons == "on")
+                xBall *= -1;
+                if (clsConfig.sounds == "on")
                 {
-                    raquetada.URL = "raquetada.mp3";
-                    raquetada.controls.play();
+                    racket.URL = "raquetada.mp3";
+                    racket.controls.play();
                 }
             }
         }
 
-        void ChecaMovimentoPlayer()
+        void CheckPlayerMovement()
         {
-            if (vaiCima == true && pcbPlayer.Top > 0)
+            if (goUp == true && pcbPlayer.Top > 0)
             {
                 pcbPlayer.Top -= 15;
             }
 
-            if (vaiBaixo == true && pcbPlayer.Top < 500)
+            if (goDown == true && pcbPlayer.Top < 500)
             {
                 pcbPlayer.Top += 15;
             }

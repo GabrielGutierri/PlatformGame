@@ -30,34 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoadingGame));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pnlLoadingScreenContainer = new System.Windows.Forms.Panel();
+            this.pnlLoadingScreen = new System.Windows.Forms.Panel();
+            this.timerLoadingScreen = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.pnlLoadingScreenContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlLoadingScreenContainer
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(-2, 312);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(536, 11);
-            this.panel1.TabIndex = 1;
+            this.pnlLoadingScreenContainer.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pnlLoadingScreenContainer.Controls.Add(this.pnlLoadingScreen);
+            this.pnlLoadingScreenContainer.Location = new System.Drawing.Point(-2, 312);
+            this.pnlLoadingScreenContainer.Name = "pnlLoadingScreenContainer";
+            this.pnlLoadingScreenContainer.Size = new System.Drawing.Size(536, 11);
+            this.pnlLoadingScreenContainer.TabIndex = 1;
             // 
-            // panel2
+            // pnlLoadingScreen
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(21, 10);
-            this.panel2.TabIndex = 2;
+            this.pnlLoadingScreen.BackColor = System.Drawing.Color.White;
+            this.pnlLoadingScreen.Location = new System.Drawing.Point(3, 3);
+            this.pnlLoadingScreen.Name = "pnlLoadingScreen";
+            this.pnlLoadingScreen.Size = new System.Drawing.Size(21, 10);
+            this.pnlLoadingScreen.TabIndex = 2;
             // 
-            // timer1
+            // timerLoadingScreen
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerLoadingScreen.Tick += new System.EventHandler(this.timerScreen_Tick);
             // 
             // pictureBox1
             // 
@@ -74,14 +74,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 326);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlLoadingScreenContainer);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLoadingGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLoadingGame";
-            this.panel1.ResumeLayout(false);
+            this.pnlLoadingScreenContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -90,8 +90,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel pnlLoadingScreenContainer;
+        private System.Windows.Forms.Panel pnlLoadingScreen;
+        private System.Windows.Forms.Timer timerLoadingScreen;
     }
 }
