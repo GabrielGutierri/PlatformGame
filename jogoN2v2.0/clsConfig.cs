@@ -8,13 +8,13 @@ namespace jogoN2v2._0
 {
     class clsConfig
     {
-        public static string nome;
-        public static string dificuldade = "Normal";
-        public static string musicas = "on";
-        public static string sons = "on";
-        public static int pontosPrincipal;
-        public static int pontosInvaders;
-        public static int pontosDino;
-        public static int pontosPong;
+        public static string name;
+        public static string difficulty = "Normal";
+        public static string music = "on";
+        public static string sounds = "on";
+        public static int pointsMainGame;
+        public static int pointsInvaders;
+        public static int pointsDino;
+        public static int pointsPong;
     }
 }

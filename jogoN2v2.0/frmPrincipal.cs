@@ -13,20 +13,20 @@ namespace jogoN2v2._0
     public partial class frmHomeScreen : Form
     {
         WMPLib.WindowsMediaPlayer menuSound = new WMPLib.WindowsMediaPlayer();
-        bool mudo = false;
+        bool muted = false;
 
         public frmHomeScreen()
         {
             frmLoadingGame f = new frmLoadingGame();
             f.ShowDialog();
             menuSound.URL = "menu_2.mp3";
-            if (clsConfig.musicas == "on")
+            if (clsConfig.music == "on")
             {
                 menuSound.controls.play();
                 menuSound.settings.setMode("loop", true);
                 menuSound.settings.volume = 10;
             }
-            else if (clsConfig.musicas == "off")
+            else if (clsConfig.music == "off")
                 menuSound.controls.stop();
             InitializeComponent();
             foreach (Control c in Controls)
@@ -37,19 +37,19 @@ namespace jogoN2v2._0
                 }
             }
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void btnPlay_Click(object sender, EventArgs e)
         {
             if (txtName.Text.Trim() == "")
-                MessageBox.Show("Erro!");
+                MessageBox.Show("Error!");
             else
             {
-                if (mudo == false)
+                if (muted == false)
                 {
                     menuSound.URL = "menu_2.mp3";
                     menuSound.controls.stop();
                 }
 
-                clsConfig.nome = txtName.Text;
+                clsConfig.name = txtName.Text;
                 frmMainGame f = new frmMainGame();
                 f.ShowDialog();
             }
@@ -69,49 +69,49 @@ namespace jogoN2v2._0
         private void btnSound_Click(object sender, EventArgs e)
         {
 
-            if (mudo == false)
+            if (muted == false)
             {
                 btnSound.BackgroundImage = Properties.Resources.sound_icon;
-                mudo = true;
+                muted = true;
                 menuSound.URL = "menu_2.mp3";
                 menuSound.controls.stop();
 
             }
 
-            else if (mudo == true)
+            else if (muted == true)
             {
                 btnSound.BackgroundImage = Properties.Resources.mute_icon;
-                mudo = false;
+                muted = false;
                 menuSound.URL = "menu_2.mp3";
                 menuSound.controls.play();
                 menuSound.settings.setMode("loop", true);
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnRanking_Click(object sender, EventArgs e)
         {
             frmRanking f = new frmRanking();
             f.Show();
         }
 
-        private void btnJogar_MouseHover(object sender, EventArgs e)
+        private void btnPlay_MouseHover(object sender, EventArgs e)
         {
             
         }
 
-        private void btnJogar_MouseMove(object sender, MouseEventArgs e)
+        private void btnPlay_MouseMove(object sender, MouseEventArgs e)
         {
             btnPlay.BackColor = Color.White;
             btnPlay.ForeColor = Color.DarkRed;
         }
 
-        private void btnJogar_MouseLeave(object sender, EventArgs e)
+        private void btnPlay_MouseLeave(object sender, EventArgs e)
         {
             btnPlay.BackColor = Color.DarkRed;
             btnPlay.ForeColor = Color.White;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnHelp_Click(object sender, EventArgs e)
         {
             frmHelp t = new frmHelp();
             t.Show();

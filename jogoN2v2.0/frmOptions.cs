@@ -12,8 +12,8 @@ namespace jogoN2v2._0
 {
     public partial class frmOptions : Form
     {
-        bool somMutado = false;
-        bool musicaMutado = false;
+        bool mutedSound = false;
+        bool mutedMusic = false;
         WMPLib.WindowsMediaPlayer menuSound = new WMPLib.WindowsMediaPlayer();
 
         public frmOptions()
@@ -27,10 +27,10 @@ namespace jogoN2v2._0
             btnSounds.Parent = panelSoundsOptions;
             btnSounds.BackColor = Color.Transparent;
 
-            lblDificuldade.Text = clsConfig.dificuldade;
+            lblDificuldade.Text = clsConfig.difficulty;
 
-            VerificaSom();
-            VerificaMusica();
+            VerifySound();
+            VerifyMusic();
 
             foreach(Control x in Controls)
             {
@@ -39,31 +39,31 @@ namespace jogoN2v2._0
             }
         }
 
-        void VerificaSom()
+        void VerifySound()
         {
-            if (clsConfig.sons == "on")
+            if (clsConfig.sounds == "on")
             {
                 btnSounds.BackgroundImage = Properties.Resources.switch_on;
-                somMutado = false;
+                mutedSound = false;
             }
-            else if (clsConfig.sons == "off")
+            else if (clsConfig.sounds == "off")
             {
                 btnSounds.BackgroundImage = Properties.Resources.switch_off;
-                somMutado = true;
+                mutedSound = true;
             }
         }
 
-        void VerificaMusica()
+        void VerifyMusic()
         {
-            if (clsConfig.musicas == "on")
+            if (clsConfig.music == "on")
             {
                 btnMusic.BackgroundImage = Properties.Resources.switch_on;
-                musicaMutado = false;
+                mutedMusic = false;
             }
-            else if (clsConfig.musicas == "off")
+            else if (clsConfig.music == "off")
             {
                 btnMusic.BackgroundImage = Properties.Resources.switch_off;
-                musicaMutado = true;
+                mutedMusic = true;
             }
         }
 
@@ -89,60 +89,60 @@ namespace jogoN2v2._0
 
         private void btnSons_Click(object sender, EventArgs e)
         {
-            if (somMutado == false)
+            if (mutedSound == false)
             {
                 btnSounds.BackgroundImage = Properties.Resources.switch_off;
-                somMutado = true;
+                mutedSound = true;
             }
-            else if (somMutado == true)
+            else if (mutedSound == true)
             {
                 btnSounds.BackgroundImage = Properties.Resources.switch_on;
-                somMutado = false;
+                mutedSound = false;
             }
         }
 
         private void btnMusica_Click(object sender, EventArgs e)
         {
-            if (musicaMutado == false)
+            if (mutedMusic == false)
             {
                 btnMusic.BackgroundImage = Properties.Resources.switch_off;
-                musicaMutado = true;
+                mutedMusic = true;
             }
-            else if (musicaMutado == true)
+            else if (mutedMusic == true)
             {
                 btnMusic.BackgroundImage = Properties.Resources.switch_on;
-                musicaMutado = false;
+                mutedMusic = false;
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            clsConfig.dificuldade = lblDificuldade.Text;
-            alteraMusica();
-            alteraSom();
+            clsConfig.difficulty = lblDificuldade.Text;
+            ChangeMusic();
+            ChangeSound();
 
             this.Close();
         }
 
-        void alteraMusica()
+        void ChangeMusic()
         {
-            if (musicaMutado)
+            if (mutedMusic)
             {
-                clsConfig.musicas = "off";
+                clsConfig.music = "off";
 
             }
             else
             {
-                clsConfig.musicas = "on";
+                clsConfig.music = "on";
             }
         }
 
-        void alteraSom()
+        void ChangeSound()
         {
-            if (somMutado)
-                clsConfig.sons = "off";
+            if (mutedSound)
+                clsConfig.sounds = "off";
             else
-                clsConfig.sons = "on";
+                clsConfig.sounds = "on";
         }
 
         void Move(Button bt)

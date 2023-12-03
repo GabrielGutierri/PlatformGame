@@ -13,10 +13,10 @@ namespace jogoN2v2._0
 {
     public partial class frmRanking : Form
     {
-        string nick;
-        int pontos;
-        string dificuldade;
-        string[] linhas = File.ReadAllLines("ranking.txt");
+        string nickname;
+        int points;
+        string difficulty;
+        string[] lines = File.ReadAllLines("ranking.txt");
         public frmRanking()
         {
             
@@ -24,40 +24,40 @@ namespace jogoN2v2._0
 
             try
             {
-                LeArquivoTexto();
-                OrdenaGrid();
+                ReadTextFile();
+                OrderGrid();
             }
             catch
             {
-                MessageBox.Show("Nenhuma partida encontrada!", "Ranking Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No match was found!", "Ranking Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        void LeArquivoTexto()
+        void ReadTextFile()
         {
-            for (int i = 0; i < linhas.Length; i++)
+            for (int i = 0; i < lines.Length; i++)
             {
-                string[] dadosLinha = linhas[i].Split(';');
-                nick = dadosLinha[0];
-                dificuldade = dadosLinha[1];
-                pontos = Convert.ToInt32(dadosLinha[2]);
+                string[] lineData = lines[i].Split(';');
+                nickname = lineData[0];
+                difficulty = lineData[1];
+                points = Convert.ToInt32(lineData[2]);
 
 
                 dgvRanking.Rows.Add();
 
-                dgvRanking.Rows[i].Cells[1].Value = nick;
-                dgvRanking.Rows[i].Cells[2].Value = dificuldade;
-                dgvRanking.Rows[i].Cells[3].Value = pontos;
+                dgvRanking.Rows[i].Cells[1].Value = nickname;
+                dgvRanking.Rows[i].Cells[2].Value = difficulty;
+                dgvRanking.Rows[i].Cells[3].Value = points;
             }
         }
-        void OrdenaGrid()
+        void OrderGrid()
         {
             dgvRanking.Sort(dgvRanking.Columns[3], ListSortDirection.Descending);
 
-            for (int j = 0; j < linhas.Length; j++)
+            for (int j = 0; j < lines.Length; j++)
             {
-                string posicao = $"{j + 1}°";
-                dgvRanking.Rows[j].Cells[0].Value = posicao;
+                string position = $"{j + 1}°";
+                dgvRanking.Rows[j].Cells[0].Value = position;
 
             }
         }

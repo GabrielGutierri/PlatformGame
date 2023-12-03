@@ -48,7 +48,7 @@
             this.btnRanking.Size = new System.Drawing.Size(50, 40);
             this.btnRanking.TabIndex = 13;
             this.btnRanking.UseVisualStyleBackColor = true;
-            this.btnRanking.Click += new System.EventHandler(this.button4_Click);
+            this.btnRanking.Click += new System.EventHandler(this.btnRanking_Click);
             // 
             // btnHelp
             // 
@@ -59,7 +59,7 @@
             this.btnHelp.Size = new System.Drawing.Size(50, 40);
             this.btnHelp.TabIndex = 12;
             this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.button3_Click);
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnConfig
             // 
@@ -98,10 +98,10 @@
             this.btnPlay.TabIndex = 18;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = false;
-            this.btnPlay.Click += new System.EventHandler(this.button2_Click);
-            this.btnPlay.MouseLeave += new System.EventHandler(this.btnJogar_MouseLeave);
-            this.btnPlay.MouseHover += new System.EventHandler(this.btnJogar_MouseHover);
-            this.btnPlay.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnJogar_MouseMove);
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            this.btnPlay.MouseLeave += new System.EventHandler(this.btnPlay_MouseLeave);
+            this.btnPlay.MouseHover += new System.EventHandler(this.btnPlay_MouseHover);
+            this.btnPlay.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnPlay_MouseMove);
             // 
             // lblName
             // 

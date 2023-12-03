@@ -17,19 +17,19 @@ namespace jogoN2v2._0
             InitializeComponent();
         }
 
-        private void btnFechar_MouseMove(object sender, MouseEventArgs e)
+        private void btnClose_MouseMove(object sender, MouseEventArgs e)
         {
             btnClose.BackColor = Color.White;
             btnClose.ForeColor = Color.DarkRed;
         }
 
-        private void btnFechar_MouseLeave(object sender, EventArgs e)
+        private void btnClose_MouseLeave(object sender, EventArgs e)
         {
             btnClose.BackColor = Color.DarkRed;
             btnClose.ForeColor = Color.White;
         }
 
-        private void btnFechar_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }

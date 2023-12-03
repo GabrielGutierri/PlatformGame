@@ -19,7 +19,7 @@ namespace jogoN2v2._0
             timerCutScene.Start();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSkip_Click(object sender, EventArgs e)
         {
             wmpMedia.Ctlcontrols.stop();
             this.Close();
@@ -31,19 +31,19 @@ namespace jogoN2v2._0
             wmpMedia.Ctlcontrols.play();
         }
 
-        private void button1_MouseMove(object sender, MouseEventArgs e)
+        private void btnSkip_MouseMove(object sender, MouseEventArgs e)
         {
             btnSkip.BackColor = Color.White;
             btnSkip.ForeColor = Color.Black;
         }
 
-        private void button1_MouseLeave(object sender, EventArgs e)
+        private void btnSkip_MouseLeave(object sender, EventArgs e)
         {
             btnSkip.BackColor = Color.Black;
             btnSkip.ForeColor = Color.White;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerCutScene_Tick(object sender, EventArgs e)
         {
             c += 1;
             if (c >= 136)

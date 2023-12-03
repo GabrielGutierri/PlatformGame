@@ -12,22 +12,22 @@ namespace jogoN2v2._0
 {
     public partial class frmCalculusInvaders : Form
     {
-        WMPLib.WindowsMediaPlayer laserSom = new WMPLib.WindowsMediaPlayer();
+        WMPLib.WindowsMediaPlayer laserSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer enemyDestroyed = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer invadersSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer gameOverSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer winSound = new WMPLib.WindowsMediaPlayer();
 
-        bool vaiParaEsquerda, vaiParaDireita;
-        int velocidade = 12;
-        int velocidadeInimigo = 0;
-        int pontos = 0;
-        int laserInimigoTimer = 300;
-        int recorde = 0;
-        PictureBox[] invadersVetor;
-        bool atira;
+        bool goLeft, goRight;
+        int characterSpeed = 12;
+        int enemySpeed = 0;
+        int points = 0;
+        int enemyLaserTimer = 300;
+        int record = 0;
+        PictureBox[] invadersVector;
+        bool shoot;
         bool isGameOver;
-        int vidas = 3;
+        int lifes = 3;
 
 
         public frmCalculusInvaders()
@@ -35,57 +35,57 @@ namespace jogoN2v2._0
             frmTutorialInvaders t = new frmTutorialInvaders();
             t.ShowDialog();
             InitializeComponent();
-            if (clsConfig.musicas == "on")
+            if (clsConfig.music == "on")
             {
                 invadersSound.URL = "invadersSound.mp3";
                 invadersSound.controls.play();
                 invadersSound.settings.setMode("loop", true);
             }
-            gameSetup();
+            GameSetup();
         }
         private void InvadersTimerEvent(object sender, EventArgs e)
         {
-            lblPoints.Text = "Pontos: " + pontos;
-            lblLifes.Text = "Vidas: " + vidas;
-            lblRecord.Text = "Melhor rodada: " + recorde;
-            if (vaiParaEsquerda && pcbPlayer.Left > 0)
+            lblPoints.Text = "Points: " + points;
+            lblLifes.Text = "Lifes: " + lifes;
+            lblRecord.Text = "Best round: " + record;
+            if (goLeft && pcbPlayer.Left > 0)
             {
-                pcbPlayer.Left -= velocidade;
+                pcbPlayer.Left -= characterSpeed;
             }
 
-            if (vaiParaDireita && pcbPlayer.Left < 620)
+            if (goRight && pcbPlayer.Left < 620)
             {
-                pcbPlayer.Left += velocidade;
+                pcbPlayer.Left += characterSpeed;
             }
 
-            laserInimigoTimer -= 10;
-            if (laserInimigoTimer < 10)
+            enemyLaserTimer -= 10;
+            if (enemyLaserTimer < 10)
             {
-                laserInimigoTimer = 300;
-                criaLaser("invaderLaser");
+                enemyLaserTimer = 300;
+                CreateLaserComponent("invaderLaser");
             }
 
             foreach (Control x in this.Controls)
             {
 
-                verificaColisaoInimigo(x);
-                VerificaColisaoLaser(x);
-                VerificaColisaoLaserInimigo(x);
+                VerifyEnemyCollision(x);
+                VerifyLaserCollision(x);
+                VerifyEnemyLaserColision(x);
 
             }
 
-            if (pontos > 8)
+            if (points > 8)
             {
-                MudaVelocidade();
+                ChangeSpeed();
             }
 
-            if (pontos == invadersVetor.Length)
+            if (points == invadersVector.Length)
             {
-                gameOver("Você venceu as derivadas!!! YUUUUUPPPPIIIIII");
+                GameOver("You've defeated the derivatives!!! YESSSSSS SIRRRRRRRR");
             }
         }
 
-        void VerificaColisaoLaser(Control x)
+        void VerifyLaserCollision(Control x)
         {
             if (x is PictureBox && (string)x.Tag == "laser")
             {
@@ -93,11 +93,11 @@ namespace jogoN2v2._0
                 if (x.Top < 15)
                 {
                     this.Controls.Remove(x);
-                    atira = false;
+                    shoot = false;
                 }
             }
         }
-        void verificaColisaoInimigo(Control x)
+        void VerifyEnemyCollision(Control x)
         {
             if (x is PictureBox && (string)x.Tag == "invader")
             {
@@ -105,8 +105,8 @@ namespace jogoN2v2._0
 
                 if (x.Bounds.IntersectsWith(pcbPlayer.Bounds))
                 {
-                    gameOver("Você foi pego pelos invaders... F");
-                    vidas--;
+                    GameOver("You have been caught by the invaders...");
+                    lifes--;
                 }
 
                 foreach (Control y in this.Controls)
@@ -115,15 +115,15 @@ namespace jogoN2v2._0
                     {
                         if (y.Bounds.IntersectsWith(x.Bounds))
                         {
-                            if (clsConfig.sons == "on")
+                            if (clsConfig.sounds == "on")
                             {
                                 enemyDestroyed.URL = "enemyDestroyed.mp3";
                                 enemyDestroyed.controls.play();
                             }
                             this.Controls.Remove(x);
                             this.Controls.Remove(y);
-                            pontos += 1;
-                            atira = false;
+                            points += 1;
+                            shoot = false;
                         }
                     }
                 }
@@ -131,14 +131,14 @@ namespace jogoN2v2._0
         }
         void MoveInvader(Control x)
         {
-            x.Left += velocidadeInimigo;
+            x.Left += enemySpeed;
             if (x.Left > 730)
             {
                 x.Top += 65;
                 x.Left = -80;
             }
         }
-        void VerificaColisaoLaserInimigo(Control x)
+        void VerifyEnemyLaserColision(Control x)
         {
             if (x is PictureBox && (string)x.Tag == "invaderLaser")
             {
@@ -147,8 +147,8 @@ namespace jogoN2v2._0
                 if (x.Bounds.IntersectsWith(pcbPlayer.Bounds))
                 {
                     this.Controls.Remove(x);
-                    gameOver("Você foi pego pelo laser dos invaders... F");
-                    vidas--;
+                    GameOver("You have been caught by the laser of the invaders...");
+                    lifes--;
                 }
             }
         }
@@ -160,34 +160,34 @@ namespace jogoN2v2._0
                 this.Controls.Remove(x);
             }
         }
-        void MudaVelocidade()
+        void ChangeSpeed()
         {
-            if (clsConfig.dificuldade == "Easy")
+            if (clsConfig.difficulty == "Easy")
             {
-                velocidade = 14;
-                velocidadeInimigo = 8;
+                characterSpeed = 14;
+                enemySpeed = 8;
             }
-            else if (clsConfig.dificuldade == "Normal")
+            else if (clsConfig.difficulty == "Normal")
             {
-                velocidade = 16;
-                velocidadeInimigo = 12;
+                characterSpeed = 16;
+                enemySpeed = 12;
             }
-            else if (clsConfig.dificuldade == "Hard")
+            else if (clsConfig.difficulty == "Hard")
             {
-                velocidade = 18;
-                velocidadeInimigo = 15;
+                characterSpeed = 18;
+                enemySpeed = 15;
             }
         }
         private void keyIsDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
-                vaiParaEsquerda = true;
+                goLeft = true;
 
             }
             if (e.KeyCode == Keys.Right)
             {
-                vaiParaDireita = true;
+                goRight = true;
             }
         }
 
@@ -195,88 +195,88 @@ namespace jogoN2v2._0
         {
             if (e.KeyCode == Keys.Left)
             {
-                vaiParaEsquerda = false;
+                goLeft = false;
             }
             if (e.KeyCode == Keys.Right)
             {
-                vaiParaDireita = false;
+                goRight = false;
             }
 
-            if (e.KeyCode == Keys.Space && atira == false)
+            if (e.KeyCode == Keys.Space && shoot == false)
             {
-                if (clsConfig.sons == "on")
+                if (clsConfig.sounds == "on")
                 {
-                    laserSom.URL = "somLaser.mp3";
-                    laserSom.controls.play();
+                    laserSound.URL = "somLaser.mp3";
+                    laserSound.controls.play();
                 }
-                atira = true;
-                criaLaser("laser");
+                shoot = true;
+                CreateLaserComponent("laser");
             }
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
-                if (clsConfig.sons == "on")
+                if (clsConfig.sounds == "on")
                 {
                     invadersSound.controls.play();
                     invadersSound.settings.setMode("loop", true);
                 }
-                removeTela(vidas, pontos);
+                RemoveScreen(lifes, points);
 
-                gameSetup();
+                GameSetup();
             }
         }
 
-        private void criaInvaders()
+        private void CreateInvaders()
         {
-            invadersVetor = new PictureBox[15];
+            invadersVector = new PictureBox[15];
             int left = 0;
-            for (int i = 0; i < invadersVetor.Length; i++)
+            for (int i = 0; i < invadersVector.Length; i++)
             {
-                invadersVetor[i] = new PictureBox();
-                invadersVetor[i].Size = new Size(80, 60);
-                invadersVetor[i].Image = Properties.Resources.derivada_2;
-                invadersVetor[i].Top = 5;
-                invadersVetor[i].Tag = "invader";
-                invadersVetor[i].Left = left;
-                invadersVetor[i].SizeMode = PictureBoxSizeMode.Zoom;
-                this.Controls.Add(invadersVetor[i]);
+                invadersVector[i] = new PictureBox();
+                invadersVector[i].Size = new Size(80, 60);
+                invadersVector[i].Image = Properties.Resources.derivada_2;
+                invadersVector[i].Top = 5;
+                invadersVector[i].Tag = "invader";
+                invadersVector[i].Left = left;
+                invadersVector[i].SizeMode = PictureBoxSizeMode.Zoom;
+                this.Controls.Add(invadersVector[i]);
                 left = left - 80;
             }
         }
 
-        void gameSetup()
+        void GameSetup()
         {
-            lblPoints.Text = "Pontos: 0";
-            pontos = 0;
+            lblPoints.Text = "Points: 0";
+            points = 0;
             isGameOver = false;
-            laserInimigoTimer = 300;
-            MudaVelocidadeInimigo();
+            enemyLaserTimer = 300;
+            ChangeEnemySpeed();
 
-            atira = false;
+            shoot = false;
 
-            criaInvaders();
+            CreateInvaders();
             gameTimer.Start();
         }
 
-        void MudaVelocidadeInimigo()
+        void ChangeEnemySpeed()
         {
-            if (clsConfig.dificuldade == "Easy")
+            if (clsConfig.difficulty == "Easy")
             {
-                velocidadeInimigo = 5;
+                enemySpeed = 5;
             }
-            else if (clsConfig.dificuldade == "Normal")
+            else if (clsConfig.difficulty == "Normal")
             {
-                velocidadeInimigo = 8;
+                enemySpeed = 8;
             }
-            else if (clsConfig.dificuldade == "Hard")
+            else if (clsConfig.difficulty == "Hard")
             {
-                velocidadeInimigo = 12;
+                enemySpeed = 12;
             }
         }
         
 
-        void removeTela(int vidas, int pontosTentativa)
+        void RemoveScreen(int lifes, int attemptPoints)
         {
-            foreach (PictureBox i in invadersVetor)
+            foreach (PictureBox i in invadersVector)
             {
                 this.Controls.Remove(i);
             }
@@ -291,62 +291,62 @@ namespace jogoN2v2._0
                     }
                 }
             }
-            if (vidas == 3)
+            if (lifes == 3)
             {
-                recorde = pontosTentativa;
+                record = attemptPoints;
             }
-            else if (pontosTentativa > recorde)
+            else if (attemptPoints > record)
             {
-                recorde = pontosTentativa;
+                record = attemptPoints;
             }
 
-            else if (vidas == 0)
+            else if (lifes == 0)
             {
                 invadersSound.controls.stop();
                 gameOverSound.controls.stop();
                 this.Close();
             }
         }
-        void gameOver(string mensagem)
+        void GameOver(string message)
         {
             isGameOver = true;
             gameTimer.Stop();
             invadersSound.controls.stop();
-            clsConfig.pontosInvaders = recorde;
-            if (mensagem == "Você foi pego pelo laser dos invaders... F" || mensagem == "Você foi pego pelos invaders... F")
+            clsConfig.pointsInvaders = record;
+            if (message == "You have been caught by the laser of the invaders.." || message == "\"You have been caught by the invaders...")
             {
-                if (clsConfig.sons == "on")
+                if (clsConfig.sounds == "on")
                 {
                     gameOverSound.URL = "gameOver.mp3";
                     gameOverSound.controls.play();
                 }
-                if (vidas > 1)
-                    MessageBox.Show($"{mensagem}\nVolte no jogo e tente mais uma vez (Aperte ENTER para recomeçar)");
-                if (vidas == 1)
+                if (lifes > 1)
+                    MessageBox.Show($"{message}\nGo back to the game and try one more time! (Press ENTER to restart)");
+                if (lifes == 1)
                 {
-                    if (pontos > recorde)
+                    if (points > record)
                     {
-                        recorde = pontos;
+                        record = points;
                     }
-                    MessageBox.Show($"Sem mais vidas restantes. Sua melhor pontuação: {recorde}");
+                    MessageBox.Show($"No more lifes. Your best score: {record}");
                     this.Close();
                 }
             }
             else
             {
-                if (clsConfig.sons == "on")
+                if (clsConfig.sounds == "on")
                 {
                     winSound.URL = "winSound.mp3";
                     winSound.controls.play();
                 }
-                MessageBox.Show($"{mensagem}\nVIVA! O nosso grande mestre Wuo conseguiu vencer a dungeon das derivadas!!!!");
-                clsConfig.pontosInvaders = invadersVetor.Length;
+                MessageBox.Show($"{message}\nHURRAH! Our great master Wuo have defeated the dungeon of derivatives!!!!!");
+                clsConfig.pointsInvaders = invadersVector.Length;
                 this.Close();
             }
-            lblPoints.Text = "Pontos: " + pontos;
+            lblPoints.Text = "Points: " + points;
         }
 
-        void criaLaser(string laserTag)
+        void CreateLaserComponent(string laserTag)
         {
             PictureBox laser = new PictureBox();
             laser.Image = Properties.Resources.laser;

@@ -95,7 +95,7 @@
             // 
             // timerTutorialDino
             // 
-            this.timerTutorialDino.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerTutorialDino.Tick += new System.EventHandler(this.timerTutorialDino_Tick);
             // 
             // frmTutorialDino
             // 

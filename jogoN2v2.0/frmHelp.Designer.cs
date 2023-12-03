@@ -152,9 +152,9 @@
             this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnFechar_Click);
-            this.btnClose.MouseLeave += new System.EventHandler(this.btnFechar_MouseLeave);
-            this.btnClose.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnFechar_MouseMove);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
+            this.btnClose.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnClose_MouseMove);
             // 
             // lblCreators
             // 

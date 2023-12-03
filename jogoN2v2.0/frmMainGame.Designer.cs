@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtScore = new System.Windows.Forms.Label();
-            this.JogoPrincipalTimer = new System.Windows.Forms.Timer(this.components);
-            this.pcbInfinito = new System.Windows.Forms.PictureBox();
-            this.pcbCoracao4 = new System.Windows.Forms.PictureBox();
-            this.pcbCoracao5 = new System.Windows.Forms.PictureBox();
+            this.MainGameTimer = new System.Windows.Forms.Timer(this.components);
+            this.pcbInfinite = new System.Windows.Forms.PictureBox();
+            this.pcbHeart4 = new System.Windows.Forms.PictureBox();
+            this.pcbHeart5 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox28 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.pcbCoracao3 = new System.Windows.Forms.PictureBox();
-            this.pcbCoracao2 = new System.Windows.Forms.PictureBox();
-            this.pcbCoracao1 = new System.Windows.Forms.PictureBox();
+            this.pcbHeart3 = new System.Windows.Forms.PictureBox();
+            this.pcbHeart2 = new System.Windows.Forms.PictureBox();
+            this.pcbHeart1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox40 = new System.Windows.Forms.PictureBox();
             this.pictureBox37 = new System.Windows.Forms.PictureBox();
@@ -54,17 +54,17 @@
             this.pictureBox46 = new System.Windows.Forms.PictureBox();
             this.pictureBox45 = new System.Windows.Forms.PictureBox();
             this.pictureBox44 = new System.Windows.Forms.PictureBox();
-            this.pcbChave3 = new System.Windows.Forms.PictureBox();
+            this.pcbKey3 = new System.Windows.Forms.PictureBox();
             this.pcbIntegral6 = new System.Windows.Forms.PictureBox();
-            this.pcbLimite3 = new System.Windows.Forms.PictureBox();
+            this.pcbLimit3 = new System.Windows.Forms.PictureBox();
             this.pictureBox42 = new System.Windows.Forms.PictureBox();
             this.pictureBox41 = new System.Windows.Forms.PictureBox();
             this.pictureBox39 = new System.Windows.Forms.PictureBox();
             this.pictureBox38 = new System.Windows.Forms.PictureBox();
             this.pcbIntegral5 = new System.Windows.Forms.PictureBox();
-            this.pcbLimite2 = new System.Windows.Forms.PictureBox();
+            this.pcbLimit2 = new System.Windows.Forms.PictureBox();
             this.pictureBox35 = new System.Windows.Forms.PictureBox();
-            this.pcbChave2 = new System.Windows.Forms.PictureBox();
+            this.pcbKey2 = new System.Windows.Forms.PictureBox();
             this.pictureBox34 = new System.Windows.Forms.PictureBox();
             this.pictureBox33 = new System.Windows.Forms.PictureBox();
             this.pictureBox32 = new System.Windows.Forms.PictureBox();
@@ -82,34 +82,34 @@
             this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.pcbChave1 = new System.Windows.Forms.PictureBox();
+            this.pcbKey1 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pcbParede1 = new System.Windows.Forms.PictureBox();
-            this.pcbPlataforma = new System.Windows.Forms.PictureBox();
+            this.pcbWall1 = new System.Windows.Forms.PictureBox();
+            this.pcbPlatform = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pcbPersonagem = new System.Windows.Forms.PictureBox();
-            this.pcbPorta3 = new System.Windows.Forms.PictureBox();
-            this.pcbPorta2 = new System.Windows.Forms.PictureBox();
-            this.pcbPorta1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbInfinito)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao5)).BeginInit();
+            this.pcbCharacter = new System.Windows.Forms.PictureBox();
+            this.pcbDoor3 = new System.Windows.Forms.PictureBox();
+            this.pcbDoor2 = new System.Windows.Forms.PictureBox();
+            this.pcbDoor1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbInfinite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
@@ -124,17 +124,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox45)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbChave3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbKey3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbIntegral6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLimite3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLimit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbIntegral5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLimite2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLimit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbChave2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbKey2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
@@ -152,25 +152,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbChave1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbKey1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbParede1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlataforma)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbWall1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPersonagem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPorta3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPorta2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPorta1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbCharacter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDoor3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDoor2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDoor1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtScore
@@ -186,43 +186,43 @@
             // 
             // JogoPrincipalTimer
             // 
-            this.JogoPrincipalTimer.Enabled = true;
-            this.JogoPrincipalTimer.Interval = 20;
-            this.JogoPrincipalTimer.Tick += new System.EventHandler(this.MainTimerEvent);
+            this.MainGameTimer.Enabled = true;
+            this.MainGameTimer.Interval = 20;
+            this.MainGameTimer.Tick += new System.EventHandler(this.MainTimerEvent);
             // 
             // pcbInfinito
             // 
-            this.pcbInfinito.BackColor = System.Drawing.Color.Transparent;
-            this.pcbInfinito.Image = global::jogoN2v2._0.Properties.Resources.iconfinder_Infinity_Loop_169918;
-            this.pcbInfinito.Location = new System.Drawing.Point(559, -3);
-            this.pcbInfinito.Name = "pcbInfinito";
-            this.pcbInfinito.Size = new System.Drawing.Size(58, 58);
-            this.pcbInfinito.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbInfinito.TabIndex = 79;
-            this.pcbInfinito.TabStop = false;
-            this.pcbInfinito.Visible = false;
+            this.pcbInfinite.BackColor = System.Drawing.Color.Transparent;
+            this.pcbInfinite.Image = global::jogoN2v2._0.Properties.Resources.iconfinder_Infinity_Loop_169918;
+            this.pcbInfinite.Location = new System.Drawing.Point(559, -3);
+            this.pcbInfinite.Name = "pcbInfinite";
+            this.pcbInfinite.Size = new System.Drawing.Size(58, 58);
+            this.pcbInfinite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbInfinite.TabIndex = 79;
+            this.pcbInfinite.TabStop = false;
+            this.pcbInfinite.Visible = false;
             // 
             // pcbCoracao4
             // 
-            this.pcbCoracao4.BackColor = System.Drawing.Color.Transparent;
-            this.pcbCoracao4.Image = global::jogoN2v2._0.Properties.Resources.coracao;
-            this.pcbCoracao4.Location = new System.Drawing.Point(443, -3);
-            this.pcbCoracao4.Name = "pcbCoracao4";
-            this.pcbCoracao4.Size = new System.Drawing.Size(39, 37);
-            this.pcbCoracao4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbCoracao4.TabIndex = 78;
-            this.pcbCoracao4.TabStop = false;
+            this.pcbHeart4.BackColor = System.Drawing.Color.Transparent;
+            this.pcbHeart4.Image = global::jogoN2v2._0.Properties.Resources.coracao;
+            this.pcbHeart4.Location = new System.Drawing.Point(443, -3);
+            this.pcbHeart4.Name = "pcbHeart4";
+            this.pcbHeart4.Size = new System.Drawing.Size(39, 37);
+            this.pcbHeart4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbHeart4.TabIndex = 78;
+            this.pcbHeart4.TabStop = false;
             // 
             // pcbCoracao5
             // 
-            this.pcbCoracao5.BackColor = System.Drawing.Color.Transparent;
-            this.pcbCoracao5.Image = global::jogoN2v2._0.Properties.Resources.coracao;
-            this.pcbCoracao5.Location = new System.Drawing.Point(398, -3);
-            this.pcbCoracao5.Name = "pcbCoracao5";
-            this.pcbCoracao5.Size = new System.Drawing.Size(39, 37);
-            this.pcbCoracao5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbCoracao5.TabIndex = 77;
-            this.pcbCoracao5.TabStop = false;
+            this.pcbHeart5.BackColor = System.Drawing.Color.Transparent;
+            this.pcbHeart5.Image = global::jogoN2v2._0.Properties.Resources.coracao;
+            this.pcbHeart5.Location = new System.Drawing.Point(398, -3);
+            this.pcbHeart5.Name = "pcbHeart5";
+            this.pcbHeart5.Size = new System.Drawing.Size(39, 37);
+            this.pcbHeart5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbHeart5.TabIndex = 77;
+            this.pcbHeart5.TabStop = false;
             // 
             // pictureBox10
             // 
@@ -233,7 +233,7 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 14;
             this.pictureBox10.TabStop = false;
-            this.pictureBox10.Tag = "plataforma";
+            this.pictureBox10.Tag = "platform";
             // 
             // pictureBox28
             // 
@@ -245,7 +245,7 @@
             this.pictureBox28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox28.TabIndex = 76;
             this.pictureBox28.TabStop = false;
-            this.pictureBox28.Tag = "inimigo";
+            this.pictureBox28.Tag = "enemy";
             // 
             // pictureBox18
             // 
@@ -256,40 +256,40 @@
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox18.TabIndex = 75;
             this.pictureBox18.TabStop = false;
-            this.pictureBox18.Tag = "plataforma";
+            this.pictureBox18.Tag = "platform";
             // 
             // pcbCoracao3
             // 
-            this.pcbCoracao3.BackColor = System.Drawing.Color.Transparent;
-            this.pcbCoracao3.Image = global::jogoN2v2._0.Properties.Resources.coracao;
-            this.pcbCoracao3.Location = new System.Drawing.Point(488, -3);
-            this.pcbCoracao3.Name = "pcbCoracao3";
-            this.pcbCoracao3.Size = new System.Drawing.Size(39, 37);
-            this.pcbCoracao3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbCoracao3.TabIndex = 71;
-            this.pcbCoracao3.TabStop = false;
+            this.pcbHeart3.BackColor = System.Drawing.Color.Transparent;
+            this.pcbHeart3.Image = global::jogoN2v2._0.Properties.Resources.coracao;
+            this.pcbHeart3.Location = new System.Drawing.Point(488, -3);
+            this.pcbHeart3.Name = "pcbHeart3";
+            this.pcbHeart3.Size = new System.Drawing.Size(39, 37);
+            this.pcbHeart3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbHeart3.TabIndex = 71;
+            this.pcbHeart3.TabStop = false;
             // 
             // pcbCoracao2
             // 
-            this.pcbCoracao2.BackColor = System.Drawing.Color.Transparent;
-            this.pcbCoracao2.Image = global::jogoN2v2._0.Properties.Resources.coracao;
-            this.pcbCoracao2.Location = new System.Drawing.Point(533, -3);
-            this.pcbCoracao2.Name = "pcbCoracao2";
-            this.pcbCoracao2.Size = new System.Drawing.Size(39, 37);
-            this.pcbCoracao2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbCoracao2.TabIndex = 70;
-            this.pcbCoracao2.TabStop = false;
+            this.pcbHeart2.BackColor = System.Drawing.Color.Transparent;
+            this.pcbHeart2.Image = global::jogoN2v2._0.Properties.Resources.coracao;
+            this.pcbHeart2.Location = new System.Drawing.Point(533, -3);
+            this.pcbHeart2.Name = "pcbHeart2";
+            this.pcbHeart2.Size = new System.Drawing.Size(39, 37);
+            this.pcbHeart2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbHeart2.TabIndex = 70;
+            this.pcbHeart2.TabStop = false;
             // 
             // pcbCoracao1
             // 
-            this.pcbCoracao1.BackColor = System.Drawing.Color.Transparent;
-            this.pcbCoracao1.Image = global::jogoN2v2._0.Properties.Resources.coracao;
-            this.pcbCoracao1.Location = new System.Drawing.Point(578, -5);
-            this.pcbCoracao1.Name = "pcbCoracao1";
-            this.pcbCoracao1.Size = new System.Drawing.Size(39, 37);
-            this.pcbCoracao1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbCoracao1.TabIndex = 69;
-            this.pcbCoracao1.TabStop = false;
+            this.pcbHeart1.BackColor = System.Drawing.Color.Transparent;
+            this.pcbHeart1.Image = global::jogoN2v2._0.Properties.Resources.coracao;
+            this.pcbHeart1.Location = new System.Drawing.Point(578, -5);
+            this.pcbHeart1.Name = "pcbHeart1";
+            this.pcbHeart1.Size = new System.Drawing.Size(39, 37);
+            this.pcbHeart1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbHeart1.TabIndex = 69;
+            this.pcbHeart1.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -300,7 +300,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 65;
             this.pictureBox5.TabStop = false;
-            this.pictureBox5.Tag = "plataforma";
+            this.pictureBox5.Tag = "platform";
             // 
             // pictureBox40
             // 
@@ -311,7 +311,7 @@
             this.pictureBox40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox40.TabIndex = 53;
             this.pictureBox40.TabStop = false;
-            this.pictureBox40.Tag = "plataforma";
+            this.pictureBox40.Tag = "platform";
             // 
             // pictureBox37
             // 
@@ -322,7 +322,7 @@
             this.pictureBox37.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox37.TabIndex = 50;
             this.pictureBox37.TabStop = false;
-            this.pictureBox37.Tag = "parede";
+            this.pictureBox37.Tag = "wall";
             // 
             // pictureBox43
             // 
@@ -355,7 +355,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "plataforma";
+            this.pictureBox1.Tag = "platform";
             // 
             // pictureBox7
             // 
@@ -366,7 +366,7 @@
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 11;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.Tag = "plataforma";
+            this.pictureBox7.Tag = "platform";
             // 
             // pictureBox19
             // 
@@ -389,7 +389,7 @@
             this.pictureBox49.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox49.TabIndex = 67;
             this.pictureBox49.TabStop = false;
-            this.pictureBox49.Tag = "plataforma";
+            this.pictureBox49.Tag = "platform";
             // 
             // pictureBox48
             // 
@@ -400,7 +400,7 @@
             this.pictureBox48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox48.TabIndex = 68;
             this.pictureBox48.TabStop = false;
-            this.pictureBox48.Tag = "plataforma";
+            this.pictureBox48.Tag = "platform";
             // 
             // pictureBox47
             // 
@@ -411,7 +411,7 @@
             this.pictureBox47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox47.TabIndex = 63;
             this.pictureBox47.TabStop = false;
-            this.pictureBox47.Tag = "moeda";
+            this.pictureBox47.Tag = "coin";
             // 
             // pictureBox46
             // 
@@ -422,7 +422,7 @@
             this.pictureBox46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox46.TabIndex = 62;
             this.pictureBox46.TabStop = false;
-            this.pictureBox46.Tag = "moeda";
+            this.pictureBox46.Tag = "coin";
             // 
             // pictureBox45
             // 
@@ -433,7 +433,7 @@
             this.pictureBox45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox45.TabIndex = 61;
             this.pictureBox45.TabStop = false;
-            this.pictureBox45.Tag = "parede";
+            this.pictureBox45.Tag = "wall";
             // 
             // pictureBox44
             // 
@@ -444,18 +444,18 @@
             this.pictureBox44.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox44.TabIndex = 60;
             this.pictureBox44.TabStop = false;
-            this.pictureBox44.Tag = "plataforma";
+            this.pictureBox44.Tag = "platform";
             // 
             // pcbChave3
             // 
-            this.pcbChave3.Image = global::jogoN2v2._0.Properties.Resources.chave;
-            this.pcbChave3.Location = new System.Drawing.Point(2626, 321);
-            this.pcbChave3.Name = "pcbChave3";
-            this.pcbChave3.Size = new System.Drawing.Size(90, 47);
-            this.pcbChave3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbChave3.TabIndex = 58;
-            this.pcbChave3.TabStop = false;
-            this.pcbChave3.Tag = "chave";
+            this.pcbKey3.Image = global::jogoN2v2._0.Properties.Resources.chave;
+            this.pcbKey3.Location = new System.Drawing.Point(2626, 321);
+            this.pcbKey3.Name = "pcbKey3";
+            this.pcbKey3.Size = new System.Drawing.Size(90, 47);
+            this.pcbKey3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbKey3.TabIndex = 58;
+            this.pcbKey3.TabStop = false;
+            this.pcbKey3.Tag = "key";
             // 
             // pcbIntegral6
             // 
@@ -466,18 +466,18 @@
             this.pcbIntegral6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbIntegral6.TabIndex = 57;
             this.pcbIntegral6.TabStop = false;
-            this.pcbIntegral6.Tag = "inimigo";
+            this.pcbIntegral6.Tag = "enemy";
             // 
             // pcbLimite3
             // 
-            this.pcbLimite3.Image = global::jogoN2v2._0.Properties.Resources.limite;
-            this.pcbLimite3.Location = new System.Drawing.Point(2364, 248);
-            this.pcbLimite3.Name = "pcbLimite3";
-            this.pcbLimite3.Size = new System.Drawing.Size(72, 32);
-            this.pcbLimite3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbLimite3.TabIndex = 56;
-            this.pcbLimite3.TabStop = false;
-            this.pcbLimite3.Tag = "inimigo";
+            this.pcbLimit3.Image = global::jogoN2v2._0.Properties.Resources.limite;
+            this.pcbLimit3.Location = new System.Drawing.Point(2364, 248);
+            this.pcbLimit3.Name = "pcbLimite3";
+            this.pcbLimit3.Size = new System.Drawing.Size(72, 32);
+            this.pcbLimit3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbLimit3.TabIndex = 56;
+            this.pcbLimit3.TabStop = false;
+            this.pcbLimit3.Tag = "enemy";
             // 
             // pictureBox42
             // 
@@ -488,7 +488,7 @@
             this.pictureBox42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox42.TabIndex = 55;
             this.pictureBox42.TabStop = false;
-            this.pictureBox42.Tag = "plataforma";
+            this.pictureBox42.Tag = "platform";
             // 
             // pictureBox41
             // 
@@ -499,7 +499,7 @@
             this.pictureBox41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox41.TabIndex = 54;
             this.pictureBox41.TabStop = false;
-            this.pictureBox41.Tag = "plataforma";
+            this.pictureBox41.Tag = "platform";
             // 
             // pictureBox39
             // 
@@ -510,7 +510,7 @@
             this.pictureBox39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox39.TabIndex = 52;
             this.pictureBox39.TabStop = false;
-            this.pictureBox39.Tag = "moeda";
+            this.pictureBox39.Tag = "coin";
             // 
             // pictureBox38
             // 
@@ -521,7 +521,7 @@
             this.pictureBox38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox38.TabIndex = 51;
             this.pictureBox38.TabStop = false;
-            this.pictureBox38.Tag = "plataforma";
+            this.pictureBox38.Tag = "platform";
             // 
             // pcbIntegral5
             // 
@@ -532,18 +532,18 @@
             this.pcbIntegral5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbIntegral5.TabIndex = 49;
             this.pcbIntegral5.TabStop = false;
-            this.pcbIntegral5.Tag = "inimigo";
+            this.pcbIntegral5.Tag = "enemy";
             // 
             // pcbLimite2
             // 
-            this.pcbLimite2.Image = global::jogoN2v2._0.Properties.Resources.limite;
-            this.pcbLimite2.Location = new System.Drawing.Point(1879, 86);
-            this.pcbLimite2.Name = "pcbLimite2";
-            this.pcbLimite2.Size = new System.Drawing.Size(72, 32);
-            this.pcbLimite2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbLimite2.TabIndex = 47;
-            this.pcbLimite2.TabStop = false;
-            this.pcbLimite2.Tag = "inimigo";
+            this.pcbLimit2.Image = global::jogoN2v2._0.Properties.Resources.limite;
+            this.pcbLimit2.Location = new System.Drawing.Point(1879, 86);
+            this.pcbLimit2.Name = "pcbLimit2";
+            this.pcbLimit2.Size = new System.Drawing.Size(72, 32);
+            this.pcbLimit2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbLimit2.TabIndex = 47;
+            this.pcbLimit2.TabStop = false;
+            this.pcbLimit2.Tag = "enemy";
             // 
             // pictureBox35
             // 
@@ -554,18 +554,18 @@
             this.pictureBox35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox35.TabIndex = 46;
             this.pictureBox35.TabStop = false;
-            this.pictureBox35.Tag = "plataforma";
+            this.pictureBox35.Tag = "platform";
             // 
             // pcbChave2
             // 
-            this.pcbChave2.Image = global::jogoN2v2._0.Properties.Resources.chave;
-            this.pcbChave2.Location = new System.Drawing.Point(2102, 425);
-            this.pcbChave2.Name = "pcbChave2";
-            this.pcbChave2.Size = new System.Drawing.Size(90, 47);
-            this.pcbChave2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbChave2.TabIndex = 45;
-            this.pcbChave2.TabStop = false;
-            this.pcbChave2.Tag = "chave";
+            this.pcbKey2.Image = global::jogoN2v2._0.Properties.Resources.chave;
+            this.pcbKey2.Location = new System.Drawing.Point(2102, 425);
+            this.pcbKey2.Name = "pcbKey2";
+            this.pcbKey2.Size = new System.Drawing.Size(90, 47);
+            this.pcbKey2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbKey2.TabIndex = 45;
+            this.pcbKey2.TabStop = false;
+            this.pcbKey2.Tag = "key";
             // 
             // pictureBox34
             // 
@@ -576,7 +576,7 @@
             this.pictureBox34.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox34.TabIndex = 44;
             this.pictureBox34.TabStop = false;
-            this.pictureBox34.Tag = "moeda";
+            this.pictureBox34.Tag = "coin";
             // 
             // pictureBox33
             // 
@@ -587,7 +587,7 @@
             this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox33.TabIndex = 43;
             this.pictureBox33.TabStop = false;
-            this.pictureBox33.Tag = "moeda";
+            this.pictureBox33.Tag = "coin";
             // 
             // pictureBox32
             // 
@@ -598,7 +598,7 @@
             this.pictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox32.TabIndex = 42;
             this.pictureBox32.TabStop = false;
-            this.pictureBox32.Tag = "moeda";
+            this.pictureBox32.Tag = "coin";
             // 
             // pictureBox31
             // 
@@ -609,7 +609,7 @@
             this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox31.TabIndex = 41;
             this.pictureBox31.TabStop = false;
-            this.pictureBox31.Tag = "moeda";
+            this.pictureBox31.Tag = "coin";
             // 
             // pictureBox30
             // 
@@ -620,7 +620,7 @@
             this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox30.TabIndex = 40;
             this.pictureBox30.TabStop = false;
-            this.pictureBox30.Tag = "moeda";
+            this.pictureBox30.Tag = "coin";
             // 
             // pcbIntegral4
             // 
@@ -631,7 +631,7 @@
             this.pcbIntegral4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbIntegral4.TabIndex = 38;
             this.pcbIntegral4.TabStop = false;
-            this.pcbIntegral4.Tag = "inimigo";
+            this.pcbIntegral4.Tag = "enemy";
             // 
             // pictureBox29
             // 
@@ -642,7 +642,7 @@
             this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox29.TabIndex = 37;
             this.pictureBox29.TabStop = false;
-            this.pictureBox29.Tag = "plataforma";
+            this.pictureBox29.Tag = "platform";
             // 
             // pictureBox27
             // 
@@ -653,7 +653,7 @@
             this.pictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox27.TabIndex = 35;
             this.pictureBox27.TabStop = false;
-            this.pictureBox27.Tag = "plataforma";
+            this.pictureBox27.Tag = "platform";
             // 
             // pcbIntegral3
             // 
@@ -664,7 +664,7 @@
             this.pcbIntegral3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbIntegral3.TabIndex = 34;
             this.pcbIntegral3.TabStop = false;
-            this.pcbIntegral3.Tag = "inimigo";
+            this.pcbIntegral3.Tag = "enemy";
             // 
             // pcbIntegral2
             // 
@@ -675,7 +675,7 @@
             this.pcbIntegral2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbIntegral2.TabIndex = 33;
             this.pcbIntegral2.TabStop = false;
-            this.pcbIntegral2.Tag = "inimigo";
+            this.pcbIntegral2.Tag = "enemy";
             // 
             // pictureBox26
             // 
@@ -686,7 +686,7 @@
             this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox26.TabIndex = 32;
             this.pictureBox26.TabStop = false;
-            this.pictureBox26.Tag = "plataforma";
+            this.pictureBox26.Tag = "platform";
             // 
             // pictureBox25
             // 
@@ -697,7 +697,7 @@
             this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox25.TabIndex = 31;
             this.pictureBox25.TabStop = false;
-            this.pictureBox25.Tag = "plataforma";
+            this.pictureBox25.Tag = "platform";
             // 
             // pictureBox24
             // 
@@ -708,7 +708,7 @@
             this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox24.TabIndex = 30;
             this.pictureBox24.TabStop = false;
-            this.pictureBox24.Tag = "plataforma";
+            this.pictureBox24.Tag = "platform";
             // 
             // pictureBox23
             // 
@@ -719,7 +719,7 @@
             this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox23.TabIndex = 29;
             this.pictureBox23.TabStop = false;
-            this.pictureBox23.Tag = "moeda";
+            this.pictureBox23.Tag = "coin";
             // 
             // pictureBox22
             // 
@@ -730,7 +730,7 @@
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox22.TabIndex = 28;
             this.pictureBox22.TabStop = false;
-            this.pictureBox22.Tag = "moeda";
+            this.pictureBox22.Tag = "coin";
             // 
             // pictureBox21
             // 
@@ -741,7 +741,7 @@
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox21.TabIndex = 27;
             this.pictureBox21.TabStop = false;
-            this.pictureBox21.Tag = "moeda";
+            this.pictureBox21.Tag = "coin";
             // 
             // pictureBox20
             // 
@@ -752,19 +752,19 @@
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox20.TabIndex = 26;
             this.pictureBox20.TabStop = false;
-            this.pictureBox20.Tag = "plataforma";
+            this.pictureBox20.Tag = "platform";
             // 
             // pcbChave1
             // 
-            this.pcbChave1.BackColor = System.Drawing.Color.Transparent;
-            this.pcbChave1.Image = global::jogoN2v2._0.Properties.Resources.chave;
-            this.pcbChave1.Location = new System.Drawing.Point(30, 61);
-            this.pcbChave1.Name = "pcbChave1";
-            this.pcbChave1.Size = new System.Drawing.Size(73, 39);
-            this.pcbChave1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbChave1.TabIndex = 22;
-            this.pcbChave1.TabStop = false;
-            this.pcbChave1.Tag = "chave";
+            this.pcbKey1.BackColor = System.Drawing.Color.Transparent;
+            this.pcbKey1.Image = global::jogoN2v2._0.Properties.Resources.chave;
+            this.pcbKey1.Location = new System.Drawing.Point(30, 61);
+            this.pcbKey1.Name = "pcbKey1";
+            this.pcbKey1.Size = new System.Drawing.Size(73, 39);
+            this.pcbKey1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbKey1.TabIndex = 22;
+            this.pcbKey1.TabStop = false;
+            this.pcbKey1.Tag = "key";
             // 
             // pictureBox17
             // 
@@ -775,7 +775,7 @@
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox17.TabIndex = 21;
             this.pictureBox17.TabStop = false;
-            this.pictureBox17.Tag = "moeda";
+            this.pictureBox17.Tag = "coin";
             // 
             // pictureBox16
             // 
@@ -787,7 +787,7 @@
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox16.TabIndex = 20;
             this.pictureBox16.TabStop = false;
-            this.pictureBox16.Tag = "moeda";
+            this.pictureBox16.Tag = "coin";
             // 
             // pictureBox15
             // 
@@ -799,7 +799,7 @@
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox15.TabIndex = 19;
             this.pictureBox15.TabStop = false;
-            this.pictureBox15.Tag = "moeda";
+            this.pictureBox15.Tag = "coin";
             // 
             // pictureBox14
             // 
@@ -811,7 +811,7 @@
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox14.TabIndex = 18;
             this.pictureBox14.TabStop = false;
-            this.pictureBox14.Tag = "moeda";
+            this.pictureBox14.Tag = "coin";
             // 
             // pictureBox13
             // 
@@ -823,7 +823,7 @@
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox13.TabIndex = 17;
             this.pictureBox13.TabStop = false;
-            this.pictureBox13.Tag = "moeda";
+            this.pictureBox13.Tag = "coin";
             // 
             // pictureBox12
             // 
@@ -835,29 +835,29 @@
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 16;
             this.pictureBox12.TabStop = false;
-            this.pictureBox12.Tag = "moeda";
+            this.pictureBox12.Tag = "coin";
             // 
             // pcbParede1
             // 
-            this.pcbParede1.Image = global::jogoN2v2._0.Properties.Resources.pixel_art_brick_wall_seamless_260nw_1798372108;
-            this.pcbParede1.Location = new System.Drawing.Point(770, -5);
-            this.pcbParede1.Name = "pcbParede1";
-            this.pcbParede1.Size = new System.Drawing.Size(57, 176);
-            this.pcbParede1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbParede1.TabIndex = 9;
-            this.pcbParede1.TabStop = false;
-            this.pcbParede1.Tag = "parede";
+            this.pcbWall1.Image = global::jogoN2v2._0.Properties.Resources.pixel_art_brick_wall_seamless_260nw_1798372108;
+            this.pcbWall1.Location = new System.Drawing.Point(770, -5);
+            this.pcbWall1.Name = "pcbWall1";
+            this.pcbWall1.Size = new System.Drawing.Size(57, 176);
+            this.pcbWall1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbWall1.TabIndex = 9;
+            this.pcbWall1.TabStop = false;
+            this.pcbWall1.Tag = "wall";
             // 
-            // pcbPlataforma
+            // pcbPlatform
             // 
-            this.pcbPlataforma.BackgroundImage = global::jogoN2v2._0.Properties.Resources.plataforma_2;
-            this.pcbPlataforma.Location = new System.Drawing.Point(0, 106);
-            this.pcbPlataforma.Name = "pcbPlataforma";
-            this.pcbPlataforma.Size = new System.Drawing.Size(143, 20);
-            this.pcbPlataforma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcbPlataforma.TabIndex = 15;
-            this.pcbPlataforma.TabStop = false;
-            this.pcbPlataforma.Tag = "plataforma";
+            this.pcbPlatform.BackgroundImage = global::jogoN2v2._0.Properties.Resources.plataforma_2;
+            this.pcbPlatform.Location = new System.Drawing.Point(0, 106);
+            this.pcbPlatform.Name = "pcbPlatform";
+            this.pcbPlatform.Size = new System.Drawing.Size(143, 20);
+            this.pcbPlatform.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcbPlatform.TabIndex = 15;
+            this.pcbPlatform.TabStop = false;
+            this.pcbPlatform.Tag = "platform";
             // 
             // pictureBox9
             // 
@@ -868,7 +868,7 @@
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 13;
             this.pictureBox9.TabStop = false;
-            this.pictureBox9.Tag = "plataforma";
+            this.pictureBox9.Tag = "platform";
             // 
             // pictureBox8
             // 
@@ -879,7 +879,7 @@
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 12;
             this.pictureBox8.TabStop = false;
-            this.pictureBox8.Tag = "plataforma";
+            this.pictureBox8.Tag = "platform";
             // 
             // pictureBox6
             // 
@@ -890,7 +890,7 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 10;
             this.pictureBox6.TabStop = false;
-            this.pictureBox6.Tag = "plataforma";
+            this.pictureBox6.Tag = "platform";
             // 
             // pictureBox4
             // 
@@ -901,7 +901,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Tag = "plataforma";
+            this.pictureBox4.Tag = "platform";
             // 
             // pictureBox3
             // 
@@ -912,7 +912,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Tag = "plataforma";
+            this.pictureBox3.Tag = "platform";
             // 
             // pictureBox2
             // 
@@ -923,68 +923,68 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Tag = "plataforma";
+            this.pictureBox2.Tag = "platform";
             // 
-            // pcbPersonagem
+            // pcbCharacter
             // 
-            this.pcbPersonagem.BackColor = System.Drawing.Color.Transparent;
-            this.pcbPersonagem.Image = global::jogoN2v2._0.Properties.Resources.imagem_wuo_2;
-            this.pcbPersonagem.Location = new System.Drawing.Point(112, 382);
-            this.pcbPersonagem.Name = "pcbPersonagem";
-            this.pcbPersonagem.Size = new System.Drawing.Size(34, 98);
-            this.pcbPersonagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcbPersonagem.TabIndex = 4;
-            this.pcbPersonagem.TabStop = false;
+            this.pcbCharacter.BackColor = System.Drawing.Color.Transparent;
+            this.pcbCharacter.Image = global::jogoN2v2._0.Properties.Resources.imagem_wuo_2;
+            this.pcbCharacter.Location = new System.Drawing.Point(112, 382);
+            this.pcbCharacter.Name = "pcbCharacter";
+            this.pcbCharacter.Size = new System.Drawing.Size(34, 98);
+            this.pcbCharacter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbCharacter.TabIndex = 4;
+            this.pcbCharacter.TabStop = false;
             // 
             // pcbPorta3
             // 
-            this.pcbPorta3.Image = global::jogoN2v2._0.Properties.Resources.porta_fechada;
-            this.pcbPorta3.Location = new System.Drawing.Point(2626, 88);
-            this.pcbPorta3.Name = "pcbPorta3";
-            this.pcbPorta3.Size = new System.Drawing.Size(74, 85);
-            this.pcbPorta3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcbPorta3.TabIndex = 3;
-            this.pcbPorta3.TabStop = false;
-            this.pcbPorta3.Tag = "porta";
+            this.pcbDoor3.Image = global::jogoN2v2._0.Properties.Resources.porta_fechada;
+            this.pcbDoor3.Location = new System.Drawing.Point(2626, 88);
+            this.pcbDoor3.Name = "pcbDoor3";
+            this.pcbDoor3.Size = new System.Drawing.Size(74, 85);
+            this.pcbDoor3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbDoor3.TabIndex = 3;
+            this.pcbDoor3.TabStop = false;
+            this.pcbDoor3.Tag = "door";
             // 
             // pcbPorta2
             // 
-            this.pcbPorta2.Image = global::jogoN2v2._0.Properties.Resources.porta_fechada;
-            this.pcbPorta2.Location = new System.Drawing.Point(1691, 86);
-            this.pcbPorta2.Name = "pcbPorta2";
-            this.pcbPorta2.Size = new System.Drawing.Size(74, 85);
-            this.pcbPorta2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcbPorta2.TabIndex = 2;
-            this.pcbPorta2.TabStop = false;
-            this.pcbPorta2.Tag = "porta";
+            this.pcbDoor2.Image = global::jogoN2v2._0.Properties.Resources.porta_fechada;
+            this.pcbDoor2.Location = new System.Drawing.Point(1691, 86);
+            this.pcbDoor2.Name = "pcbDoor2";
+            this.pcbDoor2.Size = new System.Drawing.Size(74, 85);
+            this.pcbDoor2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbDoor2.TabIndex = 2;
+            this.pcbDoor2.TabStop = false;
+            this.pcbDoor2.Tag = "door";
             // 
             // pcbPorta1
             // 
-            this.pcbPorta1.Image = global::jogoN2v2._0.Properties.Resources.porta_fechada;
-            this.pcbPorta1.Location = new System.Drawing.Point(796, 406);
-            this.pcbPorta1.Name = "pcbPorta1";
-            this.pcbPorta1.Size = new System.Drawing.Size(74, 85);
-            this.pcbPorta1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcbPorta1.TabIndex = 1;
-            this.pcbPorta1.TabStop = false;
-            this.pcbPorta1.Tag = "porta";
+            this.pcbDoor1.Image = global::jogoN2v2._0.Properties.Resources.porta_fechada;
+            this.pcbDoor1.Location = new System.Drawing.Point(796, 406);
+            this.pcbDoor1.Name = "pcbDoor1";
+            this.pcbDoor1.Size = new System.Drawing.Size(74, 85);
+            this.pcbDoor1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbDoor1.TabIndex = 1;
+            this.pcbDoor1.TabStop = false;
+            this.pcbDoor1.Tag = "door";
             // 
-            // frmJogoPrincipal
+            // frmMainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::jogoN2v2._0.Properties.Resources.bg_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(624, 521);
-            this.Controls.Add(this.pcbInfinito);
-            this.Controls.Add(this.pcbCoracao4);
-            this.Controls.Add(this.pcbCoracao5);
+            this.Controls.Add(this.pcbInfinite);
+            this.Controls.Add(this.pcbHeart4);
+            this.Controls.Add(this.pcbHeart5);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox28);
             this.Controls.Add(this.pictureBox18);
-            this.Controls.Add(this.pcbCoracao3);
-            this.Controls.Add(this.pcbCoracao2);
-            this.Controls.Add(this.pcbCoracao1);
+            this.Controls.Add(this.pcbHeart3);
+            this.Controls.Add(this.pcbHeart2);
+            this.Controls.Add(this.pcbHeart1);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox40);
@@ -1000,17 +1000,17 @@
             this.Controls.Add(this.pictureBox46);
             this.Controls.Add(this.pictureBox45);
             this.Controls.Add(this.pictureBox44);
-            this.Controls.Add(this.pcbChave3);
+            this.Controls.Add(this.pcbKey3);
             this.Controls.Add(this.pcbIntegral6);
-            this.Controls.Add(this.pcbLimite3);
+            this.Controls.Add(this.pcbLimit3);
             this.Controls.Add(this.pictureBox42);
             this.Controls.Add(this.pictureBox41);
             this.Controls.Add(this.pictureBox39);
             this.Controls.Add(this.pictureBox38);
             this.Controls.Add(this.pcbIntegral5);
-            this.Controls.Add(this.pcbLimite2);
+            this.Controls.Add(this.pcbLimit2);
             this.Controls.Add(this.pictureBox35);
-            this.Controls.Add(this.pcbChave2);
+            this.Controls.Add(this.pcbKey2);
             this.Controls.Add(this.pictureBox34);
             this.Controls.Add(this.pictureBox33);
             this.Controls.Add(this.pictureBox32);
@@ -1028,42 +1028,42 @@
             this.Controls.Add(this.pictureBox22);
             this.Controls.Add(this.pictureBox21);
             this.Controls.Add(this.pictureBox20);
-            this.Controls.Add(this.pcbChave1);
+            this.Controls.Add(this.pcbKey1);
             this.Controls.Add(this.pictureBox17);
             this.Controls.Add(this.pictureBox16);
             this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.pictureBox14);
             this.Controls.Add(this.pictureBox13);
             this.Controls.Add(this.pictureBox12);
-            this.Controls.Add(this.pcbParede1);
-            this.Controls.Add(this.pcbPlataforma);
+            this.Controls.Add(this.pcbWall1);
+            this.Controls.Add(this.pcbPlatform);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pcbPersonagem);
-            this.Controls.Add(this.pcbPorta3);
-            this.Controls.Add(this.pcbPorta2);
-            this.Controls.Add(this.pcbPorta1);
+            this.Controls.Add(this.pcbCharacter);
+            this.Controls.Add(this.pcbDoor3);
+            this.Controls.Add(this.pcbDoor2);
+            this.Controls.Add(this.pcbDoor1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.Name = "frmJogoPrincipal";
+            this.Name = "frmMainGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "As dungeons de Wuo";
+            this.Text = "Wuo\'s Dungeons";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
-            ((System.ComponentModel.ISupportInitialize)(this.pcbInfinito)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbInfinite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbCoracao1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbHeart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
@@ -1078,17 +1078,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox45)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbChave3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbKey3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbIntegral6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLimite3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLimit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbIntegral5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLimite2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLimit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbChave2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbKey2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
@@ -1106,53 +1106,53 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbChave1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbKey1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbParede1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPlataforma)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbWall1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlatform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPersonagem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPorta3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPorta2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbPorta1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbCharacter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDoor3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDoor2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbDoor1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pcbPorta1;
-        private System.Windows.Forms.PictureBox pcbPorta2;
-        private System.Windows.Forms.PictureBox pcbPorta3;
-        private System.Windows.Forms.PictureBox pcbPersonagem;
+        private System.Windows.Forms.PictureBox pcbDoor1;
+        private System.Windows.Forms.PictureBox pcbDoor2;
+        private System.Windows.Forms.PictureBox pcbDoor3;
+        private System.Windows.Forms.PictureBox pcbCharacter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pcbParede1;
+        private System.Windows.Forms.PictureBox pcbWall1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pcbPlataforma;
+        private System.Windows.Forms.PictureBox pcbPlatform;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox17;
-        private System.Windows.Forms.PictureBox pcbChave1;
+        private System.Windows.Forms.PictureBox pcbKey1;
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.PictureBox pictureBox21;
         private System.Windows.Forms.PictureBox pictureBox22;
@@ -1170,9 +1170,9 @@
         private System.Windows.Forms.PictureBox pictureBox32;
         private System.Windows.Forms.PictureBox pictureBox33;
         private System.Windows.Forms.PictureBox pictureBox34;
-        private System.Windows.Forms.PictureBox pcbChave2;
+        private System.Windows.Forms.PictureBox pcbKey2;
         private System.Windows.Forms.PictureBox pictureBox35;
-        private System.Windows.Forms.PictureBox pcbLimite2;
+        private System.Windows.Forms.PictureBox pcbLimit2;
         private System.Windows.Forms.PictureBox pcbIntegral5;
         private System.Windows.Forms.PictureBox pictureBox37;
         private System.Windows.Forms.PictureBox pictureBox38;
@@ -1180,28 +1180,28 @@
         private System.Windows.Forms.PictureBox pictureBox40;
         private System.Windows.Forms.PictureBox pictureBox41;
         private System.Windows.Forms.PictureBox pictureBox42;
-        private System.Windows.Forms.PictureBox pcbLimite3;
+        private System.Windows.Forms.PictureBox pcbLimit3;
         private System.Windows.Forms.PictureBox pcbIntegral6;
-        private System.Windows.Forms.PictureBox pcbChave3;
+        private System.Windows.Forms.PictureBox pcbKey3;
         private System.Windows.Forms.PictureBox pictureBox44;
         private System.Windows.Forms.PictureBox pictureBox45;
         private System.Windows.Forms.PictureBox pictureBox46;
         private System.Windows.Forms.PictureBox pictureBox47;
         private System.Windows.Forms.Label txtScore;
-        private System.Windows.Forms.Timer JogoPrincipalTimer;
+        private System.Windows.Forms.Timer MainGameTimer;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox49;
         private System.Windows.Forms.PictureBox pictureBox48;
-        private System.Windows.Forms.PictureBox pcbCoracao1;
-        private System.Windows.Forms.PictureBox pcbCoracao2;
-        private System.Windows.Forms.PictureBox pcbCoracao3;
+        private System.Windows.Forms.PictureBox pcbHeart1;
+        private System.Windows.Forms.PictureBox pcbHeart2;
+        private System.Windows.Forms.PictureBox pcbHeart3;
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.PictureBox pictureBox36;
         private System.Windows.Forms.PictureBox pictureBox43;
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.PictureBox pictureBox28;
-        private System.Windows.Forms.PictureBox pcbCoracao5;
-        private System.Windows.Forms.PictureBox pcbCoracao4;
-        private System.Windows.Forms.PictureBox pcbInfinito;
+        private System.Windows.Forms.PictureBox pcbHeart5;
+        private System.Windows.Forms.PictureBox pcbHeart4;
+        private System.Windows.Forms.PictureBox pcbInfinite;
     }
 }

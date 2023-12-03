@@ -57,14 +57,14 @@
             this.btnSkip.TabIndex = 1;
             this.btnSkip.Text = "Skip";
             this.btnSkip.UseVisualStyleBackColor = false;
-            this.btnSkip.Click += new System.EventHandler(this.button1_Click);
-            this.btnSkip.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
-            this.btnSkip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
+            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
+            this.btnSkip.MouseLeave += new System.EventHandler(this.btnSkip_MouseLeave);
+            this.btnSkip.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSkip_MouseMove);
             // 
             // timerCutScene
             // 
             this.timerCutScene.Interval = 1000;
-            this.timerCutScene.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerCutScene.Tick += new System.EventHandler(this.timerCutScene_Tick);
             // 
             // frmCutScene
             // 

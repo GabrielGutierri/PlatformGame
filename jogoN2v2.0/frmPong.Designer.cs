@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerPong = new System.Windows.Forms.Timer(this.components);
             this.lblPointsPlayer = new System.Windows.Forms.Label();
             this.lblPointsPC = new System.Windows.Forms.Label();
             this.pcbBall = new System.Windows.Forms.PictureBox();
@@ -40,10 +40,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlayer)).BeginInit();
             this.SuspendLayout();
             // 
-            // timer1
+            // timerPong
             // 
-            this.timer1.Interval = 20;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerPong.Interval = 20;
+            this.timerPong.Tick += new System.EventHandler(this.timerPong_Click);
             // 
             // lblPointsPlayer
             // 
@@ -130,7 +130,7 @@
         private System.Windows.Forms.PictureBox pcbPlayer;
         private System.Windows.Forms.PictureBox pcbPc;
         private System.Windows.Forms.PictureBox pcbBall;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerPong;
         private System.Windows.Forms.Label lblPointsPlayer;
         private System.Windows.Forms.Label lblPointsPC;
     }
