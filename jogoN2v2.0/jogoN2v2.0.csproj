@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConfig.cs" />
+    <Compile Include="Constants\CalculusInvadersConstants.cs" />
+    <Compile Include="Constants\ConfigurationConstants.cs" />
     <Compile Include="frmCalculusInvaders.cs">
       <SubType>Form</SubType>
     </Compile>
