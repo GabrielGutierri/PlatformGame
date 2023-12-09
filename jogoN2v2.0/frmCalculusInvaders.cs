@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jogoN2v2._0.Constants;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,22 +13,22 @@ namespace jogoN2v2._0
 {
     public partial class frmCalculusInvaders : Form
     {
-        WMPLib.WindowsMediaPlayer laserSound = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer enemyDestroyed = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer invadersSound = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer gameOverSound = new WMPLib.WindowsMediaPlayer();
-        WMPLib.WindowsMediaPlayer winSound = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer laserSound = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer enemyDestroyed = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer invadersSound = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer gameOverSound = new WMPLib.WindowsMediaPlayer();
+        private WMPLib.WindowsMediaPlayer winSound = new WMPLib.WindowsMediaPlayer();
 
-        bool goLeft, goRight;
-        int characterSpeed = 12;
-        int enemySpeed = 0;
-        int points = 0;
-        int enemyLaserTimer = 300;
-        int record = 0;
-        PictureBox[] invadersVector;
-        bool shoot;
-        bool isGameOver;
-        int lifes = 3;
+        private bool goLeft, goRight;
+        private int characterSpeed = 12;
+        private int enemySpeed = 0;
+        private int points = 0;
+        private int enemyLaserTimer = 300;
+        private int record = 0;
+        private PictureBox[] invadersVector;
+        private bool shoot;
+        private bool isGameOver;
+        private int lifes = 3;
 
 
         public frmCalculusInvaders()
@@ -35,19 +36,80 @@ namespace jogoN2v2._0
             frmTutorialInvaders t = new frmTutorialInvaders();
             t.ShowDialog();
             InitializeComponent();
-            if (clsConfig.music == "on")
-            {
-                invadersSound.URL = "invadersSound.mp3";
-                invadersSound.controls.play();
-                invadersSound.settings.setMode("loop", true);
-            }
+            CheckMusic();
             GameSetup();
         }
+
+        void PlayTrack(string trackName, WMPLib.WindowsMediaPlayer sound)
+        {
+            if (clsConfig.sounds == ConfigurationConstants.MUSIC_ON)
+            {
+                sound.URL = trackName;
+                sound.controls.play();
+            }
+        }
+
+        private void CheckMusic()
+        {
+            if (clsConfig.music == ConfigurationConstants.MUSIC_ON)
+            {
+                PlayTrack(CalculusInvadersConstants.INVADERS_SOUND_TRACK, invadersSound);
+                invadersSound.settings.setMode("loop", true);
+            }
+        }
+
         private void InvadersTimerEvent(object sender, EventArgs e)
         {
-            lblPoints.Text = "Points: " + points;
-            lblLifes.Text = "Lifes: " + lifes;
-            lblRecord.Text = "Best round: " + record;
+            SetInfoLabels();
+            ChangePlayerSpeed();
+            CheckEnemyLaserTimer();
+            ControlsRoutine(this.Controls);
+            CheckScore();
+        }
+
+        private void ControlsRoutine(Control.ControlCollection controls)
+        {
+            foreach (Control x in controls)
+            {
+                VerifyEnemyCollision(x);
+                VerifyLaserCollision(x);
+                VerifyEnemyLaserColision(x);
+            }
+        }
+
+        private void CheckScore()
+        {
+            if (points > 8)
+            {
+                ChangeCharacterSpeed();
+                ChangeEnemySpeed();
+            }
+
+            if (points == invadersVector.Length)
+            {
+                GameOver(CalculusInvadersConstants.DEFEATED_DERIVATIVES_MESSAGE);
+            }
+        }
+
+        private void CheckEnemyLaserTimer()
+        {
+            enemyLaserTimer -= 10;
+            if (enemyLaserTimer < 10)
+            {
+                enemyLaserTimer = 300;
+                CreateLaserComponent(CalculusInvadersConstants.INVADER_LASER_TAG);
+            }
+        }
+
+        private void SetInfoLabels()
+        {
+            lblPoints.Text = $"{CalculusInvadersConstants.POINTS}: {points}";
+            lblLifes.Text = $"{CalculusInvadersConstants.LIFES}: {lifes}";
+            lblRecord.Text = $"{CalculusInvadersConstants.BEST_ROUND}: {record}";
+        }
+
+        void ChangePlayerSpeed()
+        {
             if (goLeft && pcbPlayer.Left > 0)
             {
                 pcbPlayer.Left -= characterSpeed;
@@ -57,37 +119,10 @@ namespace jogoN2v2._0
             {
                 pcbPlayer.Left += characterSpeed;
             }
-
-            enemyLaserTimer -= 10;
-            if (enemyLaserTimer < 10)
-            {
-                enemyLaserTimer = 300;
-                CreateLaserComponent("invaderLaser");
-            }
-
-            foreach (Control x in this.Controls)
-            {
-
-                VerifyEnemyCollision(x);
-                VerifyLaserCollision(x);
-                VerifyEnemyLaserColision(x);
-
-            }
-
-            if (points > 8)
-            {
-                ChangeSpeed();
-            }
-
-            if (points == invadersVector.Length)
-            {
-                GameOver("You've defeated the derivatives!!! YESSSSSS SIRRRRRRRR");
-            }
         }
-
         void VerifyLaserCollision(Control x)
         {
-            if (x is PictureBox && (string)x.Tag == "laser")
+            if (x is PictureBox && (string)x.Tag == CalculusInvadersConstants.LASER_TAG)
             {
                 x.Top -= 20;
                 if (x.Top < 15)
@@ -99,36 +134,37 @@ namespace jogoN2v2._0
         }
         void VerifyEnemyCollision(Control x)
         {
-            if (x is PictureBox && (string)x.Tag == "invader")
+            if (x is PictureBox && (string)x.Tag == CalculusInvadersConstants.INVADER_TAG)
             {
                 MoveInvader(x);
 
                 if (x.Bounds.IntersectsWith(pcbPlayer.Bounds))
                 {
-                    GameOver("You have been caught by the invaders...");
+                    GameOver(CalculusInvadersConstants.CAUGHT_BY_INVADERS);
                     lifes--;
                 }
-
                 foreach (Control y in this.Controls)
                 {
-                    if (y is PictureBox && (string)y.Tag == "laser")
-                    {
-                        if (y.Bounds.IntersectsWith(x.Bounds))
-                        {
-                            if (clsConfig.sounds == "on")
-                            {
-                                enemyDestroyed.URL = "enemyDestroyed.mp3";
-                                enemyDestroyed.controls.play();
-                            }
-                            this.Controls.Remove(x);
-                            this.Controls.Remove(y);
-                            points += 1;
-                            shoot = false;
-                        }
-                    }
+                    ControlLaserRoutine(x, y);
                 }
             }
         }
+
+        private void ControlLaserRoutine(Control invaderControl, Control screenControl)
+        {
+            if (screenControl is PictureBox && (string)screenControl.Tag == CalculusInvadersConstants.LASER_TAG)
+            {
+                if (screenControl.Bounds.IntersectsWith(invaderControl.Bounds))
+                {
+                    PlayTrack(CalculusInvadersConstants.ENEMY_DESTROYED_TRACK, enemyDestroyed);
+                    this.Controls.Remove(invaderControl);
+                    this.Controls.Remove(screenControl);
+                    points += 1;
+                    shoot = false;
+                }
+            }
+        }
+
         void MoveInvader(Control x)
         {
             x.Left += enemySpeed;
@@ -140,14 +176,14 @@ namespace jogoN2v2._0
         }
         void VerifyEnemyLaserColision(Control x)
         {
-            if (x is PictureBox && (string)x.Tag == "invaderLaser")
+            if (x is PictureBox && (string)x.Tag == CalculusInvadersConstants.INVADER_LASER_TAG)
             {
                 MoveRemoveLaser(x);
 
                 if (x.Bounds.IntersectsWith(pcbPlayer.Bounds))
                 {
                     this.Controls.Remove(x);
-                    GameOver("You have been caught by the laser of the invaders...");
+                    GameOver(CalculusInvadersConstants.CAUGHT_BY_LASER_INVADER);
                     lifes--;
                 }
             }
@@ -160,22 +196,35 @@ namespace jogoN2v2._0
                 this.Controls.Remove(x);
             }
         }
-        void ChangeSpeed()
+        void ChangeCharacterSpeed()
         {
-            if (clsConfig.difficulty == "Easy")
+            switch (clsConfig.difficulty)
             {
-                characterSpeed = 14;
-                enemySpeed = 8;
+                case ConfigurationConstants.EASY:
+                    characterSpeed = CalculusInvadersConstants.EASY_CHARACTER_SPEED;
+                    break;
+                case ConfigurationConstants.NORMAL:
+                    characterSpeed = CalculusInvadersConstants.NORMAL_CHARACTER_SPEED;
+                    break;
+                case ConfigurationConstants.HARD:
+                    characterSpeed = CalculusInvadersConstants.HARD_CHARACTER_SPEED;
+                    break;
             }
-            else if (clsConfig.difficulty == "Normal")
+        }
+
+        void ChangeEnemySpeed()
+        {
+            switch (clsConfig.difficulty)
             {
-                characterSpeed = 16;
-                enemySpeed = 12;
-            }
-            else if (clsConfig.difficulty == "Hard")
-            {
-                characterSpeed = 18;
-                enemySpeed = 15;
+                case ConfigurationConstants.EASY:
+                    enemySpeed = CalculusInvadersConstants.EASY_ENEMY_SPEED;
+                    break;
+                case ConfigurationConstants.NORMAL:
+                    enemySpeed = CalculusInvadersConstants.NORMAL_ENEMY_SPEED;
+                    break;
+                case ConfigurationConstants.HARD:
+                    enemySpeed = CalculusInvadersConstants.HARD_ENEMY_SPEED;
+                    break;
             }
         }
         private void keyIsDown(object sender, KeyEventArgs e)
@@ -204,25 +253,30 @@ namespace jogoN2v2._0
 
             if (e.KeyCode == Keys.Space && shoot == false)
             {
-                if (clsConfig.sounds == "on")
-                {
-                    laserSound.URL = "somLaser.mp3";
-                    laserSound.controls.play();
-                }
-                shoot = true;
-                CreateLaserComponent("laser");
+                ShotRoutine();
             }
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
-                if (clsConfig.sounds == "on")
-                {
-                    invadersSound.controls.play();
-                    invadersSound.settings.setMode("loop", true);
-                }
-                RemoveScreen(lifes, points);
-
-                GameSetup();
+                RestartRoutine();
             }
+        }
+
+        private void RestartRoutine()
+        {
+            if (clsConfig.sounds == ConfigurationConstants.MUSIC_ON)
+            {
+                invadersSound.controls.play();
+                invadersSound.settings.setMode("loop", true);
+            }
+            RemoveScreen(lifes, points);
+            GameSetup();
+        }
+
+        private void ShotRoutine()
+        {
+            PlayTrack(CalculusInvadersConstants.LASER_SOUND_TRACK, laserSound);
+            shoot = true;
+            CreateLaserComponent("laser");
         }
 
         private void CreateInvaders()
@@ -235,7 +289,7 @@ namespace jogoN2v2._0
                 invadersVector[i].Size = new Size(80, 60);
                 invadersVector[i].Image = Properties.Resources.derivada_2;
                 invadersVector[i].Top = 5;
-                invadersVector[i].Tag = "invader";
+                invadersVector[i].Tag = CalculusInvadersConstants.INVADER_TAG;
                 invadersVector[i].Left = left;
                 invadersVector[i].SizeMode = PictureBoxSizeMode.Zoom;
                 this.Controls.Add(invadersVector[i]);
@@ -245,52 +299,29 @@ namespace jogoN2v2._0
 
         void GameSetup()
         {
-            lblPoints.Text = "Points: 0";
-            points = 0;
-            isGameOver = false;
-            enemyLaserTimer = 300;
+            SetSetupVariables();
             ChangeEnemySpeed();
-
-            shoot = false;
-
             CreateInvaders();
             gameTimer.Start();
         }
 
-        void ChangeEnemySpeed()
+        private void SetSetupVariables()
         {
-            if (clsConfig.difficulty == "Easy")
-            {
-                enemySpeed = 5;
-            }
-            else if (clsConfig.difficulty == "Normal")
-            {
-                enemySpeed = 8;
-            }
-            else if (clsConfig.difficulty == "Hard")
-            {
-                enemySpeed = 12;
-            }
+            lblPoints.Text = $"{CalculusInvadersConstants.POINTS}: 0";
+            points = 0;
+            isGameOver = false;
+            enemyLaserTimer = 300;
+            shoot = false;
         }
         
-
         void RemoveScreen(int lifes, int attemptPoints)
         {
-            foreach (PictureBox i in invadersVector)
-            {
-                this.Controls.Remove(i);
-            }
+            RemoveFromControls();
+            CheckRecord(lifes, attemptPoints);
+        }
 
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox)
-                {
-                    if ((string)x.Tag == "laser" || (string)x.Tag == "invaderLaser")
-                    {
-                        this.Controls.Remove(x);
-                    }
-                }
-            }
+        private void CheckRecord(int lifes, int attemptPoints)
+        {
             if (lifes == 3)
             {
                 record = attemptPoints;
@@ -307,43 +338,65 @@ namespace jogoN2v2._0
                 this.Close();
             }
         }
+
+        private void RemoveFromControls()
+        {
+            foreach (PictureBox i in invadersVector)
+            {
+                this.Controls.Remove(i);
+            }
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox)
+                {
+                    if ((string)x.Tag == CalculusInvadersConstants.INVADER_TAG || (string)x.Tag == CalculusInvadersConstants.INVADER_LASER_TAG)
+                    {
+                        this.Controls.Remove(x);
+                    }
+                }
+            }
+        }
+
         void GameOver(string message)
         {
             isGameOver = true;
             gameTimer.Stop();
             invadersSound.controls.stop();
             clsConfig.pointsInvaders = record;
-            if (message == "You have been caught by the laser of the invaders.." || message == "\"You have been caught by the invaders...")
+            if (message == CalculusInvadersConstants.CAUGHT_BY_LASER_INVADER || message == CalculusInvadersConstants.CAUGHT_BY_INVADERS)
             {
-                if (clsConfig.sounds == "on")
-                {
-                    gameOverSound.URL = "gameOver.mp3";
-                    gameOverSound.controls.play();
-                }
-                if (lifes > 1)
-                    MessageBox.Show($"{message}\nGo back to the game and try one more time! (Press ENTER to restart)");
-                if (lifes == 1)
-                {
-                    if (points > record)
-                    {
-                        record = points;
-                    }
-                    MessageBox.Show($"No more lifes. Your best score: {record}");
-                    this.Close();
-                }
+                ShowLossMessage(message);
             }
             else
             {
-                if (clsConfig.sounds == "on")
+                ShowWinMessage(message);
+            }
+            lblPoints.Text = $"{CalculusInvadersConstants.POINTS}: " + points;
+        }
+
+        private void ShowWinMessage(string message)
+        {
+            PlayTrack(CalculusInvadersConstants.WIN_SOUND_TRACK, winSound);   
+            MessageBox.Show($"{message}\n{CalculusInvadersConstants.WIN_MESSAGE}");
+            clsConfig.pointsInvaders = invadersVector.Length;
+            this.Close();
+        }
+
+        private void ShowLossMessage(string message)
+        {
+            PlayTrack(CalculusInvadersConstants.LOSS_SOUND_TRACK, gameOverSound);
+            if (lifes > 1)
+                MessageBox.Show($"{message}\n{CalculusInvadersConstants.TRY_AGAIN}");
+            if (lifes == 1)
+            {
+                if (points > record)
                 {
-                    winSound.URL = "winSound.mp3";
-                    winSound.controls.play();
+                    record = points;
                 }
-                MessageBox.Show($"{message}\nHURRAH! Our great master Wuo have defeated the dungeon of derivatives!!!!!");
-                clsConfig.pointsInvaders = invadersVector.Length;
+                MessageBox.Show($"{CalculusInvadersConstants.NO_MORE_LIFES}: {record}");
                 this.Close();
             }
-            lblPoints.Text = "Points: " + points;
         }
 
         void CreateLaserComponent(string laserTag)
@@ -354,11 +407,11 @@ namespace jogoN2v2._0
             laser.Tag = laserTag;
             laser.Left = pcbPlayer.Left + pcbPlayer.Width / 2;
 
-            if ((string)laser.Tag == "laser")
+            if ((string)laser.Tag == CalculusInvadersConstants.LASER_TAG)
             {
                 laser.Top = pcbPlayer.Top - 20;
             }
-            if ((string)laser.Tag == "invaderLaser")
+            if ((string)laser.Tag == CalculusInvadersConstants.INVADER_LASER_TAG)
             {
                 laser.Top = -100;
             }
