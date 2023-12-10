@@ -49,6 +49,8 @@
     <Compile Include="clsConfig.cs" />
     <Compile Include="Constants\CalculusInvadersConstants.cs" />
     <Compile Include="Constants\ConfigurationConstants.cs" />
+    <Compile Include="Constants\DinoGameConstants.cs" />
+    <Compile Include="Constants\GameConstants.cs" />
     <Compile Include="frmCalculusInvaders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +137,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\GameUtils.cs" />
     <EmbeddedResource Include="frmCalculusInvaders.resx">
       <DependentUpon>frmCalculusInvaders.cs</DependentUpon>
     </EmbeddedResource>

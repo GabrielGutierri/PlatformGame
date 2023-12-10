@@ -1,4 +1,6 @@
-﻿using System;
+﻿using jogoN2v2._0.Constants;
+using jogoN2v2._0.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,76 +20,80 @@ namespace jogoN2v2._0
         WMPLib.WindowsMediaPlayer gameOverSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer winSound = new WMPLib.WindowsMediaPlayer();
 
-        bool jumping = false;
-        int jumpSpeed = 10;
-        int force = 12;
-        int score = 0;
-        int obstacleSpeed = 10;
-        Random rand = new Random();
-        int position;
-        bool isGameOver = true;
-        int lifes = 3;
-        int record = 0;
+        private bool jumping = false;
+        private int jumpSpeed = 10;
+        private int force = 12;
+        private int score = 0;
+        private int obstacleSpeed = 10;
+        private Random rand = new Random();
+        private int position;
+        private bool isGameOver = true;
+        private int lifes = 3;
+        private int record = 0;
 
         public frmDinoGame()
         {
             frmTutorialDino f = new frmTutorialDino();
             f.ShowDialog();
-
             InitializeComponent();
-            if(clsConfig.music == "on")
+            InitializeMusic();
+            txtScore.Text = DinoGameConstants.INTRO_MESSAGE;
+        }
+
+        private void InitializeMusic()
+        {
+            if (clsConfig.music == ConfigurationConstants.MUSIC_ON)
             {
-                backgroundSound.URL = "FallGuys.mp3";
-                backgroundSound.controls.play();
+                GameUtils.PlayTrack(DinoGameConstants.BACKGROUND_SOUND_TRACK, backgroundSound);
                 backgroundSound.settings.setMode("loop", true);
                 backgroundSound.settings.volume = 10;
             }
-            txtScore.Text = "Press the spacebar to jump the integrals! Press R to restart";
-
-
         }
-
 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
             pcbWuo.Top += jumpSpeed;
-
-            // mostra pontos
-            txtScore.Text = "Points: " + score;
-            txtLifes.Text = "Lifes: " + lifes;
-            txtRecord.Text = "Best round: " + record;
-
+            SetInfoLabels();
             Jump();
+            ControlsRoutine();
+            CheckJumping();
+            IncreaseSpeed();
+            CheckVictory();
 
+        }
+
+        private void CheckJumping()
+        {
+            if (pcbWuo.Top >= 240 && !jumping)
+            {
+                force = 12;
+                pcbWuo.Top = pcbFloor.Top - pcbWuo.Height;
+                jumpSpeed = 0;
+            }
+        }
+
+        private void ControlsRoutine()
+        {
             foreach (Control z in this.Controls)
             {
-                if (z is PictureBox && z.Tag == "obstacle")
+                if (z is PictureBox && z.Tag == DinoGameConstants.OBSTACLE_TAG)
                 {
                     z.Left -= obstacleSpeed;
-                    // pula ganha ponto
                     if (z.Left + z.Width < -120)
                     {
                         z.Left = this.ClientSize.Width + rand.Next(200, 800);
                         score++;
                     }
-
                     VerifyCollision(z);
-                    
                 }
             }
+        }
 
-            // if wuo top é maior do que o limite do pulo e AND pulando == true
-            if (pcbWuo.Top >= 240 && !jumping)
-            {
-                force = 12;
-                pcbWuo.Top = chao.Top - pcbWuo.Height;
-                jumpSpeed = 0;
-            }
-
-
-            IncreaseSpeed();
-            CheckVictory();
-            
+        private void SetInfoLabels()
+        {
+            txtScore.Text = $"{GameConstants.POINTS}: " + score;
+            txtLifes.Text = $"{GameConstants.LIFES}: " + lifes;
+            txtRecord.Text = $"{GameConstants.BEST_ROUND}: " + record;
         }
 
         void Jump()
@@ -114,13 +120,9 @@ namespace jogoN2v2._0
             if (pcbWuo.Bounds.IntersectsWith(z.Bounds))
             {
                 timer.Stop();
-                if(clsConfig.sounds == "on")
-                {
-                    hit.URL = "MarioHit.mp3";
-                    hit.controls.play();
-                }
+                GameUtils.PlayTrack(DinoGameConstants.HIT_SOUND_TRACK, hit);
                 pcbWuo.Image = Properties.Resources.imagem_wuo_2;
-                txtScore.Text += "  Press R to restart";
+                txtScore.Text += $"  {DinoGameConstants.RESTART_MESSAGE}";
                 backgroundSound.controls.stop();
                 lifes--;
                 isGameOver = true;
@@ -129,63 +131,52 @@ namespace jogoN2v2._0
 
         void IncreaseSpeed()
         {
-            if (score >= 5 && clsConfig.difficulty == "Easy")
+            if (score >= 5)
             {
-                obstacleSpeed = 15;
+                if (clsConfig.difficulty == ConfigurationConstants.EASY)
+                    obstacleSpeed = 15;
+                else if (clsConfig.difficulty == ConfigurationConstants.NORMAL)
+                    obstacleSpeed = 20;
             }
-            else if (score >= 5 && clsConfig.difficulty == "Normal")
-            {
-                obstacleSpeed = 20;
-            }
+            else if (score >= 10)
+                obstacleSpeed = 35;
             else
-            {
                 obstacleSpeed = 25;
-                if (score >= 10) obstacleSpeed = 35;
-            }
         }
 
         void CheckVictory()
         {
-            if (score == 15 && clsConfig.difficulty == "Normal" || clsConfig.difficulty == "Easy")
+            if (score == 15 && (clsConfig.difficulty == ConfigurationConstants.EASY || clsConfig.difficulty == ConfigurationConstants.NORMAL))
             {
-                timer.Stop();
-                pcbWuo.Image = Properties.Resources.imagem_wuo_2;
-                PlayWinTheme();
-                MessageBox.Show("Congrats! You've won!");
-                backgroundSound.controls.stop();
-
+                WinRoutine();
                 clsConfig.pointsDino = 15;
                 this.Close();
             }
-            else if (score == 20 && clsConfig.difficulty == "Hard")
+            else if (score == 20 && clsConfig.difficulty == ConfigurationConstants.HARD)
             {
-                timer.Stop();
-                pcbWuo.Image = Properties.Resources.imagem_wuo_2;
-                PlayWinTheme();
-                MessageBox.Show("Congrats! You've won!");
-                backgroundSound.controls.stop();
+                WinRoutine();
                 clsConfig.pointsDino = 20;
                 this.Close();
             }
         }
 
-        void PlayWinTheme()
+        void WinRoutine()
         {
-            if (clsConfig.sounds == "on")
-            {
-                winSound.URL = "winSound.mp3";
-                winSound.controls.play();
-            }
+            timer.Stop();
+            pcbWuo.Image = Properties.Resources.imagem_wuo_2;
+            MessageBox.Show(DinoGameConstants.WIN_MESSAGE);
+            backgroundSound.controls.stop();
+            GameUtils.PlayTrack(DinoGameConstants.WIN_SOUND_TRACK, winSound);
         }
+
         private void keyisdown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space && jumping == false)
             {
                 jumping = true;
-                if(clsConfig.sounds == "on")
+                if (clsConfig.sounds == ConfigurationConstants.MUSIC_ON)
                 {
-                    jump.URL = "jump.mp3";
-                    jump.controls.play();
+                    GameUtils.PlayTrack(DinoGameConstants.JUMP_SOUND_TRACK, jump);
                     jump.settings.volume = 100;
                 }
             }
@@ -201,47 +192,45 @@ namespace jogoN2v2._0
             {
                 timer.Stop();
                 VerifyRecord(lifes, score);
-                if (lifes == 0)
-                {
-                    if (clsConfig.sounds == "on")
-                    {
-                        gameOverSound.URL = "gameOver.mp3";
-                        gameOverSound.controls.play();
-                    }
-                    backgroundSound.controls.stop();
-                    MessageBox.Show($"No more lifes! Your best round: {record}");
-                    clsConfig.pointsDino = record;
-                    this.Close();
-                }
-                
+                CheckLifes();
                 GameReset();
             }
         }
 
-        void VerifyRecord(int vidas, int score)
+        private void CheckLifes()
         {
-            if (vidas == 3)
+            if (lifes == 0)
+            {
+                GameUtils.PlayTrack(DinoGameConstants.GAMEOVER_SOUND_TRACK, gameOverSound);
+                backgroundSound.controls.stop();
+                MessageBox.Show($"{DinoGameConstants.NO_LIFES_MESSAGE}: {record}");
+                clsConfig.pointsDino = record;
+                this.Close();
+            }
+        }
+
+        void VerifyRecord(int lifes, int score)
+        {
+            if (lifes == 3)
                 record = score;
             else if (score > record)
                 record = score;
-            
         }
 
         private void GameReset()
         {
-            force = 12;
-            jumpSpeed = 10;
-            jumping = false;
-            score = 0;
-            obstacleSpeed = DifficultySpeed();
-
-            txtScore.Text = "Points:" + score;
-            pcbWuo.Image = Properties.Resources.jogowuogif;
-            isGameOver = false;
+            SetResetVariables();
             //wuo.Top = 260;
+            ResetControls();
+            timer.Start();
+            backgroundSound.controls.play();
+        }
+
+        private void ResetControls()
+        {
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "obstacle")
+                if (x is PictureBox && (string)x.Tag == DinoGameConstants.OBSTACLE_TAG)
                 {
                     int position = rand.Next(600, 1000);
                     x.Left = 640 + (x.Left + position + x.Width * 3);
@@ -251,26 +240,32 @@ namespace jogoN2v2._0
                     */
                 }
             }
-            timer.Start();
-            backgroundSound.controls.play();
         }
+
+        private void SetResetVariables()
+        {
+            force = 12;
+            jumpSpeed = 10;
+            jumping = false;
+            score = 0;
+            obstacleSpeed = DifficultySpeed();
+            txtScore.Text = $"{GameConstants.POINTS}:" + score;
+            pcbWuo.Image = Properties.Resources.jogowuogif;
+            isGameOver = false;
+        }
+
         private int DifficultySpeed()
         {
-            if (clsConfig.difficulty == "Easy")
+            switch (clsConfig.difficulty)
             {
-                return 10;
-            }
-            else if (clsConfig.difficulty == "Normal")
-            {
-                return 15;
-            }
-            else if (clsConfig.difficulty == "Hard")
-            {
-                return 20;
-            }
-            else
-            {
-                return 0;
+                case ConfigurationConstants.EASY:
+                    return 10;
+                case ConfigurationConstants.NORMAL:
+                    return 15;
+                case ConfigurationConstants.HARD:
+                    return 20;
+                default:
+                    return 0;
             }
         }
     }

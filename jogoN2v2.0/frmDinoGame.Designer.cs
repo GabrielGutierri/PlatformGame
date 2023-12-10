@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.txtScore = new System.Windows.Forms.Label();
-            this.chao = new System.Windows.Forms.PictureBox();
+            this.pcbFloor = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pcbWuo = new System.Windows.Forms.PictureBox();
             this.txtRecord = new System.Windows.Forms.Label();
             this.txtLifes = new System.Windows.Forms.Label();
             this.txtMensagem = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.chao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbFloor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbWuo)).BeginInit();
             this.SuspendLayout();
@@ -57,14 +57,14 @@
             this.txtScore.TabIndex = 1;
             this.txtScore.Text = "Points: 0";
             // 
-            // chao
+            // pcbFloor
             // 
-            this.chao.BackColor = System.Drawing.Color.Black;
-            this.chao.Location = new System.Drawing.Point(-6, 368);
-            this.chao.Name = "chao";
-            this.chao.Size = new System.Drawing.Size(810, 88);
-            this.chao.TabIndex = 0;
-            this.chao.TabStop = false;
+            this.pcbFloor.BackColor = System.Drawing.Color.Black;
+            this.pcbFloor.Location = new System.Drawing.Point(-6, 368);
+            this.pcbFloor.Name = "pcbFloor";
+            this.pcbFloor.Size = new System.Drawing.Size(810, 88);
+            this.pcbFloor.TabIndex = 0;
+            this.pcbFloor.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -74,7 +74,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(59, 64);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "obstaculo";
+            this.pictureBox1.Tag = "obstacle";
             // 
             // pcbWuo
             // 
@@ -129,7 +129,7 @@
             this.Controls.Add(this.txtMensagem);
             this.Controls.Add(this.txtLifes);
             this.Controls.Add(this.txtRecord);
-            this.Controls.Add(this.chao);
+            this.Controls.Add(this.pcbFloor);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pcbWuo);
@@ -139,7 +139,7 @@
             this.Text = "T-Wuo";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyisdown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
-            ((System.ComponentModel.ISupportInitialize)(this.chao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbFloor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbWuo)).EndInit();
             this.ResumeLayout(false);
@@ -150,7 +150,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pcbWuo;
-        private System.Windows.Forms.PictureBox chao;
+        private System.Windows.Forms.PictureBox pcbFloor;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label txtScore;
         private System.Windows.Forms.PictureBox pictureBox1;
