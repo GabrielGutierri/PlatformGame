@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jogoN2v2._0.Constants;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,22 +14,19 @@ namespace jogoN2v2._0
     public partial class frmHomeScreen : Form
     {
         WMPLib.WindowsMediaPlayer menuSound = new WMPLib.WindowsMediaPlayer();
-        bool muted = false;
+        private bool muted = false;
 
         public frmHomeScreen()
         {
             frmLoadingGame f = new frmLoadingGame();
             f.ShowDialog();
-            menuSound.URL = "menu_2.mp3";
-            if (clsConfig.music == "on")
-            {
-                menuSound.controls.play();
-                menuSound.settings.setMode("loop", true);
-                menuSound.settings.volume = 10;
-            }
-            else if (clsConfig.music == "off")
-                menuSound.controls.stop();
+            MusicRoutine();
             InitializeComponent();
+            SetHandCursor();
+        }
+
+        private void SetHandCursor()
+        {
             foreach (Control c in Controls)
             {
                 if (c is Button)
@@ -37,10 +35,24 @@ namespace jogoN2v2._0
                 }
             }
         }
+
+        private void MusicRoutine()
+        {
+            menuSound.URL = "menu_2.mp3";
+            if (clsConfig.music == ConfigurationConstants.MUSIC_ON)
+            {
+                menuSound.controls.play();
+                menuSound.settings.setMode("loop", true);
+                menuSound.settings.volume = 10;
+            }
+            else if (clsConfig.music == ConfigurationConstants.MUSIC_OFF)
+                menuSound.controls.stop();
+        }
+
         private void btnPlay_Click(object sender, EventArgs e)
         {
             if (txtName.Text.Trim() == "")
-                MessageBox.Show("Error!");
+                MessageBox.Show(GameConstants.ERROR);
             else
             {
                 if (muted == false)

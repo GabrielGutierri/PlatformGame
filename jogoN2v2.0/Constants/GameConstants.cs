@@ -14,5 +14,6 @@ namespace jogoN2v2._0.Constants
         public const string TOTAL = "Total";
         public const string WUO = "Wuo";
         public const string LIMITS = "Limits";
+        public const string ERROR = "Error!";
     }
 }

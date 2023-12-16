@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jogoN2v2._0.Constants;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,10 @@ namespace jogoN2v2._0
 {
     public partial class frmRanking : Form
     {
-        string nickname;
-        int points;
-        string difficulty;
-        string[] lines = File.ReadAllLines("ranking.txt");
+        private string nickname;
+        private int points;
+        private string difficulty;
+        private string[] lines = File.ReadAllLines("ranking.txt");
         public frmRanking()
         {
             
@@ -29,7 +30,7 @@ namespace jogoN2v2._0
             }
             catch
             {
-                MessageBox.Show("No match was found!", "Ranking Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(RankingConstants.NO_MATCH_FOUND, RankingConstants.RANKING_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

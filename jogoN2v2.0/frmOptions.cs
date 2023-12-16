@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jogoN2v2._0.Constants;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,30 @@ namespace jogoN2v2._0
 {
     public partial class frmOptions : Form
     {
-        bool mutedSound = false;
-        bool mutedMusic = false;
+        private bool mutedSound = false;
+        private bool mutedMusic = false;
         WMPLib.WindowsMediaPlayer menuSound = new WMPLib.WindowsMediaPlayer();
 
         public frmOptions()
         {
             InitializeComponent();
+            SetProperties();
+            VerifySound();
+            VerifyMusic();
+            AddCursorHand();
+        }
+
+        private void AddCursorHand()
+        {
+            foreach (Control x in Controls)
+            {
+                if (x is Button)
+                    x.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void SetProperties()
+        {
             panelSoundsOptions.BackColor = Color.Transparent;
 
             btnMusic.Parent = panelSoundsOptions;
@@ -27,26 +45,17 @@ namespace jogoN2v2._0
             btnSounds.Parent = panelSoundsOptions;
             btnSounds.BackColor = Color.Transparent;
 
-            lblDificuldade.Text = clsConfig.difficulty;
-
-            VerifySound();
-            VerifyMusic();
-
-            foreach(Control x in Controls)
-            {
-                if (x is Button)
-                    x.Cursor = Cursors.Hand;
-            }
+            lblDifficulty.Text = clsConfig.difficulty;
         }
 
         void VerifySound()
         {
-            if (clsConfig.sounds == "on")
+            if (clsConfig.sounds == ConfigurationConstants.MUSIC_ON)
             {
                 btnSounds.BackgroundImage = Properties.Resources.switch_on;
                 mutedSound = false;
             }
-            else if (clsConfig.sounds == "off")
+            else if (clsConfig.sounds == ConfigurationConstants.MUSIC_OFF)
             {
                 btnSounds.BackgroundImage = Properties.Resources.switch_off;
                 mutedSound = true;
@@ -55,12 +64,12 @@ namespace jogoN2v2._0
 
         void VerifyMusic()
         {
-            if (clsConfig.music == "on")
+            if (clsConfig.music == ConfigurationConstants.MUSIC_ON)
             {
                 btnMusic.BackgroundImage = Properties.Resources.switch_on;
                 mutedMusic = false;
             }
-            else if (clsConfig.music == "off")
+            else if (clsConfig.music == ConfigurationConstants.MUSIC_OFF)
             {
                 btnMusic.BackgroundImage = Properties.Resources.switch_off;
                 mutedMusic = true;
@@ -69,22 +78,22 @@ namespace jogoN2v2._0
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (lblDificuldade.Text == "Normal")
-                lblDificuldade.Text = "Hard";
-            else if (lblDificuldade.Text == "Hard")
-                lblDificuldade.Text = "Easy";
-            else if (lblDificuldade.Text == "Easy")
-                lblDificuldade.Text = "Normal";
+            if (lblDifficulty.Text == ConfigurationConstants.NORMAL)
+                lblDifficulty.Text = ConfigurationConstants.HARD;
+            else if (lblDifficulty.Text == ConfigurationConstants.HARD)
+                lblDifficulty.Text = ConfigurationConstants.EASY;
+            else if (lblDifficulty.Text == ConfigurationConstants.EASY)
+                lblDifficulty.Text = ConfigurationConstants.NORMAL;
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            if (lblDificuldade.Text == "Normal")
-                lblDificuldade.Text = "Easy";
-            else if (lblDificuldade.Text == "Hard")
-                lblDificuldade.Text = "Normal";
-            else if (lblDificuldade.Text == "Easy")
-                lblDificuldade.Text = "Hard";
+            if (lblDifficulty.Text == ConfigurationConstants.NORMAL)
+                lblDifficulty.Text = ConfigurationConstants.EASY;
+            else if (lblDifficulty.Text == ConfigurationConstants.HARD)
+                lblDifficulty.Text = ConfigurationConstants.NORMAL;
+            else if (lblDifficulty.Text == ConfigurationConstants.EASY)
+                lblDifficulty.Text = ConfigurationConstants.HARD;
         }
 
         private void btnSons_Click(object sender, EventArgs e)
@@ -117,7 +126,7 @@ namespace jogoN2v2._0
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            clsConfig.difficulty = lblDificuldade.Text;
+            clsConfig.difficulty = lblDifficulty.Text;
             ChangeMusic();
             ChangeSound();
 
@@ -128,21 +137,21 @@ namespace jogoN2v2._0
         {
             if (mutedMusic)
             {
-                clsConfig.music = "off";
+                clsConfig.music = ConfigurationConstants.MUSIC_OFF;
 
             }
             else
             {
-                clsConfig.music = "on";
+                clsConfig.music = ConfigurationConstants.MUSIC_ON;
             }
         }
 
         void ChangeSound()
         {
             if (mutedSound)
-                clsConfig.sounds = "off";
+                clsConfig.sounds = ConfigurationConstants.MUSIC_OFF;
             else
-                clsConfig.sounds = "on";
+                clsConfig.sounds = ConfigurationConstants.MUSIC_ON;
         }
 
         void Move(Button bt)
