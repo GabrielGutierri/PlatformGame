@@ -12,5 +12,7 @@ namespace jogoN2v2._0.Constants
         public const string LIFES = "Lifes";
         public const string BEST_ROUND = "Best round";
         public const string TOTAL = "Total";
+        public const string WUO = "Wuo";
+        public const string LIMITS = "Limits";
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using jogoN2v2._0.Constants;
+using jogoN2v2._0.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,47 +21,47 @@ namespace jogoN2v2._0
         WMPLib.WindowsMediaPlayer gameOverSound = new WMPLib.WindowsMediaPlayer();
         WMPLib.WindowsMediaPlayer winSound = new WMPLib.WindowsMediaPlayer();
 
-        bool goUp;
-        bool goDown;
-        int speed = ChangeSpeed();
+        private bool goUp;
+        private bool goDown;
+        private int speed = ChangeSpeed();
+        private int xBall = 7;
+        private int yBall = 7;
+        private int points = 0;
+        private int pointsPC = 0;
 
         static int ChangeSpeed()
         {
-            if (clsConfig.difficulty == "Easy")
+            switch (clsConfig.difficulty)
             {
-                return 20;
+                case ConfigurationConstants.EASY:
+                    return 20;
+                case ConfigurationConstants.NORMAL:
+                    return 30;
+                case ConfigurationConstants.HARD:
+                    return 40;
+                default:
+                    return 0;
             }
-            else if (clsConfig.difficulty == "Normal")
-            {
-                return 30;
-            }
-            else if (clsConfig.difficulty == "Hard")
-            {
-                return 40;
-            }
-            else
-                return 0;
         }
-
-        int xBall = 7;
-        int yBall = 7;
-        int points = 0;
-        int pointsPC = 0;
 
         public frmPong()
         {
             frmTutorialPong t = new frmTutorialPong();
             t.ShowDialog();
             InitializeComponent();
-
-            if(clsConfig.music == "on")
-            {
-                track.URL = "trilha.mp3";
-                track.controls.play();
-                track.settings.setMode("loop", true);
-            }
+            PlayTheme();
             timerPong.Start();
         }
+
+        private void PlayTheme()
+        {
+            if (clsConfig.music == ConfigurationConstants.MUSIC_ON)
+            {
+                GameUtils.PlayTrack("trilha.mp3", track);
+                track.settings.setMode("loop", true);
+            }
+        }
+
         private void keyisdown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
@@ -87,8 +89,30 @@ namespace jogoN2v2._0
 
         private void timerPong_Click(object sender, EventArgs e)
         {
-            lblPointsPlayer.Text = "Wuo: " + points;
-            lblPointsPC.Text = "Limits: " + pointsPC;
+            SetVariables();
+            CheckBorderCollision();
+            CheckBallCollision();
+            CheckPlayerMovement();
+            SetGameOver();
+        }
+
+        private void SetGameOver()
+        {
+            if (points == 5)
+            {
+                GameOver(PongConstants.WUO_WIN_MESSAGE, "win");
+            }
+
+            if (pointsPC == 5)
+            {
+                GameOver(PongConstants.WUO_LOST_MESSAGE, "loss");
+            }
+        }
+
+        private void SetVariables()
+        {
+            lblPointsPlayer.Text = $"{GameConstants.WUO}: " + points;
+            lblPointsPC.Text = $"{GameConstants.LIMITS}: " + pointsPC;
 
             pcbBall.Top -= yBall;
             pcbBall.Left -= xBall;
@@ -97,21 +121,6 @@ namespace jogoN2v2._0
             if (pcbPc.Top < 0 || pcbPc.Top > 500)
             {
                 speed *= -1;
-            }
-
-            CheckBorderCollision();
-            CheckBallCollision();
-            CheckPlayerMovement();
-            
-
-            if (points == 5)
-            {
-                GameOver("WUO HAVE WON THE LIMITS!!!", "win");  
-            }
-
-            if (pointsPC == 5)
-            {
-                GameOver("WUO HAVE LOST...", "loss");
             }
         }
 
@@ -140,30 +149,24 @@ namespace jogoN2v2._0
 
         void Score()
         {
-            if (clsConfig.sounds == "on")
-            {
-                pointsSound.URL = "ponto.mp3";
-                pointsSound.controls.play();
-            }
+            GameUtils.PlayTrack("ponto.mp3", pointsSound);
         }
 
         void GameOver(string message, string condition)
         {
             timerPong.Stop();
-            if (clsConfig.sounds == "on")
+            if (clsConfig.sounds == ConfigurationConstants.MUSIC_ON)
             {
                 track.controls.stop();
                 if (condition == "loss")
                 {
-                    gameOverSound.URL = "gameOver.mp3";
-                    gameOverSound.controls.play();
+                    GameUtils.PlayTrack("gameOver.mp3", gameOverSound);
                 }
 
                 if(condition == "win")
                 {
                     track.controls.stop();
-                    winSound.URL = "winSound.mp3";
-                    winSound.controls.play();
+                    GameUtils.PlayTrack("winSound.mp3", winSound);
                 }
             }
             clsConfig.pointsPong = points;
@@ -180,11 +183,7 @@ namespace jogoN2v2._0
             if (pcbBall.Bounds.IntersectsWith(pcbPlayer.Bounds) || pcbBall.Bounds.IntersectsWith(pcbPc.Bounds))
             {
                 xBall *= -1;
-                if (clsConfig.sounds == "on")
-                {
-                    racket.URL = "raquetada.mp3";
-                    racket.controls.play();
-                }
+                GameUtils.PlayTrack("raquetada.mp3", racket);
             }
         }
 
