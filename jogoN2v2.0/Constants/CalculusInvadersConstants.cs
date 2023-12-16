@@ -8,6 +8,7 @@ namespace jogoN2v2._0.Constants
 {
     public class CalculusInvadersConstants
     {
+        public const string TITLE = "Calculus Invaders";
         //labels texts
         public const string POINTS = "Points";
         public const string LIFES = "Lifes";

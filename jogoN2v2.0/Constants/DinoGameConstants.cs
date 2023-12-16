@@ -9,6 +9,7 @@ namespace jogoN2v2._0.Constants
 {
     public static class DinoGameConstants
     {
+        public const string TITLE = "Dinossaur Game";
         //messages
         public const string INTRO_MESSAGE = "Press the spacebar to jump the integrals! Press R to restart";
         public const string RESTART_MESSAGE = "Press R to restart";
