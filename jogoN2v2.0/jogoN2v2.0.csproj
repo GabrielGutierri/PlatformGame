@@ -51,6 +51,11 @@
     <Compile Include="Constants\ConfigurationConstants.cs" />
     <Compile Include="Constants\DinoGameConstants.cs" />
     <Compile Include="Constants\GameConstants.cs" />
+    <Compile Include="Constants\GameOverConstants.cs" />
+    <Compile Include="Constants\MainGameConstants.cs" />
+    <Compile Include="Constants\PongConstants.cs" />
+    <Compile Include="Constants\RankingConstants.cs" />
+    <Compile Include="Constants\TutorialConstants.cs" />
     <Compile Include="frmCalculusInvaders.cs">
       <SubType>Form</SubType>
     </Compile>

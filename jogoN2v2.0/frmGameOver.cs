@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jogoN2v2._0.Constants;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,17 +17,20 @@ namespace jogoN2v2._0
         public frmGameOver()
         {
             InitializeComponent();
-            
-            lblPointsMainGame.Text = "Main Game: " + clsConfig.pointsMainGame;
-            lblPointsInvaders.Text = "Calculus Invaders: " + clsConfig.pointsInvaders;
-            lblPointsDino.Text = "Dinossaur Game: " + clsConfig.pointsDino;
-            lblPointsPong.Text = "Pong Game: " + clsConfig.pointsPong;
-            lblTotalPoints.Text = "Total: " + TotalPoints();
-
+            SetGameOverLabels();
             //a brazilian easter egg xD
-            if(clsConfig.name == "pacote")
-                MessageBox.Show("Because your name is pacote, you get more 100 points!!!");
+            if (clsConfig.name == GameOverConstants.PACOTE_EASTER_EGG)
+                MessageBox.Show(GameOverConstants.PACOTE_MESSAGE);
             SendToFile();
+        }
+
+        private void SetGameOverLabels()
+        {
+            lblPointsMainGame.Text = MainGameConstants.TITLE + ": " + clsConfig.pointsMainGame;
+            lblPointsInvaders.Text = CalculusInvadersConstants.TITLE + ": " + clsConfig.pointsInvaders;
+            lblPointsDino.Text = DinoGameConstants.TITLE + ": " + clsConfig.pointsDino;
+            lblPointsPong.Text = PongConstants.TITLE + ": " + clsConfig.pointsPong;
+            lblTotalPoints.Text = GameConstants.TOTAL + ": " + TotalPoints();
         }
 
         void SendToFile()
@@ -40,7 +44,7 @@ namespace jogoN2v2._0
         int TotalPoints()
         {
             int nameGlitch = 0;
-            if (clsConfig.name == "pacote")
+            if (clsConfig.name == GameOverConstants.PACOTE_EASTER_EGG)
                 nameGlitch = 100;
                 
             return Convert.ToInt32(clsConfig.pointsMainGame + clsConfig.pointsInvaders + clsConfig.pointsDino + clsConfig.pointsPong + nameGlitch);

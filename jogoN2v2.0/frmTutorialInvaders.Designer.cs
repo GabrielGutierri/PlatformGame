@@ -36,7 +36,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelLoadingGame = new System.Windows.Forms.Panel();
             this.timerTutorialInvaders = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -125,13 +125,13 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Shoot";
             // 
-            // panel1
+            // panelLoadingGame
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 328);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(18, 11);
-            this.panel1.TabIndex = 7;
+            this.panelLoadingGame.BackColor = System.Drawing.Color.White;
+            this.panelLoadingGame.Location = new System.Drawing.Point(0, 328);
+            this.panelLoadingGame.Name = "panelLoadingGame";
+            this.panelLoadingGame.Size = new System.Drawing.Size(18, 11);
+            this.panelLoadingGame.TabIndex = 7;
             // 
             // timerTutorialInvaders
             // 
@@ -145,7 +145,7 @@
             this.BackgroundImage = global::jogoN2v2._0.Properties.Resources.bg_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(570, 341);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelLoadingGame);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label2);
@@ -176,7 +176,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelLoadingGame;
         private System.Windows.Forms.Timer timerTutorialInvaders;
     }
 }

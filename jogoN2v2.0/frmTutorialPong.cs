@@ -1,4 +1,6 @@
-﻿using System;
+﻿using jogoN2v2._0.Constants;
+using jogoN2v2._0.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,20 +19,24 @@ namespace jogoN2v2._0
         {
             InitializeComponent();
             timerTutorialPong.Start();
-            if (clsConfig.sounds == "on")
+            PlayTheme();
+        }
+
+        private void PlayTheme()
+        {
+            if (clsConfig.sounds == ConfigurationConstants.MUSIC_ON)
             {
-                houstonSound.URL = "Houston.mp3";
-                houstonSound.controls.play();
+                GameUtils.PlayTrack("Houston.mp3", houstonSound);
                 houstonSound.settings.setMode("loop", true);
             }
         }
         private void timerTutorialPong_Tick(object sender, EventArgs e)
         {
-            panel1.Width += 7;
-            if (panel1.Width > 563)
+            panel1.Width += TutorialConstants.WIDTH_GAIN;
+            if (panel1.Width > TutorialConstants.MAX_WIDTH)
             {
                 timerTutorialPong.Stop();
-                if (clsConfig.sounds == "on")
+                if (clsConfig.sounds == ConfigurationConstants.MUSIC_ON)
                     houstonSound.controls.stop();
                 this.Close();
             }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOptions));
+            this.lblDifficultyText = new System.Windows.Forms.Label();
             this.lblDifficulty = new System.Windows.Forms.Label();
-            this.lblDificuldade = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
             this.lblGameSound = new System.Windows.Forms.Label();
@@ -42,29 +42,29 @@
             this.panelSoundsOptions.SuspendLayout();
             this.SuspendLayout();
             // 
+            // lblDifficultyText
+            // 
+            this.lblDifficultyText.AutoSize = true;
+            this.lblDifficultyText.BackColor = System.Drawing.Color.Transparent;
+            this.lblDifficultyText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDifficultyText.ForeColor = System.Drawing.Color.White;
+            this.lblDifficultyText.Location = new System.Drawing.Point(32, 9);
+            this.lblDifficultyText.Name = "lblDifficultyText";
+            this.lblDifficultyText.Size = new System.Drawing.Size(93, 24);
+            this.lblDifficultyText.TabIndex = 15;
+            this.lblDifficultyText.Text = "Difficulty:";
+            // 
             // lblDifficulty
             // 
             this.lblDifficulty.AutoSize = true;
             this.lblDifficulty.BackColor = System.Drawing.Color.Transparent;
             this.lblDifficulty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDifficulty.ForeColor = System.Drawing.Color.White;
-            this.lblDifficulty.Location = new System.Drawing.Point(32, 9);
+            this.lblDifficulty.Location = new System.Drawing.Point(215, 9);
             this.lblDifficulty.Name = "lblDifficulty";
-            this.lblDifficulty.Size = new System.Drawing.Size(93, 24);
-            this.lblDifficulty.TabIndex = 15;
-            this.lblDifficulty.Text = "Difficulty:";
-            // 
-            // lblDificuldade
-            // 
-            this.lblDificuldade.AutoSize = true;
-            this.lblDificuldade.BackColor = System.Drawing.Color.Transparent;
-            this.lblDificuldade.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDificuldade.ForeColor = System.Drawing.Color.White;
-            this.lblDificuldade.Location = new System.Drawing.Point(215, 9);
-            this.lblDificuldade.Name = "lblDificuldade";
-            this.lblDificuldade.Size = new System.Drawing.Size(77, 24);
-            this.lblDificuldade.TabIndex = 16;
-            this.lblDificuldade.Text = "Normal";
+            this.lblDifficulty.Size = new System.Drawing.Size(77, 24);
+            this.lblDifficulty.TabIndex = 16;
+            this.lblDifficulty.Text = "Normal";
             // 
             // btnNext
             // 
@@ -186,8 +186,8 @@
             this.Controls.Add(this.lblGameSound);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.lblDificuldade);
             this.Controls.Add(this.lblDifficulty);
+            this.Controls.Add(this.lblDifficultyText);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -202,8 +202,8 @@
 
         #endregion
 
+        private System.Windows.Forms.Label lblDifficultyText;
         private System.Windows.Forms.Label lblDifficulty;
-        private System.Windows.Forms.Label lblDificuldade;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Label lblGameSound;
